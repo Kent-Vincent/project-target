@@ -5,7 +5,9 @@ module.exports = {
   ],
   theme: {
     colors: {
-      'erp-primary': '#7F56D9',
+      'white': '#ffffff',
+      'erp-primary-600': '#7F56D9',
+      'erp-primary-700': '#6941C6',
 
       'erp-gray-100': '#F2F4F7',
       'erp-gray-300': '#9BB0C1',
