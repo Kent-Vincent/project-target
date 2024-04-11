@@ -32,6 +32,14 @@ $utilities: map-merge($utilities,
     "color": map-merge(map-get($utilities, "color"),
         (values: map-merge(map-get(map-get($utilities, "color"), "values"),
                 (
+                    'light': $white,
+
+                    'gray-500': $gray-500,
+                    'gray-700': $gray-700,
+                    'gray-900': $gray-900,
+
+                    
+
                 ),
             ),
         ),

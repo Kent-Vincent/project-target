@@ -1,0 +1,51 @@
+.font {
+    font-family: $F1;
+
+    &-sm-2{
+        font-size: $small-2;
+
+        &.bold{
+            font-family: $F1-Bold;
+        }
+
+        &.semiBold{
+            font-family: $F1-SemiBold;
+        }
+    }
+
+    &-sm{
+        font-size: $small;
+    }
+
+    &-lg{
+        font-size: $h6;
+
+        &.bold{
+            font-family: $F1-Bold;
+        }
+    }
+
+    &-md{
+        font-size: $h4;
+
+        &.bold{
+            font-family: $F1-Bold;
+        }
+    }
+
+    &-h4{
+        font-size: $h4;
+
+        &.bold{
+            font-family: $F1-Bold;
+        }
+    }
+
+    &-h3{
+        font-size: $h3;
+
+        &.semiBold{
+            font-family: $F1-SemiBold;
+        }
+    }
+}
