@@ -9,9 +9,12 @@ module.exports = {
         'white': '#ffffff',
         'erp-primary-600': '#7F56D9',
         'erp-primary-700': '#6941C6',
-  
+        
+        'erp-gray-50': '#F9FAFB',
         'erp-gray-100': '#F2F4F7',
+        'erp-gray-200': '#EAECF0',
         'erp-gray-300': '#9BB0C1',
+        'erp-gray-400': '#98A2B3',
         'erp-gray-500': '#667085',
         'erp-gray-700': '#344054',
         'erp-gray-900': '#101828',
