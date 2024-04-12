@@ -7,4 +7,5 @@ interface Ticket {
   priority: "Low" | "Medium" | "High";
   assignedUsers: User[];
   createdBy: User;
+  stopwatchSeconds: number;
 }
