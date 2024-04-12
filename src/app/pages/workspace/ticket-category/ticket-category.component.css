@@ -1,0 +1,3 @@
+:host {
+  @apply flex flex-col justify-start items-stretch gap-2 min-w-[min(20rem,_100%)] lg:overflow-hidden;
+}

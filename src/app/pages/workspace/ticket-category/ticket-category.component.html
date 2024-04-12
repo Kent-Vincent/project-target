@@ -1,0 +1,13 @@
+<p class="text-xs uppercase text-left px-4 hidden lg:contents">{{ category.name }}</p>
+
+<div class="flex flex-col justify-start items-stretch py-2 px-4 lg:px-2 gap-2 rounded-lg">
+  <app-ticket-card 
+    *ngFor="let ticket of category.tickets" 
+    [ticket]="ticket"
+  ></app-ticket-card>
+
+  <p 
+    *ngIf="!category.tickets || category.tickets.length === 0"
+    class="font-medium"
+  >No tickets available.</p>
+</div>

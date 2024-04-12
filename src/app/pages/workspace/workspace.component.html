@@ -20,7 +20,49 @@
   </button>
 </div>
 
-<div class="flex-grow w-full p-4">
-  <!-- TODO HERE -->
-  <app-ticket-card [ticket]="ticket"></app-ticket-card>
+<div class="flex-grow w-full flex flex-col lg:flex-row justify-start items-stretch gap-2 lg:gap-4 pt-4 lg:px-4">
+  <div class="relative flex flex-row justify-between items-center gap-2 px-8 text-xs lg:hidden">
+    <button
+      class="flex flex-row justify-start items-center gap-1 uppercase cursor-pointer"
+      (click)="toggleCategoryDropdown()"
+    >
+      <p>{{ selectedCategory.name }}</p>
+  
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M5 7.5L10 12.5L15 7.5" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+
+    <!-- TODO: Add functionality for adding a list here -->
+    <button>
+      <span>+ Add another list</span>
+    </button>
+
+    <ul 
+      class="absolute top-full left-0 w-full rounded-lg bg-white border border-gray-100 shadow-2xl"
+      *ngIf="isCategoryDropdownOpen || false"
+    >
+      <li 
+        *ngFor="let category of ticketCategories"
+        (click)="selectCategory(category)"
+        class="p-4 uppercase hover:bg-gray-100 select-none"
+      >
+        {{ category.name }}
+      </li>
+    </ul>
+  </div>
+
+  <div class="lg:hidden">
+    <app-ticket-category 
+      [category]="selectedCategory"
+    ></app-ticket-category>
+  </div>
+  
+  <div class="hidden lg:contents">
+    <app-ticket-category 
+      *ngFor="let category of ticketCategories" 
+      [category]="category"
+    ></app-ticket-category>
+  </div>
+  <!-- <app-ticket-card [ticket]="ticket"></app-ticket-card> -->
 </div>
