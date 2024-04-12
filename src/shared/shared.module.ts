@@ -10,6 +10,9 @@ import { ModalDeleteComponent } from './modals/modal-delete/modal-delete.compone
   ],
   imports: [
     CommonModule
+  ],
+  exports: [
+    ModalDeleteComponent
   ]
 })
 export class SharedModule { }

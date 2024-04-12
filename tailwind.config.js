@@ -20,6 +20,10 @@ module.exports = {
         'erp-warning-700': '#F04438',
         'erp-warning-800': '#D92D20',
         'erp-warning-900': '#B42318',
+
+        'erp-error-50': '#FEF3F2',
+        'erp-error-100': '#FEE4E2',
+        'erp-error-600': '#D92D20',
       },
     },
   },

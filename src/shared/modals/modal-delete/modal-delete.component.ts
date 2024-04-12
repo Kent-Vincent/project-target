@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-modal-delete',
+  selector: 'modal-delete',
   templateUrl: './modal-delete.component.html',
   styleUrls: ['./modal-delete.component.css']
 })
 export class ModalDeleteComponent {
-
+  @Input() ticketID!: string;
 }
