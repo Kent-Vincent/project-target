@@ -1,4 +1,22 @@
 <div class="h-[72px] border-b border-erp-gray-100 flex flex-row justify-between items-center px-8">
+  <button 
+    class="group relative w-6 h-6 lg:hidden" 
+    (click)="toggleNavMenu()"
+  >
+    <div 
+      class="absolute top-1/4 w-full h-[2px] bg-erp-gray-500 group-hover:bg-erp-gray-900 transition-all"
+      [ngClass]="{ 'rotate-45 top-1/2': isNavMenuOpen, 'rotate-0 top-1/4': !isNavMenuOpen }"
+    ></div>
+    <div 
+      class="absolute top-1/2 w-full h-[2px] bg-erp-gray-500 group-hover:bg-erp-gray-900 transition-all"
+      [ngClass]="{ 'opacity-0': isNavMenuOpen, 'opacity-100': !isNavMenuOpen }"
+    ></div>
+    <div 
+      class="absolute top-3/4 w-full h-[2px] bg-erp-gray-500 group-hover:bg-erp-gray-900 transition-all"
+      [ngClass]="{ '-rotate-45 top-1/2': isNavMenuOpen, 'rotate-0 top-3/4': !isNavMenuOpen }"
+    ></div>
+  </button>
+
   <div class="flex flex-row justify-start items-center gap-12">
     <a routerLink="/">
       <img src="assets/images/target-logo.svg" alt="logo" class="h-8" />
@@ -69,28 +87,12 @@
       />
     </svg>    
   </div>
-  
-  <button 
-    class="group relative w-6 h-6 lg:hidden" 
-    (click)="toggleNavMenu()"
-  >
-    <div 
-      class="absolute top-1/4 w-full h-[2px] bg-erp-gray-500 group-hover:bg-erp-gray-900 transition-all"
-      [ngClass]="{ 'rotate-45 top-1/2': isNavMenuOpen, 'rotate-0 top-1/4': !isNavMenuOpen }"
-    ></div>
-    <div 
-      class="absolute top-1/2 w-full h-[2px] bg-erp-gray-500 group-hover:bg-erp-gray-900 transition-all"
-      [ngClass]="{ 'opacity-0': isNavMenuOpen, 'opacity-100': !isNavMenuOpen }"
-    ></div>
-    <div 
-      class="absolute top-3/4 w-full h-[2px] bg-erp-gray-500 group-hover:bg-erp-gray-900 transition-all"
-      [ngClass]="{ '-rotate-45 top-1/2': isNavMenuOpen, 'rotate-0 top-3/4': !isNavMenuOpen }"
-    ></div>
-  </button>
+
+  <div class="lg:hidden"></div>
 </div>
 
 <div 
-  class="absolute top-full w-full px-8 bg-white flex flex-col justify-between items-stretch transition-all overflow-hidden"
+  class="absolute top-full z-50 w-full px-8 bg-white flex flex-col justify-between items-stretch transition-all overflow-hidden"
   [ngClass]="{ 
     'h-[calc(100dvh_-_72px)] py-8': isNavMenuOpen, 
     'h-0 py-0': !isNavMenuOpen 
