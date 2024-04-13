@@ -18,10 +18,12 @@ export class WorkspaceComponent {
           labels: ['UX Writing'],
           priority: 'Medium',
           assignedUsers: [{
-            name: 'Jane Doe'
+            name: 'Jane Doe',
+            avatarImagePath: ''
           }],
           createdBy: {
-            name: 'John Doe'
+            name: 'John Doe',
+            avatarImagePath: '',
           },
           stopwatchSeconds: 0,
         },
@@ -33,10 +35,12 @@ export class WorkspaceComponent {
           labels: ['UX Writing'],
           priority: 'Medium',
           assignedUsers: [{
-            name: 'Jane Doe'
+            name: 'Jane Doe',
+            avatarImagePath: '',
           }],
           createdBy: {
-            name: 'John Doe'
+            name: 'John Doe',
+            avatarImagePath: '',
           },
           stopwatchSeconds: 0,
         },
@@ -48,10 +52,12 @@ export class WorkspaceComponent {
           labels: ['UX Writing'],
           priority: 'Medium',
           assignedUsers: [{
-            name: 'Jane Doe'
+            name: 'Jane Doe',
+            avatarImagePath: '',
           }],
           createdBy: {
-            name: 'John Doe'
+            name: 'John Doe',
+            avatarImagePath: '',
           },
           stopwatchSeconds: 0,
         }
@@ -72,10 +78,12 @@ export class WorkspaceComponent {
           labels: ['UX Writing'],
           priority: 'Medium',
           assignedUsers: [{
-            name: 'Jane Doe'
+            name: 'Jane Doe',
+            avatarImagePath: '',
           }],
           createdBy: {
-            name: 'John Doe'
+            name: 'John Doe',
+            avatarImagePath: '',
           },
           stopwatchSeconds: 0,
         },
