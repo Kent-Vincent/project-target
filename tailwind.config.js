@@ -28,6 +28,10 @@ module.exports = {
         'erp-error-100': '#FEE4E2',
         'erp-error-600': '#D92D20',
       },
+      backgroundImage:{
+        'hero-section': 'url(assets/images/hero-background.svg)',
+        'hero-ticket': 'url(assets/images/ticket-block.png)',
+      }
     },
   },
   plugins: [],
