@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-create-ticket-modal',
+  selector: 'create-ticket-modal',
   templateUrl: './create-ticket-modal.component.html',
   styleUrls: ['./create-ticket-modal.component.css']
 })

@@ -15,8 +15,12 @@
         stroke-linejoin="round"
       />
     </svg>
-
-    <span class="font-medium text-sm">Create ticket</span>
+    <mat-dialog-actions>
+      <button class="font-medium text-sm"
+      mat-raised-button (click)="openDialog()"
+      >Create ticket</button>
+    </mat-dialog-actions>
+  
   </button>
 </div>
 
