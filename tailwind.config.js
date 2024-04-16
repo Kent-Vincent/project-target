@@ -31,6 +31,11 @@ module.exports = {
       backgroundImage: {
         'hero-section': "url('assets/images/bg.svg')",
         'hero-ticket': "url('assets/images/ticket-block.png')",
+        'kanban': "url('assets/images/kanban.png')",
+        'icon1': "url('assets/images/folder.svg')",
+        'icon2': "url('assets/images/meetings.svg')",
+        'icon3': "url('assets/images/onboarding.svg')",
+        'icon4': "url('assets/images/task.svg')",
         }
     },
   },
