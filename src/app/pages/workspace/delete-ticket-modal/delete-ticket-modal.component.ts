@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-delete-ticket-modal',
@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./delete-ticket-modal.component.css']
 })
 export class DeleteTicketModalComponent {
-
+  @Input() ticketID!: string;
 }
