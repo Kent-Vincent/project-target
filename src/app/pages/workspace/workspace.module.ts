@@ -12,6 +12,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
+import { DeleteTicketModalComponent } from './delete-ticket-modal/delete-ticket-modal.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     TicketCardComponent,
     TicketCategoryComponent,
     CreateTicketModalComponent,
+    DeleteTicketModalComponent,
   ],
   imports: [
     CommonModule,

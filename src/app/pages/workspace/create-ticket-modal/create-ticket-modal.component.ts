@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { DeleteTicketModalComponent } from '../delete-ticket-modal/delete-ticket-modal.component';
 
 @Component({
   selector: 'create-ticket-modal',
@@ -8,4 +10,12 @@ import { Component, Input } from '@angular/core';
 export class CreateTicketModalComponent {
   @Input() public ticket!: Ticket;
   @Input() public user!: User;
+
+  constructor(public dialog: MatDialog) {}
+
+  openDialog() {
+    this.dialog.open(DeleteTicketModalComponent,{
+      
+    });
+  }
 }
