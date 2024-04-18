@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { CreateTicketModalComponent } from './create-ticket-modal/create-ticket-modal.component';
 
 @Component({
   selector: 'app-workspace',
@@ -6,6 +8,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./workspace.component.css'],
 })
 export class WorkspaceComponent {
+  constructor(private dialog: MatDialog) {}
+
+  openDialog() {
+    this.dialog.open(CreateTicketModalComponent,{
+      
+    });
+  }
+
   ticketCategories: TicketCategory[] = [
     {
       name: "Todo",

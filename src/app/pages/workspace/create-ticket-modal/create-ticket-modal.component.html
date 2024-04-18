@@ -1,15 +1,14 @@
-<!-- Need to work on this spacings -->
-<div class="w-[1013px]">
-    <div class="flex justify-center items-center fixed top-0 right-0 bottom-0 left-0">
-        <div>
-            <div class="flex items-center justify-between mb-10 p-6">
-                <div>
-                    <!-- <img src="{{user.avatarImagePath}}" class="w-8 h-8">
-                    <p class="text-erp-gray-500 border-l border-solid border-erp-gray-200">
-                        {{user.name}}
+<div matDialogContent>
+    <div class="flex justify-center items-center">
+        <div class="w-[320px] lg:w-[1013px] bg-white">
+            <div class="flex items-center justify-between mb-5">
+                <div class="flex items-center">
+                    <img [src]="user.avatarImagePath" class="w-8 h-8 ml-2 border-l border-solid border-l-erp-gray-200">
+                    <p class="text-erp-gray-500">
+                        <!-- {{user.name}} -->
                     </p>
-                    <p class="text-erp-gray-400">{{ticket.id}}</p> -->
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- <p class="text-erp-gray-400">{{ticket.id}}</p> -->
+                    <svg width="14" class="ml-2" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M3.11125 8.6668H2.55569C2.26101 8.6668 1.97839 8.54974 1.77002 8.34137C1.56164 8.13299 1.44458 7.85038 1.44458 7.55569V2.55569C1.44458 2.26101 1.56164 1.97839 1.77002 1.77002C1.97839 1.56164 2.26101 1.44458 2.55569 1.44458H7.55569C7.85038 1.44458 8.13299 1.56164 8.34137 1.77002C8.54974 1.97839 8.6668 2.26101 8.6668 2.55569V3.11125M6.44458 5.33347H11.4446C12.0582 5.33347 12.5557 5.83093 12.5557 6.44458V11.4446C12.5557 12.0582 12.0582 12.5557 11.4446 12.5557H6.44458C5.83093 12.5557 5.33347 12.0582 5.33347 11.4446V6.44458C5.33347 5.83093 5.83093 5.33347 6.44458 5.33347Z" stroke="#667085" stroke-width="1.11111" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </div>
@@ -27,18 +26,18 @@
                 </div>
             </div>
             
-            <div class="flex gap-10">
-                <div class="w-[548px]">
+            <div class="lg:flex lg:px-4 px-0 gap-10">
+                <div class="w-[272px] h-[380px] lg:w-[548px] ">
                     <div>
                         <div>
-                            <p class="text-erp-gray-900 text-xl pb-5">Blog Graphic: Predictions</p>
+                            <p class="text-erp-gray-900 text-xl pb-5 font-semibold">Blog Graphic: Predictions</p>
                         </div>
-                        <div class="border-b border-solid border-erp-gray-200 pb-5">
-                            <p class="text-erp-gray-900 text-lg pb-1">Description</p>
-                            <input type="text" placeholder="Add more detailed description" class="w-full p-4 rounded-xl border-erp-gray-200 border border-solid">
+                        <div class="border-b border-solid border-erp-gray-200 pb-5 text-lg">
+                            <p class="text-erp-gray-900 text-lg pb-1 font-semibold">Description</p>
+                            <input type="text" placeholder="Add more detailed description" class="w-full text-sm p-4 rounded-xl border-erp-gray-200 border border-solid">
                         </div>
                         <div class="pt-5">
-                            <p class="text-erp-gray-900 text-lg">Attachments</p>
+                            <p class="text-erp-gray-900 text-lg font-semibold">Attachments</p>
                         </div>
                         <div class="border border-solid border-erp-gray-200 rounded-lg shadow-md mt-5">
                             <div class="flex items-center justify-center">
@@ -54,30 +53,31 @@
                             </div>
                             <div class="flex items-center justify-center">
                                 <p>
-                                    <span class="text-erp-primary-700">Click to Upload </span>
-                                    <span class="text-erp-gray-500">or drag and drop</span>
+                                    <span class="text-erp-primary-700 text-sm">Click to Upload </span>
+                                    <span class="text-erp-gray-500 text-sm">or drag and drop</span>
                                 </p>
                             </div>
                             <div class="flex items-center justify-center mb-4">
-                                <p class="text-erp-gray-500">SVG, PNG, JPG or GIF (max. 800x400px)</p>
+                                <p class="text-erp-gray-500 text-xs">SVG, PNG, JPG or GIF (max. 800x400px)</p>
                             </div>
                         </div>
                     </div>
                 </div>
             
             
-                <div class="w-[393px] bg-erp-gray-50 p-6">
+                <div class="w-[272px] lg:w-[393px] mt-16 lg:mt-0 bg-erp-gray-50 p-6">
                     <div class="flex items-center">
                         <div class="border-erp-gray-300 rounded-lg border border-solid p-2 bg-white">
                             <!-- {{ticket.stopwatchSeconds}} -->
                         </div>
-                        <!-- change this into button lmao -->
                         <div class="bg-erp-gray-300 w-10 h-10 flex justify-center rounded-lg ml-2">
                             <div class="flex items-center justify-center">
                                 <div class="flex items-center justify-center">
-                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M8.33342 12.5001V7.50008M11.6667 12.5001V7.50008M18.3334 10.0001C18.3334 14.6025 14.6025 18.3334 10.0001 18.3334C5.39771 18.3334 1.66675 14.6025 1.66675 10.0001C1.66675 5.39771 5.39771 1.66675 10.0001 1.66675C14.6025 1.66675 18.3334 5.39771 18.3334 10.0001Z" stroke="#FCFCFD" stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>  
+                                    <button>
+                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M8.33342 12.5001V7.50008M11.6667 12.5001V7.50008M18.3334 10.0001C18.3334 14.6025 14.6025 18.3334 10.0001 18.3334C5.39771 18.3334 1.66675 14.6025 1.66675 10.0001C1.66675 5.39771 5.39771 1.66675 10.0001 1.66675C14.6025 1.66675 18.3334 5.39771 18.3334 10.0001Z" stroke="#FCFCFD" stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>  
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -118,7 +118,7 @@
                             <p class="text-erp-gray-900 ml-2">High</p>
                         </div>
                     </div>
-                    <!-- fix the spacing for border -->
+                
                     <div class="mt-4 border border-solid border-erp-gray-200">
                         <!-- Please include assigned by avatar and name! thanks! -->
                     </div>
