@@ -16,11 +16,11 @@
         </div>
         <div class="input-text">
           <p class="text-sm text-erp-gray-700">Email</p>
-          <input type="text" placeholder="Enter your email" class="placeholder:text-erp-gray-500 w-full py-1 pl-2 ml-1 mt-2.5 border border-solid rounded-lg border-erp-gray-300">
+          <input [(ngModel)]="username" type="text" placeholder="Enter your email" class="placeholder:text-erp-gray-500 w-full py-1 pl-2 ml-1 mt-2.5 border border-solid rounded-lg border-erp-gray-300">
         </div>
         <div class="input-text mt-2.5">
           <p class="text-sm text-erp-gray-700">Password</p>
-          <input type="password" placeholder="******" class="placeholder:text-erp-gray-500 w-full py-1 pl-2 ml-1 mt-2.5 border border-solid rounded-lg border-erp-gray-300">
+          <input [(ngModel)]="password" type="password" placeholder="******" class="placeholder:text-erp-gray-500 w-full py-1 pl-2 ml-1 mt-2.5 border border-solid rounded-lg border-erp-gray-300">
         </div>
         <div class="flex items-center justify-between mt-6">
           <div>
@@ -31,7 +31,7 @@
           </div>
         </div>
         <div class="mt-6">
-          <button class="w-full bg-erp-primary-600 border-none rounded-lg py-2">
+          <button (click)="onLogin()" class="w-full bg-erp-primary-600 border-none rounded-lg py-2">
             <span class="text-white">Sign in</span>
           </button>
         </div>
