@@ -8,6 +8,10 @@ import { Component, Input } from '@angular/core';
 
 // Please dont forget to move this to workspace!
 export class HomeComponent {
-  
+  isNavMenuOpen = false;
+
+  toggleNavMenu() {
+    this.isNavMenuOpen = !this.isNavMenuOpen;
+  }
 }
 

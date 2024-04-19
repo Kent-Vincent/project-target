@@ -5,3 +5,8 @@
 .cards::-webkit-scrollbar-button{
  
 }
+
+:host {
+    @apply relative;
+    min-height: 100dvh;
+  }
