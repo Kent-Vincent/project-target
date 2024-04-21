@@ -1,38 +1,34 @@
-// import { Injectable } from "@angular/core";
-// import { HttpClient } from "@angular/common/http";
-// import { HttpHeaders } from "@angular/common/http";
-// import { map } from "rxjs/operators";
+import { Injectable } from "@angular/core";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { map } from "rxjs/operators";
 
-// const HttpOptions = {
-//   header: new HttpHeaders({
-//     'Content-Type': 'application/json'
-//   })
-// };
+@Injectable({
+  providedIn: 'root'
+})
+export class AuthService {
+  api_url: string = 'http://127.0.0.1:8000/';
 
-// @Injectable({
-//   providedIn: 'root'
-// })
+  constructor(private http: HttpClient) {}
 
-// export class authService{
-//   api_url: string = 'http://127.0.0.1:8000/';
+  login(username: string, password: string) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    };
 
-//   constructor(private http: HttpClient) {}
+    return this.http.post<any>(this.api_url + `accounts/api/auth/`, { username, password }, httpOptions)
+      .pipe(
+        map(user => {
+          if (user && user.token) {
+            localStorage.setItem("currentUser", JSON.stringify(user));
+          }
+          return user;
+        })
+      );
+  }
 
-//   login(username: string, password: string){
-//     return this.http.post<any>(this.api_url + `accounts/api/auth`,
-//       { username, password }, httpOptions).pipe(
-//         map(user => {
-//           if(user && user.token) {
-//             localStorage.setItem("currentUser", JSON.stringify(user));
-//           }
-//           return user;
-//         })
-//     );
-//   }
-
-
-//   logout(){
-//     localStorage.removeItem('currentuser');
-//   }
-// }
-
+  logout() {
+    localStorage.removeItem('currentUser');
+  }
+}
