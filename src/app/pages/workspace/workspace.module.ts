@@ -13,6 +13,13 @@ import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DeleteTicketModalComponent } from './delete-ticket-modal/delete-ticket-modal.component';
+import { EditTicketModalModule } from './edit-ticket-modal/edit-ticket-modal.module';
+import { ReactiveFormsModule } from '@angular/forms';
+// import { BrowserModule } from '@angular/platform-browser';
+// import { StopwatchComponent } from './stopwatch/stopwatch.component';
+// import { StopwatchModule } from './stopwatch/stopwatch.module';
+// import { DatePickerComponent } from './date-picker/date-picker.component';
+// import { EditTicketModalComponent } from './edit-ticket-modal/edit-ticket-modal.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +28,8 @@ import { DeleteTicketModalComponent } from './delete-ticket-modal/delete-ticket-
     TicketCategoryComponent,
     CreateTicketModalComponent,
     DeleteTicketModalComponent,
+    // StopwatchComponent,
+    // EditTicketModalComponent,
   ],
   imports: [
     CommonModule,
@@ -31,6 +40,10 @@ import { DeleteTicketModalComponent } from './delete-ticket-modal/delete-ticket-
     MatInputModule,
     FormsModule,
     MatDialogModule,
+    EditTicketModalModule,
+   ReactiveFormsModule,
+  //  BrowserModule,
+    // StopwatchModule
   ],
   exports: [
     WorkspaceComponent,

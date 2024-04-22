@@ -36,6 +36,7 @@ module.exports = {
         'icon2': "url('assets/images/meetings.svg')",
         'icon3': "url('assets/images/onboarding.svg')",
         'icon4': "url('assets/images/task.svg')",
+        'upload': "url('assets/images/upload.svg')",
         }
     },
   },

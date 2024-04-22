@@ -4,17 +4,18 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from 'src/shared/shared.module';
+import { provideMomentDateAdapter } from '@angular/material-moment-adapter';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     SharedModule,
   ],
-  providers: [],
+  providers: [provideMomentDateAdapter(undefined, {useUtc: true})],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
