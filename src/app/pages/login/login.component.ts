@@ -8,14 +8,14 @@ import { AuthService } from 'src/app/commons/services/auth.service';
 })
 export class LoginComponent {
   
-  username: string = '';
+  email: string = ''.trim();
   password: string = '';
 
   constructor(private authService: AuthService) {} 
 
   onLogin() {
     // Call the login method of AuthService
-    this.authService.login(this.username, this.password)
+    this.authService.login(this.email, this.password)
       .subscribe(
         (response) => {
           `// Handle successful login, such as redirecting to another page`

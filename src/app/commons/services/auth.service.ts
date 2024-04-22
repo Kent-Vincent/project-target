@@ -10,21 +10,21 @@ export class AuthService {
 
   constructor(private http: HttpClient) {}
 
-  login(username: string, password: string) {
+  login(email: string, password: string) {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       })
     };
 
-    return this.http.post<any>(this.api_url + `accounts/api/auth/`, { username, password }, httpOptions)
+    return this.http.post<any>(this.api_url + `api/users/login`, { email, password }, httpOptions)
       .pipe(
-        map(user => {
-          if (user && user.token) {
-            localStorage.setItem("currentUser", JSON.stringify(user));
+        map(response  => {
+          if (response && response.token) {
+            localStorage.setItem("currentUser", JSON.stringify(response));
           }
-          return user;
-        })
+          return response;
+        }),
       );
   }
 
