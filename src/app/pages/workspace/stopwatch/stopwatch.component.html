@@ -1,0 +1,12 @@
+<div class="stopwatch-container flex justify-center items-center gap-[12px]">
+  <div class="stopwatch flex justify-center items-center px-[14px] py-[10px] w-[96px] border-2 border-erp-gray-200 h-[40px] rounded-lg">
+    <p class="text-erp-gray-900">{{hr}}:{{min}}:{{sec}}</p>
+  </div>
+  <div class="buttons">
+    <button class="play-pause flex justify-center items-center " (click)="start()">
+      <i *ngIf="!running" class="ph-bold ph-play flex justify-center items-center rounded-lg h-[40px] w-[40px] text-white text-[16px] bg-erp-primary-600"></i>
+      <i *ngIf="running" class="ph-bold ph-pause-circle flex justify-center items-center rounded-lg h-[40px] w-[40px] text-white text-[18px] bg-erp-gray-300"></i>
+    </button>
+  </div>
+</div>
+  
