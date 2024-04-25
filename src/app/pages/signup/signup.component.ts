@@ -20,6 +20,18 @@ export class SignupComponent {
     if (this.password != this.re_password){
       console.error('Your Password Is Not The Same!');
     }
+    else if (this.username == '') {
+      console.log('Empty Username');
+    }
+    else if(this.email == ''){
+      console.log('Empty Email');
+    }
+    else if(this.password == ''){
+      console.log('Empty Password');
+    }
+    else if(this.re_password == ''){
+      console.log('Empty Re Password')
+    }
     else{
       this.registerService.register(this.email, this.password)
       .subscribe(
@@ -27,7 +39,12 @@ export class SignupComponent {
           console.log('Registration successful:', response);
         },
         (error) => {
-          console.error('Registration failed:', error);
+          if (error.error.email == 'user with this email already exists.') {
+            console.error('This email is already taken!');
+          }
+          else{
+            console.error('Registration failed:', error);
+          }
         }
       );
     }
