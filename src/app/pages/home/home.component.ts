@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core';
+import { trigger, transition, style, animate } from '@angular/animations';
+
 
 @Component({
   selector: 'home',
@@ -14,4 +16,14 @@ export class HomeComponent {
     this.isNavMenuOpen = !this.isNavMenuOpen;
   }
 }
+
+export const routeAnimation = trigger('routeAnimation', [
+  transition(':enter', [
+    style({ opacity: 0 }),
+    animate('0.3s', style({ opacity: 1 })),
+  ]),
+  transition(':leave', [
+    animate('0.3s', style({ opacity: 0 })),
+  ]),
+]);
 

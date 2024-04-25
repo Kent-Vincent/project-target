@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { CreateTicketModalComponent } from './create-ticket-modal/create-ticket-modal.component';
-import { EditTicketModalComponent } from './edit-ticket-modal/edit-ticket-modal.component';
+import { CreateTicketModalComponent } from '../../../shared/create-ticket-modal/create-ticket-modal.component';
+import { EditTicketModalComponent } from '../../../shared/edit-ticket-modal/edit-ticket-modal.component';
 
 @Component({
   selector: 'app-workspace',

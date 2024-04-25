@@ -1,13 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { TopNavLayoutComponent } from './layouts/top-nav-layout/top-nav-layout.component';
 
 const routes: Routes = [
-  // {
-  //   path: '',
-  //   redirectTo: 'login',
-  //   pathMatch: 'full'
-  // },
+  {
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full'
+  },
   {
     path: 'login',
     loadChildren: () => import('./pages/login/login.module').then(m => m.LoginModule)
@@ -21,9 +20,9 @@ const routes: Routes = [
     loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule)
   },
   {
-    path: '',
-    loadChildren: () => import('./layouts/top-nav-layout/top-nav-layout.module').then(m => m.TopNavLayoutModule)
-  }
+    path: 'workspace',
+    loadChildren: () => import('./pages/workspace/workspace.module').then(m => m.WorkspaceModule)
+  },
 ];
 
 @NgModule({
