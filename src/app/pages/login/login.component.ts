@@ -8,22 +8,20 @@ import { AuthService } from 'src/app/commons/services/auth.service';
 })
 export class LoginComponent {
   
-  email: string = ''.trim();
+  email: string = '';
   password: string = '';
 
   constructor(private authService: AuthService) {} 
 
-  onLogin() {
-    // Call the login method of AuthService
+  login(): void {
     this.authService.login(this.email, this.password)
       .subscribe(
         (response) => {
-          `// Handle successful login, such as redirecting to another page`
-          console.log('Login successful:', response);
+          localStorage.setItem('token', response.token);
+          console.log('Login successful. Token:', response.token);
         },
         (error) => {
-          // Handle failed login, such as displaying an error message
-          console.error('Login failed:', error);
+          console.log(error.error);
         }
       );
   }
