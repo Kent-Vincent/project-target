@@ -14,12 +14,14 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
+import { EditTicketModalComponent } from './edit-ticket-modal/edit-ticket-modal.component';
 
 @NgModule({
   declarations: [
     CreateTicketModalComponent,
     DatePickerComponent,
     DeleteTicketModalComponent,
+    EditTicketModalComponent,
     StopwatchComponent,
     TicketCardComponent,
     TicketCategoryComponent,
@@ -40,6 +42,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     CreateTicketModalComponent,
     DatePickerComponent,
     DeleteTicketModalComponent,
+    EditTicketModalComponent,
     StopwatchComponent,
     TicketCardComponent,
     TicketCategoryComponent,
