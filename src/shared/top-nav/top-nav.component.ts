@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { AuthService } from 'src/app/commons/services/auth.service';
 
 @Component({
@@ -17,8 +18,8 @@ export class TopNavComponent {
   constructor(private authService: AuthService) {} 
 
   logout(): void {
-    this.authService.logout(); // Call logout method from AuthService
-    // Optionally, you can perform additional tasks after logout
+    this.authService.logout(); 
+    location.reload();
   }
 
   isDropdownOpen = false;
