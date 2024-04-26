@@ -20,4 +20,16 @@ export class TopNavComponent {
     this.authService.logout(); // Call logout method from AuthService
     // Optionally, you can perform additional tasks after logout
   }
+
+  isDropdownOpen = false;
+  isDropdownPriorityOpen = false;
+  toggleDropDown(){
+    this.isDropdownOpen = !this.isDropdownOpen;
+    console.log(this.isDropdownOpen);
+  }
+
+  toggleDropDownPriority(){
+    this.isDropdownPriorityOpen = !this.isDropdownPriorityOpen;
+    console.log(this.isDropdownPriorityOpen);
+  }
 }
