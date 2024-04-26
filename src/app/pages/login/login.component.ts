@@ -13,6 +13,14 @@ export class LoginComponent {
 
   constructor(private authService: AuthService, private router: Router) {} 
 
+  ngOnInit(): void{
+    const token = localStorage.getItem('token');
+    if (token){
+      this.router.navigate(['/workspace']);
+    }
+  }
+
+  
   login(): void {
     this.authService.login(this.email, this.password)
       .subscribe(

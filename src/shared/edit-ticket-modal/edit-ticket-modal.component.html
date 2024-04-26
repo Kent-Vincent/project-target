@@ -1,29 +1,9 @@
-<div matDialogContent class="h-[35rem] p-[1rem] rounded-lg max-md:h-[30rem]">
+<div [ngClass]="{'matDialogContent': !isMobile}" class="p-[1rem] rounded-lg max-md:h-[30rem]">
   <div class="flex justify-center items-center">
     <div class="w-[320px] lg:w-[1013px] bg-white">
       <div class="flex items-center justify-between mb-5">
-        <div class="flex items-center">
-          <!-- <img [src]="user.avatarImagePath" class="w-8 h-8 ml-2 border-l border-solid border-l-erp-gray-200"> -->
-          <p class="text-erp-gray-500">
-            <!-- {{user.name}} -->
-          </p>
-          <!-- <p class="text-erp-gray-400">{{ticket.id}}</p> -->
-          <!-- <svg
-            width="14"
-            class="ml-2"
-            height="14"
-            viewBox="0 0 14 14"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M3.11125 8.6668H2.55569C2.26101 8.6668 1.97839 8.54974 1.77002 8.34137C1.56164 8.13299 1.44458 7.85038 1.44458 7.55569V2.55569C1.44458 2.26101 1.56164 1.97839 1.77002 1.77002C1.97839 1.56164 2.26101 1.44458 2.55569 1.44458H7.55569C7.85038 1.44458 8.13299 1.56164 8.34137 1.77002C8.54974 1.97839 8.6668 2.26101 8.6668 2.55569V3.11125M6.44458 5.33347H11.4446C12.0582 5.33347 12.5557 5.83093 12.5557 6.44458V11.4446C12.5557 12.0582 12.0582 12.5557 11.4446 12.5557H6.44458C5.83093 12.5557 5.33347 12.0582 5.33347 11.4446V6.44458C5.33347 5.83093 5.83093 5.33347 6.44458 5.33347Z"
-              stroke="#667085"
-              stroke-width="1.11111"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg> -->
+        <div class="flex items-center">    
+          <!-- BLANK -->
         </div>
         <div class="flex items-center">
           <svg
@@ -113,62 +93,14 @@
                    </div>
                    <input type="file" id="file">
             </label>
-                
-
-            <!-- <div
-              class="border border-solid border-erp-gray-200 rounded-lg shadow-md mt-5"
-            >
-              <div class="flex items-center justify-center">
-                <div
-                  class="flex items-center justify-center mt-5 mb-5 bg-erp-gray-50 w-16 h-16 rounded-full"
-                >
-                  <div
-                    class="flex items-center justify-center bg-erp-gray-100 w-12 h-12 rounded-full"
-                  >
-                 
-                    <div class="flex items-center justify-center">
-                      <svg
-                        width="20"
-                        height="18"
-                        viewBox="0 0 20 18"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M13.3333 12.3332L9.99997 8.9999M9.99997 8.9999L6.66663 12.3332M9.99997 8.9999V16.4999M16.9916 14.3249C17.8044 13.8818 18.4465 13.1806 18.8165 12.3321C19.1866 11.4835 19.2635 10.5359 19.0351 9.63881C18.8068 8.7417 18.2862 7.94616 17.5555 7.37778C16.8248 6.80939 15.9257 6.50052 15 6.4999H13.95C13.6977 5.52427 13.2276 4.61852 12.5749 3.85073C11.9222 3.08295 11.104 2.47311 10.1817 2.06708C9.25943 1.66104 8.25709 1.46937 7.25006 1.50647C6.24304 1.54358 5.25752 1.80849 4.36761 2.28129C3.47771 2.7541 2.70656 3.42249 2.11215 4.23622C1.51774 5.04996 1.11554 5.98785 0.935783 6.9794C0.756025 7.97095 0.803388 8.99035 1.07431 9.96096C1.34523 10.9316 1.83267 11.8281 2.49997 12.5832"
-                          stroke="#475467"
-                          stroke-width="1.66667"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="flex items-center justify-center">
-                <p>
-                  <span class="text-erp-primary-700 text-sm"
-                    >Click to Upload
-                  </span>
-                  <span class="text-erp-gray-500 text-sm"
-                    >or drag and drop</span
-                  >
-                </p>
-              </div>
-              <div class="flex items-center justify-center mb-4">
-                <p class="text-erp-gray-500 text-xs">
-                  SVG, PNG, JPG or GIF (max. 800x400px)
-                </p>
-              </div>
-            </div> -->
+              
           </div>
         </div>
 
         <div class="w-[40%] max-lg:w-full rounded-xl mt-16 lg:mt-0 bg-erp-gray-50 p-6">
           <div class="flex items-center">           
           
-            <!-- <app-stopwatch></app-stopwatch> -->
+            <app-stopwatch></app-stopwatch>
           
           </div>
           <div class="mt-4">
@@ -176,13 +108,7 @@
           </div>
           <div class="flex items-center mt-4">
             <div>
-              <!-- <ng-container let user for user>
-                                {{user.avatarImagePath}}
-                                <p>{{user.name}}</p>
-                            </ng-container> -->
-             
-
-              <!--  -->
+            
               <div class="relative inline-block text-left">
                 <div>
                   <button
@@ -338,7 +264,6 @@
           </div>
 
           <div class="mt-4 border border-solid border-erp-gray-200">
-            <!-- Please include assigned by avatar and name! thanks! -->
           </div>
           <div class="mt-6">
             <p>Cover</p>

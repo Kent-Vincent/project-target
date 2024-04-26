@@ -1,4 +1,6 @@
-<div matDialogContent>
+<!-- Primary Key For Ticket No -->
+
+<div [ngClass]="{'matDialogContent': !isMobile}" class="p-[1rem] rounded-lg max-md:h-[30rem]">
     <div class="flex justify-center items-center">
         <div class="w-[320px] lg:w-[1013px] bg-white">
             <div class="flex items-center justify-between mb-5">
@@ -27,7 +29,7 @@
             </div>
             
             <div class="lg:flex lg:px-4 px-0 gap-10">
-                <div class="w-[272px] h-[380px] lg:w-[548px] ">
+                <div class="w-[60%] h-[380px] max-lg:w-full">
                     <div>
                         <div>
                             <p class="text-erp-gray-900 text-xl pb-5 font-semibold">Blog Graphic: Predictions</p>
@@ -39,47 +41,28 @@
                         <div class="pt-5">
                             <p class="text-erp-gray-900 text-lg font-semibold">Attachments</p>
                         </div>
-                        <div class="border border-solid border-erp-gray-200 rounded-lg shadow-md mt-5">
-                            <div class="flex items-center justify-center">
-                                <div class="flex items-center justify-center mt-5 mb-5 bg-erp-gray-50 w-16 h-16 rounded-full">
-                                    <div class="flex items-center justify-center bg-erp-gray-100 w-12 h-12 rounded-full">
-                                        <div class="flex items-center justify-center">
-                                            <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M13.3333 12.3332L9.99997 8.9999M9.99997 8.9999L6.66663 12.3332M9.99997 8.9999V16.4999M16.9916 14.3249C17.8044 13.8818 18.4465 13.1806 18.8165 12.3321C19.1866 11.4835 19.2635 10.5359 19.0351 9.63881C18.8068 8.7417 18.2862 7.94616 17.5555 7.37778C16.8248 6.80939 15.9257 6.50052 15 6.4999H13.95C13.6977 5.52427 13.2276 4.61852 12.5749 3.85073C11.9222 3.08295 11.104 2.47311 10.1817 2.06708C9.25943 1.66104 8.25709 1.46937 7.25006 1.50647C6.24304 1.54358 5.25752 1.80849 4.36761 2.28129C3.47771 2.7541 2.70656 3.42249 2.11215 4.23622C1.51774 5.04996 1.11554 5.98785 0.935783 6.9794C0.756025 7.97095 0.803388 8.99035 1.07431 9.96096C1.34523 10.9316 1.83267 11.8281 2.49997 12.5832" stroke="#475467" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                </div>
+                        <label class="custum-file-upload h-[200px] w-full rounded-xl flex flex-col gap-[20px] cursor-pointer items-center justify-center border border-erp-gray-200 bg-white p-[1.5rem]" for="file">
+                            <div class="icon">
+                                <div class="flex items-center justify-center">
+                                    <div class="bg-upload bg-cover h-[50px] w-[50px]"></div>
+                                  </div>
                             </div>
-                            <div class="flex items-center justify-center">
-                                <p>
-                                    <span class="text-erp-primary-700 text-sm">Click to Upload </span>
-                                    <span class="text-erp-gray-500 text-sm">or drag and drop</span>
-                                </p>
+                            <div class="text flex flex-col items-center justify-center">
+                            <div class="flex gap-[5px]">
+                               <p class="text-erp-primary-700 text-[14px] font-medium max-sm:text-[12px]">Click to upload</p> 
+                               <p class="text-[14px] text-erp-gray-500 max-sm:text-[12px]">or drag and drop</p>
                             </div>
-                            <div class="flex items-center justify-center mb-4">
-                                <p class="text-erp-gray-500 text-xs">SVG, PNG, JPG or GIF (max. 800x400px)</p>
-                            </div>
-                        </div>
+                               <p class="text-[12px] text-erp-gray-500">SVG, PNG, JPG or GIF (max. 800x400px)</p>
+                               </div>
+                               <input type="file" id="file">
+                        </label>
                     </div>
                 </div>
             
-            
-                <div class="w-[272px] lg:w-[393px] mt-16 lg:mt-0 bg-erp-gray-50 p-6">
+                <div class="w-[40%] max-lg:w-full rounded-xl mt-16 lg:mt-0 bg-erp-gray-50 p-6">
                     <div class="flex items-center">
                         <div class="border-erp-gray-300 rounded-lg border border-solid p-2 bg-white">
                             <!-- {{ticket.stopwatchSeconds}} -->
-                        </div>
-                        <div class="bg-erp-gray-300 w-10 h-10 flex justify-center rounded-lg ml-2">
-                            <div class="flex items-center justify-center">
-                                <div class="flex items-center justify-center">
-                                    <button>
-                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M8.33342 12.5001V7.50008M11.6667 12.5001V7.50008M18.3334 10.0001C18.3334 14.6025 14.6025 18.3334 10.0001 18.3334C5.39771 18.3334 1.66675 14.6025 1.66675 10.0001C1.66675 5.39771 5.39771 1.66675 10.0001 1.66675C14.6025 1.66675 18.3334 5.39771 18.3334 10.0001Z" stroke="#FCFCFD" stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round"/>
-                                        </svg>  
-                                    </button>
-                                </div>
-                            </div>
                         </div>
                     </div>
                     <div class="mt-4">
@@ -110,39 +93,83 @@
                     </div>
                     <div class="mt-4">
                         <p class="text-erp-gray-400 mb-2">Priority</p>
-                        <div class="flex items-center">
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect width="16" height="16" rx="4" fill="#EF6820"/>
-                                <path d="M10 9L8 7L6 9" stroke="#FEFAF5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                            <p class="text-erp-gray-900 ml-2">High</p>
-                        </div>
-                    </div>
+                        <div class="priority relative inline-block text-left">
+                            <div class="flex items-center">
+                              <button
+                                (click)="toggleDropDownPriority()"
+                                type="button"
+                                class="flex gap-1 py-2 text-sm font-semibold text-gray-900"
+                                id="menu-button"
+                                aria-expanded="true"
+                                aria-haspopup="true"
+                              >
+            
+                              <div class="flex items-center gap-[4px] bg-[#fffaeb] py-[2px] px-[10px] rounded-xl">
+                                <i class="ph-bold ph-caret-up text-[12px] font-black text-[#e1840c]"></i>
+                                <p class="text-erp-warning-700 text-[14px] font-medium">High</p>
+                            </div>
+            
+                                <svg
+                                  class="-mr-1 h-5 w-5 text-gray-400 flex justify-center items-center"
+                                  viewBox="0 0 20 20"
+                                  fill="currentColor"
+                                  aria-expanded="true"
+                                >
+                                  <path
+                                    fill-rule="evenodd"
+                                    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                                    clip-rule="evenodd"
+                                  />
+                                </svg>
+                              </button>
+                            </div>
+                            <div
+                              class="priority-icon absolute hidden bg-white right-[-10] z-50 mt-2 w-fit h-fit origin-top-right rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                              [class.!flex]="isDropdownPriorityOpen"
+                              role="menu"
+                              aria-orientation="vertical"
+                              aria-labelledby="menu-button"
+                            >
+                              <div class="py-1 flex flex-col gap-2" role="none">
+                                <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
+                                <div class="flex items-center gap-[4px] bg-[#f8f9fc] py-[2px] px-[10px] rounded-xl">
+                                    <i class="ph-bold ph-caret-down text-[12px] font-black text-[#485497]"></i>
+                                    <p class="text-[#363f72] text-[14px] font-medium">Low</p>
+                                </div>
+                                <div class="flex items-center justify-center gap-[4px] bg-[#eff8ff] py-[2px] px-[10px] rounded-xl">
+                                    <i class="ph-fill ph-dot-outline text-[12px] font-black text-[#175cd3]"></i>
+                                    <p class="text-[#175cd3] text-[14px] font-medium">Medium</p>
+                                </div>  
+                                <div class="flex items-center justify-center gap-[4px] bg-[#fef3f2] py-[2px] px-[10px] rounded-xl">
+                                    <i class="ph-bold ph-caret-double-up text-[12px] font-black text-[#f04438]"></i>
+                                    <p class="text-[#b42318] text-[14px] font-medium">Urgent</p>
+                                </div>       
+                              </div>
+                            </div>
+                          </div>
+                      </div>
                 
                     <div class="mt-4 border border-solid border-erp-gray-200">
                         <!-- Please include assigned by avatar and name! thanks! -->
                     </div>
                     <div class="mt-6">
                         <p>Cover</p>
-                        <div class="border border-solid border-erp-gray-200 rounded-lg shadow-md mt-5">
-                            <div class="flex items-center justify-center">
-                                <div class="flex items-center justify-center mt-5 mb-5 bg-erp-gray-50 w-16 h-16 rounded-full">
-                                    <div class="flex items-center justify-center bg-erp-gray-100 w-12 h-12 rounded-full">
-                                        <div class="flex items-center justify-center">
-                                            <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M13.3333 12.3332L9.99997 8.9999M9.99997 8.9999L6.66663 12.3332M9.99997 8.9999V16.4999M16.9916 14.3249C17.8044 13.8818 18.4465 13.1806 18.8165 12.3321C19.1866 11.4835 19.2635 10.5359 19.0351 9.63881C18.8068 8.7417 18.2862 7.94616 17.5555 7.37778C16.8248 6.80939 15.9257 6.50052 15 6.4999H13.95C13.6977 5.52427 13.2276 4.61852 12.5749 3.85073C11.9222 3.08295 11.104 2.47311 10.1817 2.06708C9.25943 1.66104 8.25709 1.46937 7.25006 1.50647C6.24304 1.54358 5.25752 1.80849 4.36761 2.28129C3.47771 2.7541 2.70656 3.42249 2.11215 4.23622C1.51774 5.04996 1.11554 5.98785 0.935783 6.9794C0.756025 7.97095 0.803388 8.99035 1.07431 9.96096C1.34523 10.9316 1.83267 11.8281 2.49997 12.5832" stroke="#475467" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
-                                            </svg>
-                                        </div>
+                    
+                        <label class="custum-file-upload h-[100px] w-full rounded-xl flex flex-col gap-[5px] cursor-pointer items-center justify-center border border-erp-gray-200 bg-white p-[1.5rem]" for="file">
+                            <div class="icon">
+                                <div class="flex items-center justify-center">
+                                    <div class="bg-upload bg-cover h-[40px] w-[40px]"></div>
                                     </div>
+                            </div>
+                            <div class="text flex flex-col items-center justify-center">
+                            <div class="flex gap-[5px]">
+                                <p class="text-erp-primary-700 text-[14px] font-medium">Add file</p> 
+                                <p class="text-[14px] text-erp-gray-500">or drag files</p>
+                            </div>
                                 </div>
-                            </div>
-                            <div class="flex items-center justify-center mb-4">
-                                <p>
-                                    <span class="text-erp-primary-700">Add file </span>
-                                    <span class="text-erp-gray-500">or drag files</span>
-                                </p>
-                            </div>
-                        </div>
+                                <input type="file" id="file">
+                        </label>
+                
                     </div>
                     <div class="mt-8 flex items-center">
                         <button class="flex items-center px-2 py-2 bg-red-50 rounded-lg">

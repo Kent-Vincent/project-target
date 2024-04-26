@@ -12,7 +12,8 @@ export class WorkspaceComponent {
   constructor(private dialog: MatDialog) {}
 
   openDialog() {
-    this.dialog.open(EditTicketModalComponent,{
+    this.dialog.open(CreateTicketModalComponent,{
+    // this.dialog.open(CreateTicketModalComponent,{
       
     });
   }
