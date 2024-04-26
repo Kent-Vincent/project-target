@@ -21,4 +21,16 @@ export class TopNavComponent {
     this.authService.logout(); 
     location.reload();
   }
+
+  isDropdownOpen = false;
+  isDropdownPriorityOpen = false;
+  toggleDropDown(){
+    this.isDropdownOpen = !this.isDropdownOpen;
+    console.log(this.isDropdownOpen);
+  }
+
+  toggleDropDownPriority(){
+    this.isDropdownPriorityOpen = !this.isDropdownPriorityOpen;
+    console.log(this.isDropdownPriorityOpen);
+  }
 }
