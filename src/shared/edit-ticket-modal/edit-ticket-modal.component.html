@@ -99,7 +99,8 @@
 
         <div class="w-[40%] max-lg:w-full rounded-xl mt-16 lg:mt-0 bg-erp-gray-50 p-6">
           <div class="flex items-center">           
-          
+           <!-- <div class="border-erp-gray-300 rounded-lg border border-solid p-2 bg-white"> -->
+                            <!-- {{ticket.stopwatchSeconds}} -->
             <app-stopwatch></app-stopwatch>
           
           </div>
@@ -108,59 +109,59 @@
           </div>
           <div class="flex items-center mt-4">
             <div>
-            
+            <!-- <ng-container let user for user>
+                                {{user.avatarImagePath}}
+                                <p>{{user.name}}</p>
+                            </ng-container> -->
               <div class="relative inline-block text-left">
                 <div>
                   <button
                     (click)="toggleDropDown()"
                     type="button"
-                    class="flex gap-x-1.5 py-2 text-sm font-semibold text-gray-900 hover:bg-gray-50"
+                    class="flex gap-x-1.5 py-2 items-center hover:bg-gray-50"
                     id="menu-button"
                     aria-expanded="true"
                     aria-haspopup="true"
                   >
-                  Restie Antiquin
-                    <svg
-                      class="-mr-1 h-5 w-5 text-gray-400"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                      aria-expanded="true"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-                        clip-rule="evenodd"
-                      />
-                    </svg>
+                  <div class="bg-avatar bg-cover w-[30px] h-[30px]"></div>
+                    <p class="text-gray-500 text-[14px] font-medium">
+                      Restie Antiquin
+                    </p>
+                  <i *ngIf="!isDropdownOpen"  class="ph-bold ph-caret-down"></i>
+                  <i *ngIf="isDropdownOpen" class="ph-bold ph-caret-up"></i>
                   </button>
                 </div>
                 <div
-                  class="absolute hidden bg-white right-[-10] z-50 mt-2 w-56 origin-top-right rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
-                  [class.!flex]="isDropdownOpen"
-                  role="menu"
-                  aria-orientation="vertical"
-                  aria-labelledby="menu-button"
-                >
-                  <div class="py-1" role="none">
-                    <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
-                    <a
-                      
-                      class="text-gray-700 block px-4 py-2 text-sm"
-                      role="menuitem"
-                      tabindex="-1"
-                      id="menu-item-0"
-                      >Hernan Jugar</a
-                    >
-                    <a
-                      
-                      class="text-gray-700 block px-4 py-2 text-sm"
-                      role="menuitem"
-                      tabindex="-1"
-                      id="menu-item-1"
-                      >Kent Sarsalejo</a
-                    >           
+                class="absolute hidden bg-white right-[-10] z-50 mt-2 w-56 origin-top-right rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                [class.!flex]="isDropdownOpen"
+                role="menu"
+                aria-orientation="vertical"
+                aria-labelledby="menu-button"
+              >
+                <div class="flex flex-col w-full" role="none">
+                  <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
+                  <button class="flex justify-between items-center w-full px-4 py-2 hover:bg-gray-50">
+                    <div class="flex items-center gap-[5px]">
+                    <div class="bg-avatar bg-cover w-[30px] h-[30px]"></div>
+                    <p class="text-gray-500 text-[14px] font-medium">Restie Antiquin</p>
                   </div>
+                    <i class="ph ph-check"></i>
+                  </button>
+
+                  <button class="flex justify-between items-center w-full px-4 py-2 hover:bg-gray-50">
+                    <div class="flex items-center gap-[5px]">
+                    <div class="bg-avatar bg-cover w-[30px] h-[30px]"></div>
+                    <p class="text-gray-500 text-[14px] font-medium">Hernan Jugar</p>
+                  </div>
+                  </button>
+                  <button class="flex justify-between items-center w-full px-4 py-2 hover:bg-gray-50">
+                    <div class="flex items-center gap-[5px]">
+                    <div class="bg-avatar bg-cover w-[30px] h-[30px]"></div>
+                    <p class="text-gray-500 text-[14px] font-medium">John Doe</p>
+                  </div>
+                  </button>
                 </div>
+              </div>
               </div>
 
               
@@ -212,7 +213,7 @@
                   <button
                     (click)="toggleDropDownPriority()"
                     type="button"
-                    class="flex gap-1 py-2 text-sm font-semibold text-gray-900"
+                    class="flex items-center gap-1 py-2 text-sm font-semibold text-gray-900"
                     id="menu-button"
                     aria-expanded="true"
                     aria-haspopup="true"
@@ -223,41 +224,46 @@
                     <p class="text-erp-warning-700 text-[14px] font-medium">High</p>
                 </div>
 
-                    <svg
-                      class="-mr-1 h-5 w-5 text-gray-400 flex justify-center items-center"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                      aria-expanded="true"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-                        clip-rule="evenodd"
-                      />
-                    </svg>
+                <!-- <i *ngIf="!isDropdownPriorityOpen"  class="ph-bold ph-caret-down"></i>
+                <i *ngIf="isDropdownPriorityOpen" class="ph-bold ph-caret-up"></i> -->
                   </button>
                 </div>
                 <div
-                  class="priority-icon absolute hidden bg-white right-[-10] z-50 mt-2 w-fit h-fit origin-top-right rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                  class="priority-icon absolute hidden bg-white right-[-10] z-50 mt-2 w-[300px] h-fit origin-top-right rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
                   [class.!flex]="isDropdownPriorityOpen"
                   role="menu"
                   aria-orientation="vertical"
                   aria-labelledby="menu-button"
                 >
-                  <div class="py-1 flex flex-col gap-2" role="none">
+                  <div class="flex flex-col w-full" role="none">
                     <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
-                    <div class="flex items-center gap-[4px] bg-[#f8f9fc] py-[2px] px-[10px] rounded-xl">
-                        <i class="ph-bold ph-caret-down text-[12px] font-black text-[#485497]"></i>
+                    <button class="hover:bg-gray-50">
+                    <div class="flex items-center gap-[4px] bg-[#f8f9fc] px-[10px] py-[2px] w-fit my-[10px] mx-[14px] rounded-xl">
+                        <i class="ph-bold ph-caret-down text-[12px] font-black text-[#363f72]"></i>
                         <p class="text-[#363f72] text-[14px] font-medium">Low</p>
                     </div>
-                    <div class="flex items-center justify-center gap-[4px] bg-[#eff8ff] py-[2px] px-[10px] rounded-xl">
+                  </button>
+                  <button class="hover:bg-gray-50">
+                    <div class="flex items-center justify-center gap-[4px] bg-[#eff8ff] px-[10px] py-[2px] w-fit my-[10px] mx-[14px] rounded-xl">
                         <i class="ph-fill ph-dot-outline text-[12px] font-black text-[#175cd3]"></i>
                         <p class="text-[#175cd3] text-[14px] font-medium">Medium</p>
-                    </div>  
-                    <div class="flex items-center justify-center gap-[4px] bg-[#fef3f2] py-[2px] px-[10px] rounded-xl">
+                    </div> 
+                  </button>
+                    <button class="hover:bg-gray-50">
+                    <div class="flex items-center justify-between pr-[14px]">
+                    <div class="flex items-center gap-[4px] bg-[#fffaeb] px-[10px] py-[2px] w-fit my-[10px] mx-[14px] rounded-xl">
+                      <i class="ph-bold ph-caret-up text-[12px] font-black text-[#e1840c]"></i>
+                      <p class="text-erp-warning-700 text-[14px] font-medium">High</p>
+                  </div>
+                  <i class="ph ph-check"></i>
+                </div> 
+              </button>
+                <button class="hover:bg-gray-50">
+                    <div class="flex items-center justify-center gap-[4px] bg-[#fef3f2] px-[10px] py-[2px] w-fit my-[10px] mx-[14px] rounded-xl">
                         <i class="ph-bold ph-caret-double-up text-[12px] font-black text-[#f04438]"></i>
                         <p class="text-[#b42318] text-[14px] font-medium">Urgent</p>
-                    </div>       
+                    </div> 
+                  </button>      
                   </div>
                 </div>
               </div>

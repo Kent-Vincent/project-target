@@ -13,7 +13,7 @@ export class WorkspaceComponent {
 
   openDialog() {
     this.dialog.open(CreateTicketModalComponent,{
-    // this.dialog.open(CreateTicketModalComponent,{
+    // this.dialog.open(EditTicketModalComponent,{
       
     });
   }

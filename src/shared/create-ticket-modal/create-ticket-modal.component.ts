@@ -1,10 +1,10 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { DeleteTicketModalComponent } from '../delete-ticket-modal/delete-ticket-modal.component';
 import { MatDialog } from '@angular/material/dialog';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { DeleteTicketModalComponent } from '../delete-ticket-modal/delete-ticket-modal.component';
 
 @Component({
-  selector: 'create-ticket-modal',
+  selector: 'app-create-ticket-modal',
   templateUrl: './create-ticket-modal.component.html',
   styleUrls: ['./create-ticket-modal.component.css']
 })
@@ -23,9 +23,7 @@ export class CreateTicketModalComponent {
   }
 
   openDialog() {
-    this.dialog.open(DeleteTicketModalComponent,{
-      
-    });
+    this.dialog.open(DeleteTicketModalComponent, {});
   }
 
   isDropdownOpen = false;
