@@ -13,6 +13,8 @@ export class EditTicketModalComponent {
   @Input() public user!: User;
   isMobile: boolean = false;
 
+  currentDate = new Date();
+
   constructor(public dialog: MatDialog, private breakpointObserver: BreakpointObserver) {}
 
   ngOnInit() {

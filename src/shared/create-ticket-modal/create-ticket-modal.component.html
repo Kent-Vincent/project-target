@@ -63,15 +63,22 @@
         <div class="w-[60%] h-[380px] max-lg:w-full">
           <div>
             <div>
-              <p class="text-erp-gray-900 text-xl pb-5 font-semibold">
-                Blog Graphic: Predictions
+              <p class="text-erp-gray-900 pb-1 text-xl font-semibold">
+                Title
               </p>
+              <input
+                [(ngModel)]="title"
+                type="text"
+                placeholder="Add Title"
+                class="w-full text-sm p-4 mb-5 rounded-xl border-erp-gray-200 border border-solid"
+              />
             </div>
             <div class="border-b border-solid border-erp-gray-200 pb-5 text-lg">
               <p class="text-erp-gray-900 text-lg pb-1 font-semibold">
                 Description
               </p>
               <input
+                [(ngModel)]="description"
                 type="text"
                 placeholder="Add more detailed description"
                 class="w-full text-sm p-4 rounded-xl border-erp-gray-200 border border-solid"
@@ -105,7 +112,7 @@
                   SVG, PNG, JPG or GIF (max. 800x400px)
                 </p>
               </div>
-              <input type="file" id="file" />
+              <input [(ngModel)]="attachments" type="file" id="file" />
             </label>
           </div>
         </div>
@@ -143,6 +150,7 @@
                     aria-haspopup="true"
                   >
                   <div class="bg-avatar bg-cover w-[30px] h-[30px]"></div>
+                <!-- Please change it to users that has logged in or who has created an account -->
                     <p class="text-gray-500 text-[14px] font-medium">
                       Restie Antiquin
                     </p>
@@ -191,40 +199,29 @@
           </div>
           <div class="mt-4">
             <p class="text-erp-gray-400 mb-2">Date created</p>
-            <svg
+            <div class="flex items-center">
+              <svg
               width="18"
               height="20"
               viewBox="0 0 18 20"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
+              class="text-erp-gray-500"
             >
               <path
                 d="M12.3333 1.66675V5.00008M5.66667 1.66675V5.00008M1.5 8.33342H16.5M3.16667 3.33341H14.8333C15.7538 3.33341 16.5 4.07961 16.5 5.00008V16.6667C16.5 17.5872 15.7538 18.3334 14.8333 18.3334H3.16667C2.24619 18.3334 1.5 17.5872 1.5 16.6667V5.00008C1.5 4.07961 2.24619 3.33341 3.16667 3.33341Z"
-                stroke="#344054"
+                class="stroke-current"
                 stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
               />
             </svg>
+            <p class="pl-3 text-erp-gray-500">{{currentDate | date: 'yyyy-MM-dd'}}</p>
+            </div>
           </div>
           <div class="mt-4">
             <p class="text-erp-gray-400 mb-2">Due Date</p>
-            <!-- <app-date-picker></app-date-picker> -->
-            <svg
-              width="18"
-              height="20"
-              viewBox="0 0 18 20"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M12.3333 1.66675V5.00008M5.66667 1.66675V5.00008M1.5 8.33342H16.5M3.16667 3.33341H14.8333C15.7538 3.33341 16.5 4.07961 16.5 5.00008V16.6667C16.5 17.5872 15.7538 18.3334 14.8333 18.3334H3.16667C2.24619 18.3334 1.5 17.5872 1.5 16.6667V5.00008C1.5 4.07961 2.24619 3.33341 3.16667 3.33341Z"
-                stroke="#344054"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
+            <date-picker></date-picker>
           </div>
           <div class="mt-4">
             <p class="text-erp-gray-400 mb-2">Priority</p>
@@ -239,18 +236,38 @@
                   aria-haspopup="true"
                 >
                   <div
-                    class="flex items-center gap-[4px] bg-[#fffaeb] py-[2px] px-[10px] rounded-xl"
+                    class="flex items-center py-[2px] rounded-xl"
                   >
-                    <i
-                      class="ph-bold ph-caret-up text-[12px] font-black text-[#e1840c]"
-                    ></i>
-                    <p class="text-erp-warning-700 text-[14px] font-medium">
-                      High
-                    </p>
-                  </div>
+                    <div class="flex flex-col w-full">
+                     
+                      <div [ngClass]="{
+                        'flex items-center justify-center gap-[4px] bg-[#f8f9fc] w-fit my-[10px] rounded-xl': priority == 'Low',
+                        'flex items-center justify-center gap-[4px] bg-[#eff8ff] w-fit my-[10px] rounded-xl': priority == 'Medium',
+                        'flex items-center justify-center gap-[4px] bg-[#fffaeb] w-fit my-[10px] rounded-xl': priority == 'High',
+                        'flex items-center justify-center gap-[4px] bg-[#fef3f2] w-fit my-[10px] rounded-xl': priority == 'Urgent',
+                        }">
 
-                  <!-- <i *ngIf="!isDropdownPriorityOpen"  class="ph-bold ph-caret-down"></i>
-                    <i *ngIf="isDropdownPriorityOpen" class="ph-bold ph-caret-up"></i> -->
+                        <i [ngClass]="{
+                        'ph-bold ph-caret-down text-xs font-black text-[#363f72]': priority == 'Low',
+                        'ph-fill ph-dot-outline text-xs font-black text-[#175cd3]': priority == 'Medium',
+                        'ph-bold ph-caret-up text-xs font-black text-[#e1840c]': priority == 'High',
+                        'ph-bold ph-caret-double-up text-xs font-black text-[#f04438]': priority == 'Urgent',
+                        }"></i>
+  
+                        <p
+                        [ngClass]="{
+                          'text-[#363f72] text-[14px] font-medium': priority == 'Low',
+                          'text-[#175cd3] text-[14px] font-medium': priority == 'Medium',
+                          'text-erp-warning-700 text-[14px] font-medium': priority == 'High',
+                          'text-[#b42318] text-[14px] font-medium': priority == 'Urgent',
+                          }"
+                          >
+                          {{ priority || 'Low' }}
+
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                 </button>
               </div>
               <div
@@ -261,20 +278,19 @@
               aria-labelledby="menu-button"
             >
               <div class="flex flex-col w-full" role="none">
-                <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
-                <button class="hover:bg-gray-50">
+                <button class="hover:bg-gray-50" (click)="updateSelectedPriotity('Low')">
                 <div class="flex items-center gap-[4px] bg-[#f8f9fc] px-[10px] py-[2px] w-fit my-[10px] mx-[14px] rounded-xl">
                     <i class="ph-bold ph-caret-down text-[12px] font-black text-[#363f72]"></i>
                     <p class="text-[#363f72] text-[14px] font-medium">Low</p>
                 </div>
               </button>
-              <button class="hover:bg-gray-50">
+              <button class="hover:bg-gray-50" (click)="updateSelectedPriotity('Medium')">
                 <div class="flex items-center justify-center gap-[4px] bg-[#eff8ff] px-[10px] py-[2px] w-fit my-[10px] mx-[14px] rounded-xl">
                     <i class="ph-fill ph-dot-outline text-[12px] font-black text-[#175cd3]"></i>
                     <p class="text-[#175cd3] text-[14px] font-medium">Medium</p>
                 </div> 
               </button>
-                <button class="hover:bg-gray-50">
+                <button class="hover:bg-gray-50" (click)="updateSelectedPriotity('High')">
                 <div class="flex items-center justify-between pr-[14px]">
                 <div class="flex items-center gap-[4px] bg-[#fffaeb] px-[10px] py-[2px] w-fit my-[10px] mx-[14px] rounded-xl">
                   <i class="ph-bold ph-caret-up text-[12px] font-black text-[#e1840c]"></i>
@@ -283,7 +299,7 @@
               <i class="ph ph-check"></i>
             </div> 
           </button>
-            <button class="hover:bg-gray-50">
+            <button class="hover:bg-gray-50" (click)="updateSelectedPriotity('Urgent')">
                 <div class="flex items-center justify-center gap-[4px] bg-[#fef3f2] px-[10px] py-[2px] w-fit my-[10px] mx-[14px] rounded-xl">
                     <i class="ph-bold ph-caret-double-up text-[12px] font-black text-[#f04438]"></i>
                     <p class="text-[#b42318] text-[14px] font-medium">Urgent</p>
