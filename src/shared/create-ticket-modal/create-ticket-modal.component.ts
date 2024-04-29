@@ -14,7 +14,28 @@ export class CreateTicketModalComponent {
   @Input() public user!: User;
   isMobile: boolean = false;
 
+  //assignee
+  selectedValue: string = '';
+  //tickets
+  title: string = '';
+  description: string = '';
+  attachments: string = '';
+  time_elapsed: string = '';
+  avatar_icon: string = '';
+  assignee: string = '';
+  due_date: string = '';
+  priority: string = '';
+  filed_by_avatar_icon: string = '';
+  filed_by: string = '';
+  cover_photo: string = '';
+
   constructor(public dialog: MatDialog, private breakpointObserver: BreakpointObserver) {}
+
+  currentDate = new Date()
+
+  updateSelectedPriotity(option:string) {
+    this.priority = option;
+  }
 
   ngOnInit() {
     this.breakpointObserver.observe([Breakpoints.Handset])
