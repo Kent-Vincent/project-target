@@ -10,8 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
-  declarations: [
-    DatePickerComponent
+  declarations: [  
   ],
   imports: [
     CommonModule,
@@ -20,7 +19,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatDatepickerModule,  
   ],
   exports: [
-    DatePickerComponent,
     MatFormFieldModule, 
     MatInputModule, 
     MatDatepickerModule,

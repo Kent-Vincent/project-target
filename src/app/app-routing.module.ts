@@ -25,6 +25,10 @@ const routes: Routes = [
     loadChildren: () => import('./pages/workspace/workspace.module').then(m => m.WorkspaceModule),
     // canActivate: [AuthGuard]
   },
+  {
+    path: 'view-profile',
+    loadChildren: () => import('./pages/view-profile/view-profile.module').then(m => m.ViewProfileModule)
+  },
 ];
 
 @NgModule({

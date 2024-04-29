@@ -1,0 +1,101 @@
+<top-nav></top-nav>
+<div
+  class="flex flex-col justify-start items-start lg:flex-row lg:justify-between lg:items-center gap-1 px-6 py-4"
+>
+  <h2 class="text-2xl font-semibold">Software development</h2>
+</div>
+
+<div
+  class="main-container bg-erp-gray-50 flex   px-[90px] py-[45px] gap-[100px] max-md:px-[32px] max-md:py-[32px] max-md:flex-col max-sm:px-[16px] max-sm:gap-[30px]"
+>
+  <div
+    class="profile-container w-[30%] flex flex-col justify-center items-center gap-[24px] max-md:w-full"
+  >
+    <div class="flex flex-col justify-center items-center gap-[24px]">
+      <h2 class="text-lg  text-erp-gray-500 text-center">Profile</h2>
+      <div
+        class="avatar-profile bg-avatar bg-no-repeat bg-cover h-[100px] w-[100px] "
+      ></div>
+
+      <div class="flex flex-col">
+        <h1 class="text-2xl font-medium text-erp-gray-900 text-center">
+          Restie Antiquin
+        </h1>
+        <p class="text-sm font-light text-erp-gray-500 text-center">
+          UX Designer
+        </p>
+      </div>
+    </div>
+
+            <label
+              class="custum-file-upload bg-erp-primary-600 h-[40px] w-[80%] rounded-lg flex cursor-pointer max-md:w-[40%] max-sm:w-[80%]"
+              for="file"
+            >
+                <div class="flex justify-center items-center gap-[5px] w-full">
+                  <p
+                    class="text-white font-medium max-sm:text-[12px]"
+                  >
+                  Upload new avatar
+                  </p>              
+                </div>                      
+              <input type="file" id="file" />
+            </label>
+             
+
+    <p class="text-sm font-light text-erp-gray-500 text-center">
+      I’m UX Designer, I work in programs like figma, adobe photoshop, adobe
+      illustrator
+    </p>
+  </div>
+  <div class="divider min-h-full bg-gray-200 w-[1px]"></div>
+  <div class="form-container w-[70%] flex flex-col gap-[24px] justify-center max-md:w-full">
+    <div class="flex flex-col gap-1">
+      <label for="name" class="text-lg font-medium text-erp-gray-900"
+        >Name</label
+      >
+      <input
+        type="text"
+        name="name"
+        id="name"
+        placeholder="Restie Antiquin"
+        class="bg-white text-sm p-4 rounded-xl border-erp-gray-200 border border-solid"
+      />
+    </div>
+    <div class="flex flex-col gap-1">
+      <label for="title" class="text-lg font-medium text-erp-gray-900"
+        >Title</label
+      >
+      <input
+        type="text"
+        name="title"
+        id="title"
+        placeholder="UX Designer"
+        class="bg-white text-sm p-4 rounded-xl border-erp-gray-200 border border-solid"
+      />
+    </div>
+    <div class="flex flex-col gap-1">
+      <label for="email" class="text-lg font-medium text-erp-gray-900"
+        >Email</label
+      >
+      <input
+        type="text"
+        name="email"
+        id="email"
+        placeholder="Enter your email"
+        class="bg-white text-sm p-4 rounded-xl border-erp-gray-200 border border-solid"
+      />
+    </div>
+    <div class="flex flex-col gap-1">
+      <label for="aboutMe" class="text-lg font-medium text-erp-gray-900"
+        >About me</label
+      >
+      <input
+        type="text"
+        name="aboutMe"
+        id="aboutMe"
+        placeholder="I’m UX Designer, I work in programs like figma..."
+        class="pb-44 bg-white text-sm p-4 rounded-xl border-erp-gray-200 border border-solid"
+      />
+    </div>
+  </div>
+</div>

@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import { AuthService } from 'src/app/commons/services/auth.service';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'top-nav',
   templateUrl: './top-nav.component.html',
@@ -15,7 +14,11 @@ export class TopNavComponent {
   }
 
 
-  constructor(private authService: AuthService) {} 
+  constructor(private authService: AuthService, private router: Router) {} 
+
+ viewProfile(){
+  this.router.navigate(['/view-profile']);
+ }
 
   logout(): void {
     this.authService.logout(); 
