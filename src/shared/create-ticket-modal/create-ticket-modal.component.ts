@@ -2,7 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { DeleteTicketModalComponent } from '../delete-ticket-modal/delete-ticket-modal.component';
 import { MatDialog } from '@angular/material/dialog';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-
+import 'flowbite-datepicker'
+import 'flowbite'
 @Component({
   selector: 'app-create-ticket-modal',
   templateUrl: './create-ticket-modal.component.html',

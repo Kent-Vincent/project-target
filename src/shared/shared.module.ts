@@ -15,7 +15,8 @@ import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 import { EditTicketModalComponent } from './edit-ticket-modal/edit-ticket-modal.component';
-
+import 'flowbite';
+import 'flowbite-datepicker'
 @NgModule({
   declarations: [
     CreateTicketModalComponent,
