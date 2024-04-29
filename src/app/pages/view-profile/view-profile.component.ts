@@ -6,9 +6,9 @@ import { Renderer2 } from '@angular/core';
   styleUrls: ['./view-profile.component.css']
 })
 export class ViewProfileComponent {
-  constructor(private _renderer: Renderer2){
-  }
-  ngOnInit(){
-    this._renderer.setStyle(document.body, 'overflow', 'hidden');
-  }
+  // constructor(private _renderer: Renderer2){
+  // }
+  // ngOnInit(){
+  //   this._renderer.setStyle(document.body, 'overflow', 'hidden');
+  // }
 }
