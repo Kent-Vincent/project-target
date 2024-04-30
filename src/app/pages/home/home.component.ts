@@ -8,7 +8,6 @@ import { trigger, transition, style, animate } from '@angular/animations';
   styleUrls: ['./home.component.css']
 })
 
-// Please dont forget to move this to workspace!
 export class HomeComponent {
   isNavMenuOpen = false;
 

@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TopNavComponent } from './top-nav/top-nav.component';
 import { CreateTicketModalComponent } from './create-ticket-modal/create-ticket-modal.component';
-import { DatePickerComponent } from './date-picker/date-picker.component';
 import { DeleteTicketModalComponent } from './delete-ticket-modal/delete-ticket-modal.component';
 import { StopwatchComponent } from './stopwatch/stopwatch.component';
 import { TicketCardComponent } from './ticket-card/ticket-card.component';
@@ -20,7 +19,6 @@ import {MatNativeDateModule} from '@angular/material/core';
 @NgModule({
   declarations: [
     CreateTicketModalComponent,
-    DatePickerComponent,
     DeleteTicketModalComponent,
     EditTicketModalComponent,
     StopwatchComponent,
@@ -43,7 +41,6 @@ import {MatNativeDateModule} from '@angular/material/core';
   ],
   exports: [
     CreateTicketModalComponent,
-    DatePickerComponent,
     DeleteTicketModalComponent,
     EditTicketModalComponent,
     StopwatchComponent,

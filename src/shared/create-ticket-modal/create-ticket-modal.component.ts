@@ -31,9 +31,9 @@ export class CreateTicketModalComponent {
 
   constructor(public dialog: MatDialog, private breakpointObserver: BreakpointObserver) {}
 
-  currentDate = new Date()
+  currentDate = new Date();
 
-  updateSelectedPriotity(option:string) {
+  updateSelectedPriority(option:string) {
     this.priority = option;
   }
 
