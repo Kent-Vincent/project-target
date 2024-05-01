@@ -10,7 +10,7 @@ import { EditTicketModalComponent } from '../../../shared/edit-ticket-modal/edit
 })
 export class WorkspaceComponent {
   constructor(private dialog: MatDialog) {}
-
+  
   openDialog() {
     this.dialog.open(CreateTicketModalComponent,{
     // this.dialog.open(EditTicketModalComponent,{
