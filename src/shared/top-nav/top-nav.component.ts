@@ -7,12 +7,27 @@ import { Router } from '@angular/router';
   styleUrls: ['./top-nav.component.css']
 })
 export class TopNavComponent {
+  currentUser: any;
   isNavMenuOpen = false;
+
+  ngOnInit(): void {
+    this.authService.getCurrentUser().subscribe(
+      (user: any) => {
+        this.currentUser = user;
+      },
+      (error) => {
+        console.error('Error fetching current user:', error);
+      }
+    );
+  }
+  
+  getAvatarUrl(avatarPath: string): string {
+    return 'http://127.0.0.1:8000' + avatarPath;
+  }
 
   toggleNavMenu() {
     this.isNavMenuOpen = !this.isNavMenuOpen;
   }
-
 
   constructor(private authService: AuthService, private router: Router) {} 
 
