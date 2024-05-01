@@ -135,65 +135,18 @@
           </div>
           <div class="flex items-center mt-4">
             <div>
-              <!-- <ng-container let user for user>
-                                {{user.avatarImagePath}}
-                                <p>{{user.name}}</p>
-                            </ng-container> -->
-              <div class="relative inline-block text-left">
-                <div>
-                  <button
-                    (click)="toggleDropDown()"
-                    type="button"
-                    class="flex gap-x-1.5 py-2 items-center hover:bg-gray-50"
-                    id="menu-button"
-                    aria-expanded="true"
-                    aria-haspopup="true"
-                  >
-                  <div class="bg-avatar bg-cover w-[30px] h-[30px]"></div>
-                  <!-- Please change it to users that has logged in or who has created an account -->
-                    <p class="text-gray-500 text-[14px] font-medium">
-                      Restie Antiquin
-                    </p>
-                    <i
-                      *ngIf="!isDropdownOpen"
-                      class="ph-bold ph-caret-down"
-                    ></i>
-                    <i *ngIf="isDropdownOpen" class="ph-bold ph-caret-up"></i>
-                  </button>
-                </div>
-                <div
-                  class="absolute hidden bg-white right-[-10] z-50 mt-2 w-56 origin-top-right rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
-                  [class.!flex]="isDropdownOpen"
-                  role="menu"
-                  aria-orientation="vertical"
-                  aria-labelledby="menu-button"
-                >
-                  <div class="flex flex-col w-full" role="none">
-                    <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
-                    <button class="flex justify-between items-center w-full px-4 py-2 hover:bg-gray-50">
-                      <div class="flex items-center gap-[5px]">
-                      <div class="bg-avatar bg-cover w-[30px] h-[30px]"></div>
-                      <p class="text-gray-500 text-[14px] font-medium">Restie Antiquin</p>
-                    </div>
-                      <i class="ph ph-check"></i>
-                    </button>
-
-                    <button class="flex justify-between items-center w-full px-4 py-2 hover:bg-gray-50">
-                      <div class="flex items-center gap-[5px]">
-                      <div class="bg-avatar bg-cover w-[30px] h-[30px]"></div>
-                      <p class="text-gray-500 text-[14px] font-medium">Hernan Jugar</p>
-                    </div>
-                    </button>
-                    <button class="flex justify-between items-center w-full px-4 py-2 hover:bg-gray-50">
-                      <div class="flex items-center gap-[5px]">
-                      <div class="bg-avatar bg-cover w-[30px] h-[30px]"></div>
-                      <p class="text-gray-500 text-[14px] font-medium">John Doe</p>
-                    </div>
-                    </button>
-                  </div>
-                </div>
+              <ng-container *ngIf="users && users.length > 0">
+                <p>Select a user:</p>
+                <select [(ngModel)]="selectedUser" (change)="onChangeUser($event.target.value)">
+                  <option *ngFor="let user of users" [ngValue]="user">
+                    <img class="avatar-img" [src]="user.avatarImagePath" alt="Avatar">
+                    <span>{{ user.first_name }}</span>
+                  </option>
+                </select>
+              </ng-container>
+              <div class="relative inline-block text-left" *ngIf="!users || users.length === 0">
+                <p>No users found</p>
               </div>
-
             </div>
           </div>
           <div class="mt-4">

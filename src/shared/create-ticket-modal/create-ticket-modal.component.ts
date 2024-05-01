@@ -2,17 +2,20 @@ import { Component, Input, OnInit } from '@angular/core';
 import { DeleteTicketModalComponent } from '../delete-ticket-modal/delete-ticket-modal.component';
 import { MatDialog } from '@angular/material/dialog';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import 'flowbite-datepicker'
-import 'flowbite'
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-create-ticket-modal',
   templateUrl: './create-ticket-modal.component.html',
   styleUrls: ['./create-ticket-modal.component.css']
 })
 export class CreateTicketModalComponent {
-  @Input() public ticket!: Ticket;
-  @Input() public user!: User;
+  // @Input() public ticket!: Ticket;
+  // @Input() public user!: User;
   isMobile: boolean = false;
+
+  //users
+  users: any;
+  selectedUser: any;
 
   //assignee
   selectedValue: string = '';
