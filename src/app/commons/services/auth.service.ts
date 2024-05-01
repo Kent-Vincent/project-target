@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -34,7 +34,13 @@ export class AuthService {
   }
 
   logout(): void {
-    this.clearAuthToken(); // Clear authentication token
-    // Optionally, you can perform additional logout-related tasks here
+    this.clearAuthToken(); 
+  }
+
+  getCurrentUser(): Observable<any> {
+    const headers = new HttpHeaders({
+      'Authorization': `Token ${this.getAuthToken()}`
+    });
+    return this.http.get<any>(`${this.apiUrl}api/users/currentUser/`, { headers });
   }
 }
