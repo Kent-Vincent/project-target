@@ -67,7 +67,7 @@
                 </ng-template>
               </div>
               <p class="text-[14px] font-medium text-gray-500">
-                  {{ currentUser?.first_name ? currentUser.first_name : currentUser.email }}
+                  {{ currentUser?.name ? currentUser.name : currentUser.email }}
               </p>
               <i *ngIf="!isDropdownOpen"  class="ph-bold ph-caret-down"></i>
               <i *ngIf="isDropdownOpen" class="ph-bold ph-caret-up"></i>
@@ -138,7 +138,7 @@
             <img src="assets/images/avatar-sample.svg" class="h-16 rounded-lg">
         </ng-template>
         <p class="text-2xl font-medium">
-            {{ currentUser?.first_name ? currentUser.first_name : currentUser.email }}
+            {{ currentUser?.name ? currentUser.name : currentUser.email }}
         </p>
       </div>
   

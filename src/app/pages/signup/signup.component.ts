@@ -37,6 +37,7 @@ export class SignupComponent {
       .subscribe(
         (response) => {
           console.log('Registration successful:', response);
+          // Put a path after regisitration!
         },
         (error) => {
           if (error.error.email == 'user with this email already exists.') {

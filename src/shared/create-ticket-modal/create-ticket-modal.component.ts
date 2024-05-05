@@ -9,8 +9,6 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./create-ticket-modal.component.css']
 })
 export class CreateTicketModalComponent {
-  // @Input() public ticket!: Ticket;
-  // @Input() public user!: User;
   isMobile: boolean = false;
 
   //users
