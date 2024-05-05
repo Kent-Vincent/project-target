@@ -4,8 +4,6 @@ import { TopNavComponent } from './top-nav/top-nav.component';
 import { CreateTicketModalComponent } from './create-ticket-modal/create-ticket-modal.component';
 import { DeleteTicketModalComponent } from './delete-ticket-modal/delete-ticket-modal.component';
 import { StopwatchComponent } from './stopwatch/stopwatch.component';
-import { TicketCardComponent } from './ticket-card/ticket-card.component';
-import { TicketCategoryComponent } from './ticket-category/ticket-category.component';
 import { PipesModule } from 'src/app/commons/pipes/pipes.module';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -22,8 +20,6 @@ import {MatNativeDateModule} from '@angular/material/core';
     DeleteTicketModalComponent,
     EditTicketModalComponent,
     StopwatchComponent,
-    TicketCardComponent,
-    TicketCategoryComponent,
     TopNavComponent,
   ],
   imports: [
@@ -44,8 +40,6 @@ import {MatNativeDateModule} from '@angular/material/core';
     DeleteTicketModalComponent,
     EditTicketModalComponent,
     StopwatchComponent,
-    TicketCardComponent,
-    TicketCategoryComponent,
     TopNavComponent,
   ]
 })
