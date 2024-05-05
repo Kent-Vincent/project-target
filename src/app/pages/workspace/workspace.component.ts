@@ -16,7 +16,6 @@ export class WorkspaceComponent implements OnInit {
   ngOnInit(): void {
     this.workspaceService.getWorkspaceName().subscribe(
       (data) => {
-        console.log('Workspace data:', data);
         this.workspaceName = data.workspace_name;
       },
       (error) => {

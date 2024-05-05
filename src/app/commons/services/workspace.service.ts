@@ -7,23 +7,27 @@ import { AuthTokenService } from './auth-token.service';
   providedIn: 'root'
 })
 export class WorkspaceService {
-  private apiUrl = 'http://127.0.0.1:8000/api/workspace/current/';
-
+  private baseUrl = 'http://127.0.0.1:8000/'
+  
+  private workspacesUrl = this.baseUrl + 'api/workspace/current/';
+  private stagesUrl = this.baseUrl + 'api/workspace/stages/current';
   constructor(private http: HttpClient, private authTokenService: AuthTokenService) { }
 
+  authToken = this.authTokenService.getAuthToken();
+
   getWorkspaceName(): Observable<any> {
-    const authToken = this.authTokenService.getAuthToken();
     const headers = new HttpHeaders({
-      'Authorization': `Token ${authToken}`
+      'Authorization': `Token ${this.authToken}`
     });
-    return this.http.get<any>(`${this.apiUrl}workspace/current/`, { headers });
+    return this.http.get<any>(this.workspacesUrl, { headers });
   }
 
   getStages(): Observable<any> {
-    const authToken = this.authTokenService.getAuthToken();
     const headers = new HttpHeaders({
-      'Authorization': `Token ${authToken}`
+      'Authorization': `Token ${this.authToken}`
     });
-    return this.http.get<any>(`${this.apiUrl}stages/`, { headers });
+    return this.http.get<any>(this.stagesUrl, { headers });
   }
+
+  
 }
