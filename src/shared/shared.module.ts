@@ -14,6 +14,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { EditTicketModalComponent } from './edit-ticket-modal/edit-ticket-modal.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
 @NgModule({
   declarations: [
     CreateTicketModalComponent,
@@ -34,6 +35,7 @@ import {MatNativeDateModule} from '@angular/material/core';
     ReactiveFormsModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatSelectModule,
   ],
   exports: [
     CreateTicketModalComponent,

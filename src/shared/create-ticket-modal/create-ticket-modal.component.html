@@ -9,36 +9,6 @@
           <!-- BLANK -->
         </div>
         <div class="flex items-center">
-          <svg
-            width="16"
-            height="4"
-            viewBox="0 0 16 4"
-            class="mr-5"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M7.99992 2.83341C8.46016 2.83341 8.83325 2.46032 8.83325 2.00008C8.83325 1.53984 8.46016 1.16675 7.99992 1.16675C7.53968 1.16675 7.16659 1.53984 7.16659 2.00008C7.16659 2.46032 7.53968 2.83341 7.99992 2.83341Z"
-              stroke="#667085"
-              stroke-width="1.66667"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <path
-              d="M13.8333 2.83341C14.2935 2.83341 14.6666 2.46032 14.6666 2.00008C14.6666 1.53984 14.2935 1.16675 13.8333 1.16675C13.373 1.16675 12.9999 1.53984 12.9999 2.00008C12.9999 2.46032 13.373 2.83341 13.8333 2.83341Z"
-              stroke="#667085"
-              stroke-width="1.66667"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <path
-              d="M2.16659 2.83341C2.62682 2.83341 2.99992 2.46032 2.99992 2.00008C2.99992 1.53984 2.62682 1.16675 2.16659 1.16675C1.70635 1.16675 1.33325 1.53984 1.33325 2.00008C1.33325 2.46032 1.70635 2.83341 2.16659 2.83341Z"
-              stroke="#667085"
-              stroke-width="1.66667"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
           <button mat-dialog-close>
             <svg
               width="12"
@@ -120,20 +90,10 @@
         <div
           class="w-[40%] max-lg:w-full rounded-xl mt-16 lg:mt-0 bg-erp-gray-50 p-6"
         >
-          <div class="flex items-center">
-            <!-- <div class="border-erp-gray-300 rounded-lg border border-solid p-2 bg-white"> -->
-            <!-- {{ticket.stopwatchSeconds}} -->
-            <!-- <app-stopwatch></app-stopwatch> -->
-            <div
-              class="stopwatch flex justify-center items-center px-[14px] py-[10px] w-[96px] border-2 border-erp-gray-200 h-[40px] rounded-lg"
-            >
-              <p class="text-erp-gray-900">00:00:00</p>
-            </div>
-          </div>
-          <div class="mt-4">
+          <div>
             <p class="text-erp-gray-400 text-sm">Assignee</p>
           </div>
-          <div class="flex items-center mt-4">
+          <div class="flex items-center mt-2">
             <div>
                <ng-container *ngIf="users && users.length > 0">
                 <p>Select a user:</p>
@@ -149,7 +109,7 @@
               </div>
             </div>
           </div>
-          <div class="mt-4">
+          <div class="mt-2">
             <p class="text-erp-gray-400 mb-2">Date created</p>
             <div class="flex">
             <svg
@@ -168,37 +128,38 @@
                 stroke-linejoin="round"
               />
             </svg>
-            <p class="pl-3 text-erp-gray-500 font-medium text-sm">{{currentDate | date: 'yyyy-MM-dd'}}</p>
+            <p class="pl-3 text-erp-gray-500 font-medium text-sm">{{ currentDate | date: 'MMM d, yyyy' }}</p>
             </div>
           </div>
-          <div class="mt-4">
+          <div class="mt-2">
             <p class="text-erp-gray-400 mb-2">Due Date</p>
             <div class="flex items-center">
               <div class="custom-datepicker-toggle mr-3 flex items-center" (click)="dp.open()">
                 <div class="matDatepickerToggleIcon">
                   <svg
-                  width="18"
-                  height="20"
-                  viewBox="0 0 18 20"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="20"
+                    viewBox="0 0 18 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
                   >
-                  <path
-                    d="M12.3333 1.66675V5.00008M5.66667 1.66675V5.00008M1.5 8.33342H16.5M3.16667 3.33341H14.8333C15.7538 3.33341 16.5 4.07961 16.5 5.00008V16.6667C16.5 17.5872 15.7538 18.3334 14.8333 18.3334H3.16667C2.24619 18.3334 1.5 17.5872 1.5 16.6667V5.00008C1.5 4.07961 2.24619 3.33341 3.16667 3.33341Z"
-                    stroke="#344054"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
+                    <path
+                      d="M12.3333 1.66675V5.00008M5.66667 1.66675V5.00008M1.5 8.33342H16.5M3.16667 3.33341H14.8333C15.7538 3.33341 16.5 4.07961 16.5 5.00008V16.6667C16.5 17.5872 15.7538 18.3334 14.8333 18.3334H3.16667C2.24619 18.3334 1.5 17.5872 1.5 16.6667V5.00008C1.5 4.07961 2.24619 3.33341 3.16667 3.33341Z"
+                      stroke="#344054"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
                   </svg>
                 </div>
               </div>
-              <input matInput [matDatepicker]="dp" [(ngModel)]="due_date" placeholder="Select date" class="bg-transparent text-erp-gray-500 font-medium text-sm" disabled (click)="dp.open()">
-              <mat-datepicker #dp disabled="false"></mat-datepicker>
-              </div>
+                <input matInput [matDatepicker]="dp" [formControl]="date" readonly class="bg-transparent text-erp-gray-500 font-medium text-sm pointer-events-none">
+                <mat-datepicker #dp></mat-datepicker>
+            </div>
           </div>
-          <div class="mt-4">
-            <p class="text-erp-gray-400 mb-2">Priority</p>
+          
+          <div class="mt-2">
+            <p class="text-erp-gray-400">Priority</p>
             <div class="priority relative inline-block text-left">
               <div class="flex items-center">
                 <button
@@ -206,39 +167,39 @@
                   type="button"
                   class="flex items-center gap-1 py-2 text-sm font-semibold text-gray-900"
                   id="menu-button"
-                
                   >
                   <div [ngClass]="{
-                    'flex items-center justify-center gap-[4px] bg-[#f8f9fc] w-fit my-[10px] rounded-xl': priority == 'Low',
-                    'flex items-center justify-center gap-[4px] bg-[#eff8ff] w-fit my-[10px] rounded-xl': priority == 'Medium',
-                    'flex items-center justify-center gap-[4px] bg-[#fffaeb] w-fit my-[10px] rounded-xl': priority == 'High',
-                    'flex items-center justify-center gap-[4px] bg-[#fef3f2] w-fit my-[10px] rounded-xl': priority == 'Urgent',
+                    'flex items-center justify-center gap-[4px] bg-[#f8f9fc] w-fit rounded-xl': priority == 'Low',
+                    'flex items-center justify-center gap-[4px] bg-[#eff8ff] w-fit rounded-xl': priority == 'Medium',
+                    'flex items-center justify-center gap-[4px] bg-[#fffaeb] w-fit rounded-xl': priority == 'High',
+                    'flex items-center justify-center gap-[4px] bg-[#fef3f2] w-fit rounded-xl': priority == 'Urgent',
                     }">
                     <div class="flex items-center">
                       <i [ngClass]="{
-                        'ph-bold ph-caret-down text-xs font-black text-[#363f72]': priority == 'Low',
-                        'ph-fill ph-dot-outline text-xs font-black text-[#175cd3]': priority == 'Medium',
-                        'ph-bold ph-caret-up text-xs font-black text-[#e1840c]': priority == 'High',
-                        'ph-bold ph-caret-double-up text-xs font-black text-[#f04438]': priority == 'Urgent',
-                        }"></i>
+                        'ph-bold ph-caret-down text-xs font-black text-[#363f72] mr-1': priority == 'Low',
+                        'ph-fill ph-dot-outline text-xs font-black text-[#175cd3] mr-1': priority == 'Medium',
+                        'ph-bold ph-caret-up text-xs font-black text-[#e1840c] mr-1': priority == 'High',
+                        'ph-bold ph-caret-double-up text-xs font-black text-[#f04438] mr-1': priority == 'Urgent',
+                        }">
+                      </i>
                       <p
                       [ngClass]="{
-                        'text-[#363f72] text-[14px] font-medium ml-1': priority == 'Low',
-                        'text-[#175cd3] text-[14px] font-medium ml-1': priority == 'Medium',
-                        'text-erp-warning-700 text-[14px] font-medium ml-1': priority == 'High',
-                        'text-[#b42318] text-[14px] font-medium ml-1': priority == 'Urgent',
+                        'text-[#363f72] text-sm font-medium' : priority == 'Low',
+                        'text-[#175cd3] text-sm font-medium': priority == 'Medium',
+                        'text-erp-warning-700 text-sm font-medium': priority == 'High',
+                        'text-[#b42318] text-sm font-medium': priority == 'Urgent',
                         'text-erp-gray-500 text-sm font-medium': priority == '',
                         }"
                         >
                         {{ priority || 'Select priority' }}
-  
+                        
                       </p>
                     </div>
                   </div>
                 </button>
               </div>
               <div
-              class="priority-icon absolute hidden bg-white right-[-10] z-50 mt-2 w-[300px] h-fit origin-top-right rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+              class="priority-icon absolute hidden bg-white lg:right-[-10] ml-[-18px] lg:ml-[-0px] z-50 mt-2 w-[300px] h-fit origin-top-right rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
               [class.!flex]="isDropdownPriorityOpen"
               role="menu"
               aria-orientation="vertical"
@@ -279,7 +240,7 @@
 
           <div class="mt-4 border border-solid border-erp-gray-200"></div>
           <div class="mt-6">
-            <p>Cover</p>
+            <p class="mb-2">Cover</p>
 
             <label
               class="custum-file-upload h-[100px] w-full rounded-xl flex flex-col gap-[5px] cursor-pointer items-center justify-center border border-erp-gray-200 bg-white p-[1.5rem]"
@@ -301,27 +262,23 @@
               <input type="file" id="file" />
             </label>
           </div>
-          <div class="mt-8 flex items-center">
-            <button class="flex items-center px-2 py-2 bg-red-50 rounded-lg">
-              <svg
-                width="18"
-                height="20"
-                viewBox="0 0 18 20"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M1.5 4.99984H3.16667M3.16667 4.99984H16.5M3.16667 4.99984V16.6665C3.16667 17.1085 3.34226 17.5325 3.65482 17.845C3.96738 18.1576 4.39131 18.3332 4.83333 18.3332H13.1667C13.6087 18.3332 14.0326 18.1576 14.3452 17.845C14.6577 17.5325 14.8333 17.1085 14.8333 16.6665V4.99984H3.16667ZM5.66667 4.99984V3.33317C5.66667 2.89114 5.84226 2.46722 6.15482 2.15466C6.46738 1.8421 6.89131 1.6665 7.33333 1.6665H10.6667C11.1087 1.6665 11.5326 1.8421 11.8452 2.15466C12.1577 2.46722 12.3333 2.89114 12.3333 3.33317V4.99984M7.33333 9.1665V14.1665M10.6667 9.1665V14.1665"
-                  stroke="#FF0000"
-                  stroke-width="1.67"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-              <button class="text-red-500 ml-2" (click)="openDialog()">
-                Delete this ticket
+          <div class="mt-8 lg:flex items-center lg:content-between gap-12 lg: w-full">
+            <div>
+              <button class="flex items-center px-2 py-2 bg-red-50 rounded-lg w-full">
+                <i class="ph-fill ph-trash h-5 flex items-center text-red-500"></i>
+                <button class="text-red-500 ml-2 w-full" (click)="openDialog()">
+                  Delete ticket
+                </button>
+              </button>
+            </div>
+            <div class="lg:mt-0 mt-2">
+              <button class="flex items-center px-2 py-2 bg-green-50 rounded-lg w-full">
+                <i class="ph-fill ph-check-circle h-5 flex items-center text-green-500"></i>
+              <button class="text-green-500 ml-2 w-full">
+                Submit ticket
               </button>
             </button>
+            </div>
           </div>
         </div>
       </div>
