@@ -29,5 +29,12 @@ export class WorkspaceService {
     return this.http.get<any>(this.stagesUrl, { headers });
   }
 
+  getAllUsers(workspaceId: number): Observable<any> {
+    const usersUrl = `${this.baseUrl}api/workspace/${workspaceId}/users/`;
+    const headers = new HttpHeaders({
+      'Authorization': `Token ${this.authToken}`
+    });
+    return this.http.get<any>(usersUrl, { headers });
+  }
   
 }

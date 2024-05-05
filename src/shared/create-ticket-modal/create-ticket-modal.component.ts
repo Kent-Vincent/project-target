@@ -7,7 +7,7 @@ import * as _moment from 'moment';
 import {default as _rollupMoment} from 'moment';
 import {MomentDateAdapter, MAT_MOMENT_DATE_ADAPTER_OPTIONS} from '@angular/material-moment-adapter';
 import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
-
+import { WorkspaceService } from 'src/app/commons/services/workspace.service'; 
 
 const moment = _rollupMoment || _moment;
 
@@ -59,7 +59,7 @@ export class CreateTicketModalComponent {
   filed_by: string = '';
   cover_photo: string = '';
 
-  constructor(public dialog: MatDialog, private breakpointObserver: BreakpointObserver) {}
+  constructor(public dialog: MatDialog, private breakpointObserver: BreakpointObserver, private workspaceService: WorkspaceService) {}
 
   currentDate = new Date();
 
