@@ -1,11 +1,12 @@
 <top-nav></top-nav>
 
-
-
-
-
-<!-- <div class="flex flex-col justify-start items-start lg:flex-row lg:justify-between lg:items-center gap-1 px-6 py-4">
-  <h2 class="text-2xl font-semibold">Software development</h2>
+<div class="flex flex-col justify-start items-start lg:flex-row lg:justify-between lg:items-center gap-1 px-6 py-4">
+  <span [ngClass]="{ 'hidden': workspaceName }">
+    <h2 class="text-2xl font-semibold">Untitled</h2>
+  </span>
+  <span [ngClass]="{ 'hidden': !workspaceName }">
+    <h2 class="text-2xl font-semibold">{{ workspaceName }}</h2>
+  </span>
   <button class="bg-gray-900 text-white px-4 py-2 flex flex-row justify-start items-center gap-2 rounded-lg">
     <svg 
       width="20" 
@@ -28,4 +29,4 @@
   
   </button>
 </div> 
---> 
+

@@ -61,13 +61,13 @@
                 aria-haspopup="true"
               >
               <div>
-                <img *ngIf="currentUser?.avatar; else defaultAvatar" [src]="getAvatarUrl(currentUser.avatar)" class="bg-cover w-[30px] h-[30px] rounded-lg">
+                <img *ngIf="currentUser?.avatar; else defaultAvatar" [src]="getAvatarUrl(currentUser?.avatar)" class="bg-cover w-[30px] h-[30px] rounded-lg">
                 <ng-template #defaultAvatar>
                     <img src="assets/images/avatar-sample.svg" class="bg-cover w-[30px] h-[30px] rounded-lg">
                 </ng-template>
               </div>
               <p class="text-[14px] font-medium text-gray-500">
-                  {{ currentUser?.name ? currentUser.name : currentUser.email }}
+                  {{ currentUser?.name ? currentUser.name : currentUser?.email }}
               </p>
               <i *ngIf="!isDropdownOpen"  class="ph-bold ph-caret-down"></i>
               <i *ngIf="isDropdownOpen" class="ph-bold ph-caret-up"></i>
@@ -138,7 +138,7 @@
             <img src="assets/images/avatar-sample.svg" class="h-16 rounded-lg">
         </ng-template>
         <p class="text-2xl font-medium">
-            {{ currentUser?.name ? currentUser.name : currentUser.email }}
+            {{ currentUser?.name ? currentUser.name : currentUser?.email }}
         </p>
       </div>
   
