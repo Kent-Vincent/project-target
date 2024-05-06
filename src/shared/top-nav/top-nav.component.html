@@ -23,35 +23,18 @@
       </a>
   
       <div class="hidden lg:flex flex-row justify-start items-center gap-1 font-medium text-erp-gray-700">
-        <a class="py-[8px] px-[12px] text-gray-700 rounded-md hover:bg-gray-50 hover:cursor-pointer">
-          Home
-        </a>
-  
-          <div class="flex gap-2 justify-start items-center cursor-default">
-            <a class="py-[8px] px-[12px] text-gray-700 flex items-center gap-1 rounded-md hover:bg-gray-50 hover:cursor-pointer">
-              Workspaces
-            <i class="ph-bold ph-caret-down text-gray-400"></i>
+        <div class="flex gap-2 justify-start items-center cursor-default">
+          <a class="py-[8px] px-[12px] text-gray-700 flex items-center gap-1 rounded-md hover:bg-gray-50 hover:cursor-pointer">
+            Workspaces
+          <i class="ph-bold ph-caret-down text-gray-400"></i>
           </a>
-          </div>     
-          <div class="flex gap-2 justify-start items-center cursor-default">
-            <a class="py-[8px] px-[12px] text-gray-700 flex items-center gap-2 rounded-md hover:bg-gray-50 hover:cursor-pointer">
-              <i class="ph-bold ph-plus text-gray-700"></i>
-              Create workspace           
-          </a>
-          </div>  
+        </div>
       </div>
     </div>
   
     <div class="hidden lg:flex flex-row justify-start items-center">
       <div class="flex items-center">
         <div>
-          <!-- <ng-container let user for user>
-                            {{user.avatarImagePath}}
-                            <p>{{user.name}}</p>
-                        </ng-container> -->
-         
-
-          <!--  -->
           <div class="relative inline-block text-left">
             <div>
               <button
@@ -62,8 +45,15 @@
                 aria-expanded="true"
                 aria-haspopup="true"
               >
-              <div class="avatar bg-avatar bg-cover w-[30px] h-[30px]"></div>
-              <p class="text-[14px] font-medium text-gray-500">Restie Antiquin</p>
+              <div>
+                <img *ngIf="currentUser?.avatar; else defaultAvatar" [src]="getAvatarUrl(currentUser?.avatar)" class="bg-cover w-[30px] h-[30px] rounded-lg">
+                <ng-template #defaultAvatar>
+                    <img src="assets/images/avatar-sample.svg" class="bg-cover w-[30px] h-[30px] rounded-lg">
+                </ng-template>
+              </div>
+              <p class="text-[14px] font-medium text-gray-500">
+                  {{ currentUser?.name ? currentUser.name : currentUser?.email }}
+              </p>
               <i *ngIf="!isDropdownOpen"  class="ph-bold ph-caret-down"></i>
               <i *ngIf="isDropdownOpen" class="ph-bold ph-caret-up"></i>
                 <!-- <svg
@@ -95,8 +85,16 @@
                   role="menuitem"
                   tabindex="-1"
                   id="menu-item-0"
-                  >View Profile</a
+                  >View profile</a
                 >
+                <a
+                  (click)="openDialog()"
+                  class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-50 w-full cursor-pointer"
+                  role="menuitem"
+                  tabindex="-1"
+                  id="menu-item-1"
+                  >Create workspace</a
+                >           
                 <a
                   (click)="logout()"
                   class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-50 w-full cursor-pointer"
@@ -128,8 +126,13 @@
   >
     <div class="flex flex-col justify-start items-stretch gap-8">
       <div class="flex flex-col justify-start items-start gap-1">
-        <img src="assets/images/avatar-sample.svg" alt="avatar" class="h-16" />
-        <h6 class="text-2xl font-medium">Restie Antiquin</h6>
+        <img *ngIf="currentUser?.avatar; else defaultAvatar" [src]="getAvatarUrl(currentUser.avatar)" class="h-16 rounded-lg">
+        <ng-template #defaultAvatar>
+            <img src="assets/images/avatar-sample.svg" class="h-16 rounded-lg">
+        </ng-template>
+        <p class="text-2xl font-medium">
+            {{ currentUser?.name ? currentUser.name : currentUser?.email }}
+        </p>
       </div>
   
       <div class="flex flex-col justify-start items-stretch gap-2 text-xl">

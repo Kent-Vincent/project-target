@@ -3,7 +3,8 @@
     <div class="flex justify-center mb-8">
       <img src="assets/images/target-logo.svg">
     </div>
-      <div class="rounded-xl overflow-hidden shadow-none py-5 px-5 lg:shadow-2xl">
+    <div class="rounded-xl overflow-hidden shadow-none py-5 px-5 lg:shadow-2xl">
+      <form (ngSubmit)="login()">
         <div class="flex items-center justify-center mb-10 mt-10">
           <div>
             <div class="text-center">
@@ -16,31 +17,26 @@
         </div>
         <div class="input-text">
           <p class="text-sm text-erp-gray-700">Email</p>
-          <input [(ngModel)]="email" type="text" placeholder="Enter your email" class="placeholder:text-erp-gray-500 w-full py-1 pl-2 ml-1 mt-2.5 border border-solid rounded-lg border-erp-gray-300">
+          <input [(ngModel)]="email" type="text" name="email" placeholder="Enter your email" class="placeholder:text-erp-gray-500 w-full py-1 pl-2 ml-1 mt-2.5 border border-solid rounded-lg border-erp-gray-300">
         </div>
         <div class="input-text mt-2.5">
           <p class="text-sm text-erp-gray-700">Password</p>
-          <input [(ngModel)]="password" type="password" placeholder="******" class="placeholder:text-erp-gray-500 w-full py-1 pl-2 ml-1 mt-2.5 border border-solid rounded-lg border-erp-gray-300">
+          <input [(ngModel)]="password" type="password" name="password" placeholder="******" class="placeholder:text-erp-gray-500 w-full py-1 pl-2 ml-1 mt-2.5 border border-solid rounded-lg border-erp-gray-300">
         </div>
         <div class="flex items-center justify-between mt-6">
           <div>
-            <a href="" class="text-erp-primary-700 text-nowrap text-xs lg:text-sm">Create an account</a>
+            <a href="" class="text-erp-primary-900 text-nowrap text-xs lg:text-sm">Create an account</a>
           </div>
           <div>
-            <a href="" class="text-erp-primary-700 text-nowrap text-xs lg:text-sm">Forgot Password</a>
+            <a href="" class="text-erp-primary-900 text-nowrap text-xs lg:text-sm">Forgot Password</a>
           </div>
         </div>
         <div class="mt-6">
-          <button (click)="login()" class="w-full bg-erp-primary-600 border-none rounded-lg py-2">
+          <button type="submit" class="w-full bg-erp-primary-900 border-none rounded-lg py-2">
             <span class="text-white">Sign in</span>
-          </button> 
-        </div>
-        <div class="mt-4">
-          <button class="w-full border-erp-primary-600 py-2 border border-solid rounded-lg flex items-center justify-center">
-            <img src="assets/images/google-logo.svg" class="mr-2">
-            Continue with Google
           </button>
         </div>
+      </form>
     </div>
   </div>
 </div>

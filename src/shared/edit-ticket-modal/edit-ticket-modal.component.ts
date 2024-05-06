@@ -9,8 +9,6 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
   styleUrls: ['./edit-ticket-modal.component.css']
 })
 export class EditTicketModalComponent {
-  @Input() public ticket!: Ticket;
-  @Input() public user!: User;
   isMobile: boolean = false;
 
   constructor(public dialog: MatDialog, private breakpointObserver: BreakpointObserver) {}

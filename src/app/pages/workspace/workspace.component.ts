@@ -1,116 +1,57 @@
-import { Component, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { CreateTicketModalComponent } from '../../../shared/create-ticket-modal/create-ticket-modal.component';
-import { EditTicketModalComponent } from '../../../shared/edit-ticket-modal/edit-ticket-modal.component';
+import { WorkspaceService } from 'src/app/commons/services/workspace.service';
+import { StageService } from 'src/app/commons/services/stage.service';
 
 @Component({
   selector: 'app-workspace',
   templateUrl: './workspace.component.html',
   styleUrls: ['./workspace.component.css'],
 })
-export class WorkspaceComponent {
-  constructor(private dialog: MatDialog) {}
+export class WorkspaceComponent implements OnInit {
+  workspaceName: string = '';
+  stageName: string[] = [];
+
+  constructor(private dialog: MatDialog, private workspaceService: WorkspaceService,
+    private stageService: StageService,
+  ) {}
+  
+  ngOnInit(): void {
+    this.workspaceService.getWorkspaceName().subscribe(
+      (data) => {
+        this.workspaceName = data.workspace_name;
+      },
+      (error) => {
+        console.error('Error fetching workspace name:', error);
+      }
+    );
+    this.stageService.getStages().subscribe(
+      (data) => {
+        this.stageName = data.map((stage: any) => stage.stage_name);
+        console.log(data);
+      },
+      (error) => {
+        console.error('Error fetching stage name:', error);
+      }
+    )
+  }
 
   openDialog() {
     this.dialog.open(CreateTicketModalComponent,{
-    // this.dialog.open(EditTicketModalComponent,{
       
     });
   }
 
-  ticketCategories: TicketCategory[] = [
-    {
-      name: "Todo",
-      tickets: [
-        {
-          id: 'TCV-01',
-          title: 'Create a new ticket',
-          deadline: new Date(),
-          description: 'Create a new ticket for the user',
-          labels: ['UX Writing'],
-          priority: 'Medium',
-          assignedUsers: [{
-            name: 'Jane Doe',
-            avatarImagePath: ''
-          }],
-          createdBy: {
-            name: 'John Doe',
-            avatarImagePath: '',
-          },
-          stopwatchSeconds: 0,
-        },
-        {
-          id: 'TCV-01',
-          title: 'Create a new ticket',
-          deadline: new Date(),
-          description: 'Create a new ticket for the user',
-          labels: ['UX Writing'],
-          priority: 'Medium',
-          assignedUsers: [{
-            name: 'Jane Doe',
-            avatarImagePath: '',
-          }],
-          createdBy: {
-            name: 'John Doe',
-            avatarImagePath: '',
-          },
-          stopwatchSeconds: 0,
-        },
-        {
-          id: 'TCV-01',
-          title: 'Create a new ticket',
-          deadline: new Date(),
-          description: 'Create a new ticket for the user',
-          labels: ['UX Writing'],
-          priority: 'Medium',
-          assignedUsers: [{
-            name: 'Jane Doe',
-            avatarImagePath: '',
-          }],
-          createdBy: {
-            name: 'John Doe',
-            avatarImagePath: '',
-          },
-          stopwatchSeconds: 0,
-        }
-      ]
-    },
-    {
-      name: "Doing",
-      tickets: []
-    },
-    {
-      name: "Done",
-      tickets: [
-        {
-          id: 'TCV-01',
-          title: 'Create a new ticket',
-          deadline: new Date(),
-          description: 'Create a new ticket for the user',
-          labels: ['UX Writing'],
-          priority: 'Medium',
-          assignedUsers: [{
-            name: 'Jane Doe',
-            avatarImagePath: '',
-          }],
-          createdBy: {
-            name: 'John Doe',
-            avatarImagePath: '',
-          },
-          stopwatchSeconds: 0,
-        },
-      ]
-    }
-  ];
-  selectedCategory: TicketCategory = this.ticketCategories[0];
-  isCategoryDropdownOpen: boolean = false;
+  // selectedCategory: TicketCategory = this.ticketCategories[0];
+  // isCategoryDropdownOpen: boolean = false;
 
-  toggleCategoryDropdown() {
-    this.isCategoryDropdownOpen = !this.isCategoryDropdownOpen;
-  }
+  // toggleCategoryDropdown() {
+  //   this.isCategoryDropdownOpen = !this.isCategoryDropdownOpen;
+  // }
 
-  selectCategory(category: TicketCategory) {
-    this.selectedCategory = category;
-    this.isCategoryDropdownOpen = false;
-  }
+  // selectCategory(category: TicketCategory) {
+  //   this.selectedCategory = category;
+  //   this.isCategoryDropdownOpen = false;
+  // }
 }

@@ -8,7 +8,7 @@ import { RegisterService } from 'src/app/commons/services/register.service';
 })
 export class SignupComponent {
   
-  username: string = '';
+  name: string = '';
   email: string = '';
   password: string = '';
   re_password: string = '';
@@ -20,7 +20,7 @@ export class SignupComponent {
     if (this.password != this.re_password){
       console.error('Your Password Is Not The Same!');
     }
-    else if (this.username == '') {
+    else if (this.name == '') {
       console.log('Empty Username');
     }
     else if(this.email == ''){
@@ -33,10 +33,11 @@ export class SignupComponent {
       console.log('Empty Re Password')
     }
     else{
-      this.registerService.register(this.email, this.password)
+      this.registerService.register(this.name, this.email, this.password)
       .subscribe(
         (response) => {
           console.log('Registration successful:', response);
+          // Put a path after regisitration!
         },
         (error) => {
           if (error.error.email == 'user with this email already exists.') {
