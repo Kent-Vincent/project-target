@@ -7,7 +7,7 @@ import { AuthTokenService } from './auth-token.service';
   providedIn: 'root'
 })
 export class WorkspaceService {
-  private baseUrl = 'http://127.0.0.1:8000/'
+  private baseUrl = 'http://10.0.254.20:8000/'
   
   private workspacesUrl = this.baseUrl + 'api/workspace/current/workspace';
   constructor(private http: HttpClient, private authTokenService: AuthTokenService) { }

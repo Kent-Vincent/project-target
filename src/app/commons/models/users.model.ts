@@ -20,3 +20,12 @@ export class CurrentUserLoggedAvatar{
     public avatar: string,
   ) {}
 }
+
+export interface Login{
+  email: string;
+  password: string;
+}
+export interface Auth{
+  token: string;
+  key: string;
+}

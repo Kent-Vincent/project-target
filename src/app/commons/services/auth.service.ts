@@ -2,18 +2,20 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { AuthTokenService } from './auth-token.service';
+import { API_LOGIN } from '../constants/api.constant';
+import { Auth, Login } from '../models/users.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  private apiUrl = 'http://127.0.0.1:8000/';
+  private apiUrl = 'http://10.0.254.20:8000/';
 
   constructor(private http: HttpClient, private authTokenService: AuthTokenService) { }
 
-  login(email: string, password: string): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}api/users/login/`, { email, password });
+  login(data:Login|FormData) {
+    return this.http.post<Auth>(API_LOGIN, data);
   }
 
   logout(): void {
