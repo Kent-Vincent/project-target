@@ -18,7 +18,7 @@ module.exports = {
         'erp-gray-100': '#F2F4F7',
         'erp-gray-200': '#EAECF0',
         'erp-gray-300': '#9BB0C1',
-        'erp-gray-400': '#98A2B3',
+        'erp-gray-400': '#97a1b2',
         'erp-gray-500': '#667085',
         'erp-gray-700': '#344054',
         'erp-gray-900': '#101828',
