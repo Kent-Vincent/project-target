@@ -8,8 +8,11 @@ module.exports = {
     extend: {
       colors: {
         'white': '#ffffff',
-        'erp-primary-600': '#7F56D9',
-        'erp-primary-700': '#6941C6',
+        'erp-primary-600': '#7f56d9',
+        'erp-primary-700': '#6a3dc4',
+        'erp-primary-800': '#5933a4',
+        'erp-primary-900': '#4a2b87',
+        'erp-primary-950': '#2d1a5b',
         
         'erp-gray-50': '#F9FAFB',
         'erp-gray-100': '#F2F4F7',
@@ -39,6 +42,8 @@ module.exports = {
         'icon4': "url('assets/images/task.svg')",
         'upload': "url('assets/images/upload.svg')",
         'avatar': "url('assets/images/avatar-sample.svg')",
+        'bg-create-workspace': "url('assets/images/bg-workspace.png')",
+        'img-workspace': "url('assets/images/workspace-img')",
         }
     },
   },
