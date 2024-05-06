@@ -9,3 +9,15 @@ export class LoginForm extends Form {
     super(fields);
   }
 }
+
+export class SignupForm extends Form{
+  constructor() {
+    const fields: any = {
+      name: new FormControl(null, [Validators.required]),
+      email: new FormControl(null, [Validators.required, Validators.email]),
+      password: new FormControl(null, [Validators.required]),
+      re_password: new FormControl(null, [Validators.required]),
+    }
+    super(fields)
+  }
+}

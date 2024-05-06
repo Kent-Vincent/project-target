@@ -29,3 +29,9 @@ export interface Auth{
   token: string;
   key: string;
 }
+
+export interface Register{
+  name: String;
+  email: String;
+  password: String;
+}
