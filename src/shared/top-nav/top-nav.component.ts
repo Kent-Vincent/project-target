@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { AuthService } from 'src/app/commons/services/auth.service';
 import { Router } from '@angular/router';
+import { CreateWorkspaceModalComponent } from '../create-workspace-modal/create-workspace-modal.component';
+import { MatDialog } from '@angular/material/dialog';
 @Component({
   selector: 'top-nav',
   templateUrl: './top-nav.component.html',
@@ -9,6 +11,8 @@ import { Router } from '@angular/router';
 export class TopNavComponent {
   currentUser: any;
   isNavMenuOpen = false;
+
+  constructor(private authService: AuthService, private router: Router, public dialog: MatDialog) {} 
 
   ngOnInit(): void {
     this.authService.getCurrentUser().subscribe(
@@ -20,6 +24,10 @@ export class TopNavComponent {
       }
     );
   }
+
+  openDialog() {
+    this.dialog.open(CreateWorkspaceModalComponent,{});
+  }
   
   getAvatarUrl(avatarPath: string): string {
     return 'http://127.0.0.1:8000' + avatarPath;
@@ -29,11 +37,9 @@ export class TopNavComponent {
     this.isNavMenuOpen = !this.isNavMenuOpen;
   }
 
-  constructor(private authService: AuthService, private router: Router) {} 
-
- viewProfile(){
-  this.router.navigate(['/view-profile']);
- }
+  viewProfile(){
+    this.router.navigate(['/view-profile']);
+  }
 
   logout(): void {
     this.authService.logout(); 
