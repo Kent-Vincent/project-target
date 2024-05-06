@@ -15,6 +15,7 @@ import { EditTicketModalComponent } from './edit-ticket-modal/edit-ticket-modal.
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
+import { CreateWorkspaceModalComponent } from './create-workspace-modal/create-workspace-modal.component';
 @NgModule({
   declarations: [
     CreateTicketModalComponent,
@@ -22,6 +23,7 @@ import { MatSelectModule } from '@angular/material/select';
     EditTicketModalComponent,
     StopwatchComponent,
     TopNavComponent,
+    CreateWorkspaceModalComponent,
   ],
   imports: [
     CommonModule,
@@ -43,6 +45,7 @@ import { MatSelectModule } from '@angular/material/select';
     EditTicketModalComponent,
     StopwatchComponent,
     TopNavComponent,
+    CreateWorkspaceModalComponent,
   ]
 })
 export class SharedModule { }

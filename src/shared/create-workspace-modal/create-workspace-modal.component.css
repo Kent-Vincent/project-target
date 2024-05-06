@@ -1,0 +1,33 @@
+::ng-deep app-create-workspace{
+    border-radius: 70px;
+}
+::ng-deep .mat-mdc-dialog-container .mdc-dialog__content{
+    display: flex;
+    overflow: hidden;
+}
+
+::ng-deep .mat-h1, .mat-headline-5, .mat-typography .mat-h1, .mat-typography .mat-headline-5, .mat-typography h1, p{
+    margin: 0;
+}
+
+::ng-deep mat-mdc-button-touch-target{
+    height: 24px;
+    width: 24px;
+}
+
+.btn-highreso{
+    background-color: transparent;
+    height:24px ;
+    width: 24px;
+}
+
+
+@media screen and (max-width: 768px) {
+    ::ng-deep .mat-mdc-dialog-container .mdc-dialog__content{
+        overflow: auto;
+        padding: 0;
+    }
+    .btn-highreso{
+        margin: 16px 16px  0 0; 
+    }
+}
