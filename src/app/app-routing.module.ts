@@ -26,6 +26,11 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
+    path: 'create-workspace',
+    loadChildren: () => import('./pages/create-workspace/create-workspace.module').then(m => m.CreateWorkspaceModule),
+    canActivate: [AuthGuard]
+  },
+  {
     path: 'view-profile',
     loadChildren: () => import('./pages/view-profile/view-profile.module').then(m => m.ViewProfileModule)
   },
