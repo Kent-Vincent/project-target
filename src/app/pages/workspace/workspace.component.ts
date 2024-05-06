@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { CreateTicketModalComponent } from '../../../shared/create-ticket-modal/create-ticket-modal.component';
 import { WorkspaceService } from 'src/app/commons/services/workspace.service';
+import { StageService } from 'src/app/commons/services/stage.service';
 
 @Component({
   selector: 'app-workspace',
@@ -9,9 +10,12 @@ import { WorkspaceService } from 'src/app/commons/services/workspace.service';
   styleUrls: ['./workspace.component.css'],
 })
 export class WorkspaceComponent implements OnInit {
-  workspaceName: string = ''; 
+  workspaceName: string = '';
+  stageName: string[] = [];
 
-  constructor(private dialog: MatDialog, private workspaceService: WorkspaceService) {}
+  constructor(private dialog: MatDialog, private workspaceService: WorkspaceService,
+    private stageService: StageService,
+  ) {}
   
   ngOnInit(): void {
     this.workspaceService.getWorkspaceName().subscribe(
@@ -22,6 +26,15 @@ export class WorkspaceComponent implements OnInit {
         console.error('Error fetching workspace name:', error);
       }
     );
+    this.stageService.getStages().subscribe(
+      (data) => {
+        this.stageName = data.map((stage: any) => stage.stage_name);
+        console.log(data);
+      },
+      (error) => {
+        console.error('Error fetching stage name:', error);
+      }
+    )
   }
 
   openDialog() {
