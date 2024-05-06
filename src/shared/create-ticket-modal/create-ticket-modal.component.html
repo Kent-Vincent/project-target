@@ -104,9 +104,35 @@
                   </option>
                 </select> -->
               </ng-container>
-              <div class="relative inline-block text-left text-gray-500 text-sm font-medium" *ngIf="!users || users.length === 0">
-                <p>No users found</p>
-              </div>
+
+
+              <button
+  (click)="toggleDropDownAssignee()"
+  type="button"
+  class="flex items-center gap-[5px] py-2 text-sm font-semibold text-gray-900  rounded-xl"
+  id="menu-button"
+  aria-expanded="true"
+  aria-haspopup="true"
+>
+  <p class="text-sm font-medium text-erp-gray-500">{{ selectedAssignee }}</p>
+</button>
+
+<div
+  class="absolute hidden bg-white z-50 mt-2 w-[300px] origin-top-right rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+  [class.!flex]="isDropdownAssigneeOpen"
+  role="menu"
+  aria-orientation="vertical"
+  aria-labelledby="menu-button"
+>
+  <div class="py-1 w-full flex flex-col" role="none">
+    <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
+    <a (click)="selectAssignee('Restie Antiquin')" class="py-[10px] px-[14px] text-sm font-medium text-erp-gray-700 hover:cursor-pointer">Restie Antiquin</a>
+    <a (click)="selectAssignee('Hernan Jugar')" class="py-[10px] px-[14px] text-sm font-medium text-erp-gray-700 hover:cursor-pointer">Hernan Jugar</a>           
+    <a (click)="selectAssignee('John Doe')" class="py-[10px] px-[14px] text-sm font-medium text-erp-gray-700 hover:cursor-pointer">John Doe</a>           
+  </div>
+</div>
+
+
             </div>
           </div>
           <div class="mt-2">
@@ -162,7 +188,37 @@
             <p class="text-erp-gray-400">Priority</p>
             <div class="priority relative inline-block text-left">
               <div class="flex items-center">
+
                 <button
+                (click)="toggleDropDownPriority()"
+                type="button"
+                class="flex items-center gap-[5px] py-2 text-sm font-semibold text-gray-900  rounded-xl"
+                id="menu-button"
+                aria-expanded="true"
+                aria-haspopup="true"
+              >
+                <p class="text-sm font-medium text-erp-gray-500">
+                  {{ selectedPriority }}</p>
+              </button>
+              
+              <div
+                class="absolute top-10 hidden bg-white z-50 w-[300px] origin-top-right rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                [class.!flex]="isDropdownPriorityOpen"
+                role="menu"
+                aria-orientation="vertical"
+                aria-labelledby="menu-button"
+              >
+                <div class="py-1 w-full flex flex-col top-10" role="none">
+                  <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
+                  <a (click)="selectPriority('Low')" class="py-[10px] px-[14px] text-sm font-medium text-erp-gray-700 hover:cursor-pointer">
+                    <!-- <i class="ph-bold ph-caret-down text-[12px] font-black text-[#363f72]"></i> -->
+                    Low</a>
+                  <a (click)="selectPriority('Medium')" class="py-[10px] px-[14px] text-sm font-medium text-erp-gray-700 hover:cursor-pointer">Medium</a>           
+                  <a (click)="selectPriority('High')" class="py-[10px] px-[14px] text-sm font-medium text-erp-gray-700 hover:cursor-pointer">High</a>           
+                  <a (click)="selectPriority('Urgent')" class="py-[10px] px-[14px] text-sm font-medium text-erp-gray-700 hover:cursor-pointer">Urgent</a>           
+                </div>
+              </div>
+                <!-- <button
                   (click)="toggleDropDownPriority()"
                   type="button"
                   class="flex items-center gap-1 py-2 text-sm font-semibold text-gray-900"
@@ -196,9 +252,9 @@
                       </p>
                     </div>
                   </div>
-                </button>
+                </button> -->
               </div>
-              <div
+              <!-- <div
               class="priority-icon absolute hidden bg-white lg:right-[-10] ml-[-18px] lg:ml-[-0px] z-50 mt-2 w-[300px] h-fit origin-top-right rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
               [class.!flex]="isDropdownPriorityOpen"
               role="menu"
@@ -234,7 +290,7 @@
                 </div> 
               </button>      
               </div>
-            </div>
+            </div> -->
             </div>
           </div>
 

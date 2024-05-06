@@ -78,24 +78,61 @@ export class CreateTicketModalComponent {
     this.dialog.open(DeleteTicketModalComponent, {});
   }
 
-  isDropdownOpen = false;
-  isDropdownPriorityOpen = false;
+  // isDropdownOpen = false;
+  // isDropdownPriorityOpen = false;
 
-  toggleDropDown() {
-    this.isDropdownOpen = !this.isDropdownOpen;
-    console.log(this.isDropdownOpen);
+  // toggleDropDown() {
+  //   this.isDropdownOpen = !this.isDropdownOpen;
+  //   console.log(this.isDropdownOpen);
 
-    if (this.isDropdownPriorityOpen) {
-      this.isDropdownPriorityOpen = false;
-    }
-  }
+  //   if (this.isDropdownPriorityOpen) {
+  //     this.isDropdownPriorityOpen = false;
+  //   }
+  // }
 
-  toggleDropDownPriority() {
-    this.isDropdownPriorityOpen = !this.isDropdownPriorityOpen;
+  // toggleDropDownPriority() {
+  //   this.isDropdownPriorityOpen = !this.isDropdownPriorityOpen;
 
-    if (this.isDropdownOpen) {
-      this.isDropdownOpen = false;
-    }
-  }
+  //   if (this.isDropdownOpen) {
+  //     this.isDropdownOpen = false;
+  //   }
+  // }
 
+  // DROPDOWN PRIORITY
+  selectedPriority: any = "Low"; // Default selected assignee
+
+isDropdownPriorityOpen = false;
+
+toggleDropDownPriority(){
+  this.isDropdownPriorityOpen = !this.isDropdownPriorityOpen;
+}
+
+selectPriority(assignee: any) {
+  this.selectedPriority = assignee; // Update selected assignee
+  this.isDropdownPriorityOpen = false; // Close dropdown
+}
+
+
+
+
+  // isDropdownAssigneeOpen = false;
+  // toggleDropDownAssignee(){
+  //   this.isDropdownAssigneeOpen = !this.isDropdownAssigneeOpen;
+  //   console.log(this.isDropdownAssigneeOpen);
+  // }
+
+
+  // DROPDOWN ASSIGNEE
+  selectedAssignee: string = "Restie Antiquin"; // Default selected assignee
+
+isDropdownAssigneeOpen = false;
+
+toggleDropDownAssignee(){
+  this.isDropdownAssigneeOpen = !this.isDropdownAssigneeOpen;
+}
+
+selectAssignee(assignee: string) {
+  this.selectedAssignee = assignee; // Update selected assignee
+  this.isDropdownAssigneeOpen = false; // Close dropdown
+}
 }
