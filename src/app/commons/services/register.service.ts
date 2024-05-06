@@ -10,11 +10,11 @@ export class RegisterService {
 
   constructor(private http: HttpClient) { }
 
-  register(email: string, password: string): Observable<any> {
+  register(name: string, email: string, password: string): Observable<any> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json'
     });
-    const body = { email, password };
+    const body = { name, email, password };
     return this.http.post<any>(`${this.apiUrl}register/`, body, { headers });
   }
 }
