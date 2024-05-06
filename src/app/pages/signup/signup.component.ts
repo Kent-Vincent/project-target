@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { catchError } from 'rxjs';
+import { SignupForm } from 'src/app/commons/forms/public.form';
+import { AuthTokenService } from 'src/app/commons/services/auth-token.service';
 import { RegisterService } from 'src/app/commons/services/register.service';
 
 @Component({
@@ -7,47 +11,39 @@ import { RegisterService } from 'src/app/commons/services/register.service';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent {
-  
-  name: string = '';
-  email: string = '';
-  password: string = '';
-  re_password: string = '';
+  Form = new SignupForm();
 
-  constructor(private registerService: RegisterService) {} 
+  constructor(private registerService: RegisterService, public router: Router,
+    private authTokenService: AuthTokenService,
+  ) {} 
 
-  register(): void{
+  register(form: SignupForm['form']): void{
+    if (form.invalid) {
+      console.error('Please fill in all required fields correctly.');
+      return;
+    }
 
-    if (this.password != this.re_password){
-      console.error('Your Password Is Not The Same!');
+    if (form.value.password != form.value.re_password) {
+      console.error('Passwords do not match.');
+      return;
     }
-    else if (this.name == '') {
-      console.log('Empty Username');
-    }
-    else if(this.email == ''){
-      console.log('Empty Email');
-    }
-    else if(this.password == ''){
-      console.log('Empty Password');
-    }
-    else if(this.re_password == ''){
-      console.log('Empty Re Password')
-    }
-    else{
-      this.registerService.register(this.name, this.email, this.password)
-      .subscribe(
-        (response) => {
-          console.log('Registration successful:', response);
-          // Put a path after regisitration!
-        },
-        (error) => {
-          if (error.error.email == 'user with this email already exists.') {
-            console.error('This email is already taken!');
-          }
-          else{
-            console.error('Registration failed:', error);
-          }
+
+    this.registerService.register(form.value)
+    .pipe(
+      catchError(error => {
+        if (error.error.email == 'user with this email already exists.') {
+          console.error('This email is already taken!');
         }
-      );
-    }
+        else{
+          console.error('Registration failed:', error);
+        }
+        throw error;
+      })
+    )
+    .subscribe(response => {
+        console.log('Registration successful:', response);
+        this.authTokenService.setAuthToken(response.token);
+        this.router.navigate(['/create-workspace']);
+    });
   }
 }
