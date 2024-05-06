@@ -91,7 +91,7 @@
           class="w-[40%] max-lg:w-full rounded-xl mt-16 lg:mt-0 bg-erp-gray-50 p-6"
         >
           <div>
-            <p class="text-erp-gray-400 text-sm">Assignee</p>
+            <p class="text-erp-gray-400 text-sm font-normal">Assignee</p>
           </div>
           <div class="flex items-center mt-2">
             <div>
@@ -104,20 +104,20 @@
                   </option>
                 </select> -->
               </ng-container>
-              <div class="relative inline-block text-left" *ngIf="!users || users.length === 0">
+              <div class="relative inline-block text-left text-gray-500 text-sm font-medium" *ngIf="!users || users.length === 0">
                 <p>No users found</p>
               </div>
             </div>
           </div>
           <div class="mt-2">
-            <p class="text-erp-gray-400 mb-2">Date created</p>
+            <p class="text-erp-gray-400 text-sm font-normal mb-2">Date created</p>
             <div class="flex">
             <svg
               width="18"
               height="20"
               viewBox="0 0 18 20"
               fill="none"
-              class="text-erp-gray-500"
+              class="text-erp-gray-400"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
@@ -128,11 +128,11 @@
                 stroke-linejoin="round"
               />
             </svg>
-            <p class="pl-3 text-erp-gray-500 font-medium text-sm">{{ currentDate | date: 'MMM d, yyyy' }}</p>
+            <p class="pl-3 text-erp-gray-400 font-medium text-sm">{{ currentDate | date: 'MMM d, yyyy' }}</p>
             </div>
           </div>
           <div class="mt-2">
-            <p class="text-erp-gray-400 mb-2">Due Date</p>
+            <p class="text-erp-gray-400 text-sm font-normal mb-2">Due Date</p>
             <div class="flex items-center">
               <div class="custom-datepicker-toggle mr-3 flex items-center" (click)="dp.open()">
                 <div class="matDatepickerToggleIcon">
@@ -263,22 +263,22 @@
             </label>
           </div>
           <div class="mt-8 lg:flex items-center lg:content-between gap-12 lg: w-full">
-            <div>
-              <button class="flex items-center px-2 py-2 bg-red-50 rounded-lg w-full">
-                <i class="ph-fill ph-trash h-5 flex items-center text-red-500"></i>
-                <button class="text-red-500 ml-2 w-full" (click)="openDialog()">
-                  Delete ticket
+            <div>                 
+                <button class="text-sm font-medium flex items-center gap-2 text-erp-gray-500 rounded-sm w-full" (click)="openDialog()">
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8.58979 11.4101L12.6283 7.37166M16.7594 4.90707L13.3505 15.9859C13.045 16.9787 12.8922 17.4754 12.6287 17.64C12.4001 17.7828 12.1172 17.8067 11.8683 17.7034C11.5813 17.5843 11.3483 17.1193 10.8836 16.1898L8.72448 11.8716C8.65073 11.7241 8.61382 11.6507 8.56457 11.5868C8.52085 11.53 8.47041 11.479 8.4137 11.4352C8.35125 11.3871 8.27904 11.351 8.13813 11.2806L3.80993 9.11646C2.8805 8.65175 2.41575 8.41918 2.29666 8.13216C2.19338 7.88325 2.21693 7.60003 2.35973 7.37148C2.52439 7.10795 3.02102 6.95486 4.01419 6.64927L15.093 3.2404C15.8738 3.00015 16.2644 2.88012 16.5281 2.97695C16.7578 3.06128 16.9389 3.24221 17.0233 3.47193C17.12 3.73553 16.9999 4.12589 16.7599 4.90591L16.7594 4.90707Z" stroke="#667085" stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  Submit this ticket
                 </button>
-              </button>
             </div>
-            <div class="lg:mt-0 mt-2">
+            <!-- <div class="lg:mt-0 mt-2">
               <button class="flex items-center px-2 py-2 bg-green-50 rounded-lg w-full">
                 <i class="ph-fill ph-check-circle h-5 flex items-center text-green-500"></i>
               <button class="text-green-500 ml-2 w-full">
                 Submit ticket
               </button>
             </button>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>

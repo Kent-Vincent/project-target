@@ -6,3 +6,7 @@
   .custum-file-upload input {
     display: none;
   }
+
+  ::ng-deep .mat-calendar-body-selected{
+    background-color: #4A2B87 !important;
+  }
