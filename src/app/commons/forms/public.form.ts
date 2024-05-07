@@ -21,3 +21,12 @@ export class SignupForm extends Form{
     super(fields)
   }
 }
+
+export class WorkspaceForm extends Form{
+  constructor() {
+    const fields: any = {
+      workspace_name: new FormControl(null, [Validators.required]),
+    }
+    super(fields)
+  }
+}
