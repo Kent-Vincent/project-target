@@ -1,22 +1,4 @@
 <div class="max-sm:flex max-2xl:hidden max-sm:w-full max-sm:justify-end max-sm:items-center max-sm:pt-4 max-sm:pr-4">
-    <button mat-dialog-close class="max-sm:block max-2xl:hidden max-sm:h-6">
-        <svg
-          width="12"
-          height="12"
-          viewBox="0 0 12 12"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M11 1L1 11M1 1L11 11"
-            stroke="#667085"
-            stroke-width="1.66667"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-        </svg>
-      </button>
-    </div>
     <mat-dialog-content class="mat-typography bg-bg-create-workspace min-h-[35rem] bg-no-repeat bg-cover bg-center gap-14 max-sm:bg-none">
         <div class="form-container w-[50%] flex flex-col gap-[24px] px-[40px] py-[30px] max-sm:gap-4 max-sm:w-full max-md:px-4 max-md:py-4">
             <div class="title flex flex-col gap-[10px]">  
@@ -25,13 +7,13 @@
                 </h1>
                 <p class="text-gray-500 font-light max-sm:text-sm">Boost your productivity by making it easier for everyone to access boards in one location.</p>
             </div>
-            <form action="" class="flex flex-col gap-[24px] justify-center max-sm:gap-4">
+            <form [formGroup]="Form.form" (ngSubmit)="create(Form.form)" class="flex flex-col gap-[24px] justify-center max-sm:gap-4">
                 <div class="flex flex-col gap-1">
                     <label for="workspaceName" class="text-lg font-medium text-erp-gray-900 max-sm:text-lg">Workspace name</label>
-                    <input type="text" class="bg-white text-sm text-black font-medium p-4 placeholder-gray-200 rounded-xl border-erp-gray-200 border border-solid max-sm:text-sm " placeholder="Target">
+                    <input formControlName="workspace_name" type="text" class="bg-white text-sm text-black font-medium p-4 placeholder-gray-200 rounded-xl border-erp-gray-200 border border-solid max-sm:text-sm " placeholder="Target">
                 </div>
+                <button type="submit" class="w-full bg-purple-900 rounded-lg py-[10px] px-[18px] font-medium text-white max-sm:text-sm">Create</button>
             </form>
-            <button type="submit" class="w-full bg-purple-900 rounded-lg py-[10px] px-[18px] font-medium text-white max-sm:text-sm">Create</button>
         </div>
 
         <div class="image-container w-[50%] min-h-full max-sm:hidden">
@@ -45,6 +27,5 @@
                 <img src="../../assets/images/workspace-img.svg" class="h-[15rem]" alt="workspace">
             </div>
         </div>
-
-
     </mat-dialog-content>
+</div>

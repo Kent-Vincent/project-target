@@ -41,7 +41,6 @@ export class SignupComponent {
       })
     )
     .subscribe(response => {
-        console.log('Registration successful:', response);
         this.authTokenService.setAuthToken(response.token);
         this.router.navigate(['/create-workspace']);
     });
