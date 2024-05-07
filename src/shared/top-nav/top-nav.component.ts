@@ -3,6 +3,7 @@ import { AuthService } from 'src/app/commons/services/auth.service';
 import { Router } from '@angular/router';
 import { CreateWorkspaceModalComponent } from '../create-workspace-modal/create-workspace-modal.component';
 import { MatDialog } from '@angular/material/dialog';
+import { CurrentUserService } from 'src/app/commons/services/current-user.service';
 @Component({
   selector: 'top-nav',
   templateUrl: './top-nav.component.html',
@@ -12,11 +13,15 @@ export class TopNavComponent {
   currentUser: any;
   isNavMenuOpen = false;
 
-  constructor(private authService: AuthService, private router: Router, public dialog: MatDialog) {} 
+  constructor(private authService: AuthService, private router: Router, public dialog: MatDialog,
+    private userID: CurrentUserService,
+  ) {} 
 
   ngOnInit(): void {
     this.authService.getCurrentUser().subscribe(
       (user: any) => {
+        const ID = user.users_ID
+        this.userID.setCurrentUserID(ID);
         this.currentUser = user;
       },
       (error) => {
@@ -42,7 +47,8 @@ export class TopNavComponent {
   }
 
   logout(): void {
-    this.authService.logout(); 
+    this.authService.logout();
+    this.userID.clearCurrentUserID();
     location.reload();
   }
 
