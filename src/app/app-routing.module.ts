@@ -31,6 +31,11 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
+    path: 'boards',
+    loadChildren: () => import('./pages/boards/boards.module').then(m => m.BoardsModule),
+    canActivate: [AuthGuard]
+  },
+  {
     path: 'view-profile',
     loadChildren: () => import('./pages/view-profile/view-profile.module').then(m => m.ViewProfileModule)
   },
