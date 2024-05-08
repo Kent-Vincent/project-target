@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { AuthTokenService } from './auth-token.service';
 import { API_WORKSPACE_CREATE, API_WORKSPACE_ID } from '../constants/api.constant';
 import { Workspace } from '../models/workspace.model';
-import { CurrentUserService } from './current-user.service';
+import { catchError, map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -14,11 +14,17 @@ export class WorkspaceService {
 
   authToken = this.authTokenService.getAuthToken();
 
-  getWorkspaceName(): Observable<any> {
+  getWorkspaceNames(): Observable<string[]> {
     const headers = new HttpHeaders({
       'Authorization': `Token ${this.authToken}`
     });
-    return this.http.get<any>(API_WORKSPACE_ID, { headers: headers});
+    return this.http.get<any[]>(API_WORKSPACE_ID, { headers: headers}).pipe(
+      map(workspaces => workspaces.map(workspace => workspace.workspace_name)),
+      catchError(error => {
+        console.error('Error fetching workspace names:', error);
+        throw error;
+      })
+    );
   }
 
   createWorkspace(data:Workspace|FormData) {

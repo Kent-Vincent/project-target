@@ -30,6 +30,10 @@ export class TopNavComponent {
     );
   }
 
+  toBoards(){
+    this.router.navigate(['/boards'])
+  }
+
   openDialog() {
     this.dialog.open(CreateWorkspaceModalComponent,{});
   }
