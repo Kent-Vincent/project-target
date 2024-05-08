@@ -26,7 +26,7 @@ export class BoardsComponent {
   workspaceID(workspaceIndex: number): void {
   const selectedWorkspaceID = this.workspaces[workspaceIndex].ID;
   console.log(selectedWorkspaceID)
-  
+  this.router.navigate(['/workspace'], { queryParams: { id: selectedWorkspaceID } });
   
   }
 }
