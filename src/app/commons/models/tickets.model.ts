@@ -1,7 +1,6 @@
 import { CurrentUserLoggedAvatar, CurrentUserLoggedName } from "./users.model";
 
-export class Tickets{
-  constructor (
+export interface Tickets{
     ticket_title: string,
     ticket_name: string,
     description: string,
@@ -14,5 +13,4 @@ export class Tickets{
     filed_by_avatar_icon: CurrentUserLoggedAvatar[],
     filed_by: CurrentUserLoggedName[],
     cover_photo: string,
-  ) {}
 }
