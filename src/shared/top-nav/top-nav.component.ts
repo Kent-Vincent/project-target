@@ -67,4 +67,10 @@ export class TopNavComponent {
     this.isDropdownPriorityOpen = !this.isDropdownPriorityOpen;
     console.log(this.isDropdownPriorityOpen);
   }
+
+  // Workspaces Dropdown
+  isWorkspacesDropdownOpen: boolean = false;
+  workspacesDropdown() {
+    this.isWorkspacesDropdownOpen = !this.isWorkspacesDropdownOpen;
+  }
 }
