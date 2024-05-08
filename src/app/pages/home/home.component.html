@@ -1,4 +1,4 @@
-<div class="fixed top-0 z-50 w-full bg-white h-[72px] border-b border-erp-gray-100 flex flex-row justify-between items-center px-[90px] max-sm:px-[16px]">
+<div id="navbar" class="fixed top-0 z-50 w-full bg-transparent h-[71px] flex flex-row justify-between items-center px-[90px] max-md:px-[16px] max-sm:px-[16px]" [ngClass]="{ 'bg-white shadow-md': isScrolled }">
   <button 
     class="group relative w-6 h-6 lg:hidden" 
     (click)="toggleNavMenu()"
@@ -19,7 +19,8 @@
 
   <div class="flex flex-row justify-start items-center gap-12">
     <a routerLink="/">
-      <img src="assets/images/target-logo.svg" alt="logo" class="h-8" />
+      <img *ngIf="!isScrolled" src="assets/images/logo-white.svg" alt="logo" class="h-full" />
+      <img *ngIf="isScrolled" src="assets/images/target-logo.svg" alt="logo" class="h-full" />
     </a>
 
     <div class="hidden lg:flex flex-row justify-start items-center gap-8 font-medium text-erp-gray-700">
@@ -30,16 +31,18 @@
   <div class="hidden lg:flex flex-row justify-start items-center gap-2">
     <div class="button flex items-center gap-[20px]">
       <button
+      routerLink="/signup"
+       [ngClass]="{ 'text-white bg-[#4a2b87]': isScrolled }"
+      class=" text-erp-primary-900 text-sm font-medium shadow-shadow-1 w-[115px] h-[40px] rounded-lg bg-white hover:ease-in duration-150"
+    >
+      Sign up
+    </button>
+      <button 
         routerLink="/login"
-        class=" text-erp-gray-900 text-[14px] font-medium w-[115px] h-[40px] rounded-lg hover:bg-erp-primary-900 hover:text-white"
+        [ngClass]="{ 'text-[#4a2b87] border-[#4a2b87] bg-transparent hover:bg-[#4a2b87] hover:text-white': isScrolled }"
+        class=" text-white text-sm font-medium w-[115px] h-[40px] shadow-shadow-1 rounded-lg border-[1.5px] border-white hover:ease-in duration-150 hover:bg-white hover:text-erp-primary-900"
       >
         Log in
-      </button>
-      <button
-        routerLink="/signup"
-        class=" text-white text-[14px] font-medium w-[115px] h-[40px] rounded-lg bg-[#3e1182] hover:bg-white hover:border-2 border-erp-primary-900 hover:text-erp-gray-900"
-      >
-        Sign up
       </button>
     </div>   
   </div>
@@ -77,39 +80,54 @@
 <div class="flex flex-col">
   
   <section
-    class="main-container z-10 h-[50rem] px-[90px] pt-[2rem] bg-hero-section bg-cover bg-center bg-no-repeat flex items-center w-full max-sm:h-[50rem] max-sm:pt-[120px] max-sm:px-[16px] max-sm:flex-col max-sm:gap-[30px] max-sm:h-90"
+    class="main-container h-[50rem] z-10 px-[90px] bg-erp-primary-900 bg-cover bg-center bg-no-repeat flex items-center w-full max-md:h-full max-md:gap-[40px] max-md:flex max-md:flex-col max-md:w-full max-md:pb-[60px]"
   >
     <div
-      class="hero-content text-white flex flex-col gap-[15px] max-sm:max-w-full"
+      class="hero-content flex flex-col gap-[60px] w-[50%] max-md:w-full max-md:pt-28"
     >
-      <p class="text-5xl font-black max-sm:text-[32px] max-sm:text-center">
-        Achieve your
-      </p>
+    <div class="flex flex-col gap-[25px]">
+    <div class="flex flex-col gap-[10px]">
+      <h2 class="font-semibold max-sm:text-[22px] text-erp-gray-200 max-sm:text-center max-md:text-center">
+        TRY IT FOR FREE
+      </h2>
       <h1
-        class="text-[168px] font-black opacity-15 leading-none max-sm:text-[64px] max-sm:text-center"
+        class="text-[64px] font-semibold text-white leading-[110%] max-sm:text-[64px] max-sm:text-center max-md:text-center"
       >
-        GOALS
+      The best way to organize seamlessly
       </h1>
-      <p class="text-base font-normal max-sm:text-xs max-sm:text-center w-[60%] max-sm:w-full">
-        Empower your team to achieve peak productivity for
-        coordination and unparalleled efficiency.
-      </p>
-      <div class="button flex pt-[18px] gap-[20px] max-sm:justify-center">
-        <button class="bg-white text-black w-[142px] h-[40px] rounded-lg ">
+    </div>
+      <div class="button flex pt-[18px] gap-[25px] max-sm:justify-center max-md:justify-center">
+        <button class="bg-white text-erp-primary-900 font-semibold py-4 px-8 rounded-lg hover:ease-in duration-150">
           Get started
         </button>
         <button
-          class="border border-white text-white w-[142px] h-[40px] rounded-lg hover:bg-white hover:text-black "
+          class="border-[1.5px] border-white text-[15px] font-semibold text-white py-4 px-8 rounded-lg hover:ease-in duration-150 hover:bg-white hover:text-erp-primary-900 "
         >
           Learn more
         </button>
       </div>
     </div>
-    <div
+    
+      <div class="flex gap-[25px] max-md:justify-center">
+        <div class="w-[154px]">
+          <h1 class="text-2xl font-semibold text-white">18k</h1>
+          <p class="text-sm font-medium text-erp-gray-200">Project done per day using our tools</p>
+        </div>
+        <div class="w-[154px]">
+          <h1 class="text-2xl font-semibold text-white">50+</h1>
+          <p class="text-sm font-medium text-erp-gray-200">More than 50 users per workspace</p>
+        </div>
+      </div>
+
+    </div>
+    <div class="bg-hero-ticket w-[50%] h-[571px] bg-no-repeat bg-contain bg-right flex justify-end max-md:w-full max-md:bg-center"></div>
+    <!-- <div
       class="bg-hero-ticket w-full rounded-lg h-[510px] bg-contain bg-no-repeat max-sm:bg-contain max-sm:w-[315px] max-sm:w-[303px]"
-    ></div>
+    ></div> -->
   </section>
-  <section class="main-container flex flex-col gap-[60px] max-sm:gap-[20px] bg-[#F2EBF8] mt-[-120px] py-[4rem] max-sm:pt-[12rem]">
+
+
+  <!-- <section class="main-container flex flex-col gap-[60px] max-sm:gap-[20px] bg-[#F2EBF8] mt-[-120px] py-[4rem] max-sm:pt-[12rem]">
     <div class="section-header px-[90px] w-2/4 max-sm:w-full max-sm:px-[16px]">
       <h2 class="text-2xl font-medium text-erp-gray-900 max-sm:text-[16px]">TARGET 101</h2>
       <h1 class="text-[32px] font-medium text-erp-gray-900 max-sm:text-[20px]">
@@ -157,7 +175,7 @@
         class="image-content bg-kanban bg-cover rounded-l-lg bg-no-repeat h-[40rem] w-[200%] max-sm:w-full max-sm:h-[175px]"
       ></div>
     </div>
-  </section>
+  </section> -->
   <section class="main-container flex flex-col gap-[60px] max-sm:gap-[20px] py-[60px]">
     <div class="section-header px-[90px] w-full max-sm:px-[16px]">
       <h2 class="text-2xl font-medium text-erp-gray-900 max-sm:text-[16px]">TARGET IN ACTION</h2>

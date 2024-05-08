@@ -34,7 +34,7 @@ module.exports = {
       },
       backgroundImage: {
         'hero-section': "url('assets/images/bg.svg')",
-        'hero-ticket': "url('assets/images/ticket-block.png')",
+        'hero-ticket': "url('assets/images/hero-img.png')",
         'kanban': "url('assets/images/kanban.png')",
         'icon1': "url('assets/images/folder.svg')",
         'icon2': "url('assets/images/meetings.svg')",
@@ -44,6 +44,9 @@ module.exports = {
         'avatar': "url('assets/images/avatar-sample.svg')",
         'bg-create-workspace': "url('assets/images/bg-workspace.png')",
         'img-workspace': "url('assets/images/workspace-img')",
+        },
+        boxShadow: {
+          'shadow-1' : '0px 10px 15px 0px rgba(0,0,0,0.1)'
         }
     },
   },
