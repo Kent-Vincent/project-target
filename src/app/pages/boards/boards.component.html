@@ -5,10 +5,10 @@
 </div>
 
 
-<div class="p-4 flex">
-  <div class="px-2 lg:flex gap-2">
+<div class="p-4 flex  max-md:h-[33rem]">
+  <div class="px-2 lg:flex gap-2 overflow-y-auto">
     <ng-container *ngFor="let b of workspace">
-      <div class="bg-erp-primary-900 p-4 w-[300px] h-[150px] shadow-lg rounded-[10px] mb-4">
+      <div class="relative bg-erp-primary-900 p-4 w-[300px] h-[150px] shadow-lg rounded-[10px] mb-4">
         <p class="text-white font-semibold text-sm">{{ b }}</p>
       </div>
     </ng-container>
