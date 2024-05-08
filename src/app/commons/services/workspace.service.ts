@@ -14,14 +14,17 @@ export class WorkspaceService {
 
   authToken = this.authTokenService.getAuthToken();
 
-  getWorkspaceNames(): Observable<string[]> {
+  getWorkspaces(): Observable<{ name: string, ID: number }[]> {
     const headers = new HttpHeaders({
       'Authorization': `Token ${this.authToken}`
     });
-    return this.http.get<any[]>(API_WORKSPACE_ID, { headers: headers}).pipe(
-      map(workspaces => workspaces.map(workspace => workspace.workspace_name)),
+    return this.http.get<any[]>(API_WORKSPACE_ID, { headers: headers }).pipe(
+      map(workspaces => workspaces.map(workspace => ({
+        name: workspace.workspace_name,
+        ID: workspace.workspace_ID
+      }))),
       catchError(error => {
-        console.error('Error fetching workspace names:', error);
+        console.error('Error fetching workspaces:', error);
         throw error;
       })
     );
@@ -33,13 +36,4 @@ export class WorkspaceService {
     })
     return this.http.post<any>(API_WORKSPACE_CREATE, data, {headers: headers});
   }
-
-  // getAllUsers(workspaceId: number): Observable<any> {
-  //   const usersUrl = `${this.baseUrl}api/workspace/${workspaceId}/users/`;
-  //   const headers = new HttpHeaders({
-  //     'Authorization': `Token ${this.authToken}`
-  //   });
-  //   return this.http.get<any>(usersUrl, { headers });
-  // }
-  
 }

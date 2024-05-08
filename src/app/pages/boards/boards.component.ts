@@ -8,18 +8,25 @@ import { WorkspaceService } from 'src/app/commons/services/workspace.service';
   styleUrls: ['./boards.component.css']
 })
 export class BoardsComponent {
-  workspace: string[] = [];
+  workspaces: { name: string, ID: number }[] = [];
 
   constructor(private workspaceService: WorkspaceService, private router: Router) {}
 
   ngOnInit(): void {
-    this.workspaceService.getWorkspaceNames().subscribe(
-      (data: string[]) => {
-        this.workspace = data;
+    this.workspaceService.getWorkspaces().subscribe(
+      (workspaces: { name: string, ID: number }[]) => {
+        this.workspaces = workspaces;
       },
       (error) => {
-        console.error('Error fetching workspace name:', error);
+        console.error('Error fetching workspaces:', error);
       }
     );
+  }
+
+  workspaceID(workspaceIndex: number): void {
+  const selectedWorkspaceID = this.workspaces[workspaceIndex].ID;
+  console.log(selectedWorkspaceID)
+  
+  
   }
 }
