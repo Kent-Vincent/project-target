@@ -18,23 +18,7 @@ export class WorkspaceComponent implements OnInit {
   ) {}
   
   ngOnInit(): void {
-    this.workspaceService.getWorkspaceName().subscribe(
-      (data) => {
-        this.workspaceName = data.workspace_name;
-      },
-      (error) => {
-        console.error('Error fetching workspace name:', error);
-      }
-    );
-    this.stageService.getStages().subscribe(
-      (data) => {
-        this.stageName = data.map((stage: any) => stage.stage_name);
-        console.log(data);
-      },
-      (error) => {
-        console.error('Error fetching stage name:', error);
-      }
-    )
+   
   }
 
   openDialog() {

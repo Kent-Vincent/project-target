@@ -1,0 +1,42 @@
+<top-nav></top-nav>
+
+<div class="py-4 px-6 mb-4">
+  <p class="text-2xl font-medium">Your Workspace</p>
+</div>
+
+
+<div class="p-4 flex">
+  <div class="px-2 lg:flex gap-2">
+    <ng-container *ngFor="let b of workspace">
+      <div class="bg-erp-primary-900 p-4 w-[300px] h-[150px] shadow-lg rounded-[10px] mb-4">
+        <p class="text-white font-semibold text-sm">{{ b }}</p>
+      </div>
+    </ng-container>
+    <div class="p-4 w-[300px] h-[150px] shadow-lg rounded-[10px] flex items-center justify-center">
+      <div class="flex items-center justify-center">
+        <p>Create workspace</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="py-4 px-6 mb-4">
+  <p class="text-2xl font-medium">Target Workspace</p>
+</div>
+
+<div class="p-4 flex">
+  <div class="p-2 lg:flex gap-2">
+    <div class="bg-erp-primary-900 p-4 w-[300px] h-[150px] shadow-lg rounded-[10px] mb-4">
+      <p class="text-white font-semibold text-sm">Johnny</p>
+    </div>
+    <div class="p-4 w-[300px] h-[150px] shadow-lg rounded-[10px] flex items-center justify-center">
+      <div class="flex items-center justify-center">
+        <p>Create workspace</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
