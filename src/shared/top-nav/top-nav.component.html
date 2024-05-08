@@ -22,12 +22,19 @@
         <img src="assets/images/target-logo.svg" alt="logo" class="h-8" />
       </a>
   
-      <div class="hidden lg:flex flex-row justify-start items-center gap-1 font-medium text-erp-gray-700">
-        <div class="flex gap-2 justify-start items-center cursor-default">
-          <a class="py-[8px] px-[12px] text-gray-700 flex items-center gap-1 rounded-md hover:bg-gray-50 hover:cursor-pointer">
+      <div class="relative lg:flex flex-row justify-start items-center gap-1 font-medium text-erp-gray-700">
+        <button (click)="workspacesDropdown()"  class="flex gap-2 justify-start items-center cursor-default">
+          <p class="py-[8px] px-[12px] text-gray-700 flex items-center gap-1 rounded-md hover:bg-erp-gray-50 hover:cursor-pointer">
             Workspaces
-          <i class="ph-bold ph-caret-down text-gray-400"></i>
-          </a>
+          <i *ngIf="!isWorkspacesDropdownOpen" class="ph-bold ph-caret-down text-gray-400"></i>
+          <i *ngIf="isWorkspacesDropdownOpen" class="ph-bold ph-caret-up text-gray-400"></i>
+          </p>
+        </button>
+        <div 
+            *ngIf="isWorkspacesDropdownOpen" 
+            class="absolute top-full left-0 w-[180px] mt-[5px] bg-white shadow-lg rounded-lg">
+            <a href="#" class="block px-4 py-2 text-erp-gray-700 font-medium hover:bg-gray-50">Johnny</a>
+            <a href="#" class="block px-4 py-2 text-erp-gray-700 font-medium hover:bg-gray-50">Target Workspace</a>
         </div>
       </div>
     </div>
