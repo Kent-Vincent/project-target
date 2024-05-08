@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, HostListener, Input } from '@angular/core';
 import { trigger, transition, style, animate } from '@angular/animations';
 
 
@@ -13,6 +13,14 @@ export class HomeComponent {
 
   toggleNavMenu() {
     this.isNavMenuOpen = !this.isNavMenuOpen;
+  }
+
+  // navbar white onscroll
+  isScrolled: boolean = false;
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    // Detect if the user has scrolled down past a certain threshold (e.g., 50px)
+    this.isScrolled = window.scrollY > 2;
   }
 }
 
