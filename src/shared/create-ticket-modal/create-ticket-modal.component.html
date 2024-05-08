@@ -115,6 +115,7 @@
                   aria-haspopup="true"
                 > 
                     <p class="text-sm font-medium text-erp-gray-500">{{ selectedAssignee }}</p>
+                    <input type="text" [value]="selectedAssignee" class="hidden">
                 </button>
 
 <div
@@ -155,6 +156,7 @@
               />
             </svg>
             <p class="pl-3 text-erp-gray-400 font-medium text-sm">{{ currentDate | date: 'MMM d, yyyy' }}</p>
+            <input type="text" [value]="currentDate | date: 'MMM d, yyyy'" class="hidden">
             </div>
           </div>
           <div class="mt-2">
@@ -198,7 +200,9 @@
                 aria-haspopup="true"
               >
                 <p class="text-sm font-medium text-erp-gray-500">
-                  {{ selectedPriority }}</p>
+                  {{ selectedPriority }}
+                </p>
+                <input type="text" [value]="selectedPriority" class="hidden">
               </button>
               
               <div
