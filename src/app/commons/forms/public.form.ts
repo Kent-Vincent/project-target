@@ -30,3 +30,17 @@ export class WorkspaceForm extends Form{
     super(fields)
   }
 }
+
+export class TicketForm extends Form{
+  constructor() {
+    const fields: any = {
+      ticket_title: new FormControl(null, [Validators.required]),
+      ticket_name: new FormControl(null, [Validators.required]),
+      description: new FormControl(null, [Validators.required]),
+      assignee: new FormControl(null, [Validators.required]),
+      due_date: new FormControl(null, [Validators.required]),
+      priority: new FormControl(null, [Validators.required]),
+    }
+    super(fields)
+  }
+}

@@ -17,6 +17,7 @@ export const API_CREATE = urlEncode([API_USER, 'register']);
 // Fetching workspace base on user ID
 export const API_WORKSPACE_ID = urlEncode([API_WORKSPACE, 'workspace']);
 export const API_WORKSPACE_CREATE = urlEncode([API_CREATE_WORKSPACE, 'workspace'])
+export const API_WORKSPACE_SPECIFIC_ID = urlEncode([API_URL, 'workspace']);
 
 
 // Fetching stage base on user ID
