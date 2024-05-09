@@ -25,6 +25,7 @@ export class WorkspaceComponent implements OnInit {
     this.activatedRoute.queryParams.subscribe(params => {
       this.workspaceID = params['id'];
       this.fetchWorkspaceDetails();
+      this.fetchStages();
     });
   }
 
@@ -36,6 +37,17 @@ export class WorkspaceComponent implements OnInit {
       },
       (error) => {
         console.error('Error fetching workspace details:', error);
+      }
+    );
+  }
+
+  fetchStages(): void {
+    this.stageService.getStagesByWorkspace(this.workspaceID).subscribe(
+      (data: any[]) => {
+        this.stageName = data.map(item => item.stage_name);
+      },
+      (error) => {
+        console.error('Error fetching stage details:', error);
       }
     );
   }
