@@ -21,7 +21,7 @@ export const API_WORKSPACE_SPECIFIC_ID = urlEncode([API_URL, 'workspace']);
 
 
 // Fetching stage base on user ID
-export const API_STAGE_ID = urlEncode([API_WORKSPACE, 'stage']);
+export const API_STAGE_SPECIFIC_ID = urlEncode([API_WORKSPACE_SPECIFIC_ID, 'stages']);
 
 
 // Fetching current user logged in
