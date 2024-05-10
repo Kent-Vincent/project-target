@@ -50,7 +50,10 @@ module.exports = {
         'tm-icon': "url('assets/images/task-management-icon.svg')",
         },
         boxShadow: {
-          'shadow-1' : '0px 10px 15px 0px rgba(0,0,0,0.1)'
+          'btn-shadow-1' : '0px 10px 15px 0px rgba(0,0,0,0.1)',
+          'btn-shadow-2' : '0px 5px 20px 0px rgba(0,0,0,0.15);',
+          'shadow-1' : '0px 10px 15px 0px rgba(0,0,0,0.1)',
+          'shadow-2' : '0px 10px 15px 0px rgba(0,0,0,0.1)'
         }
     },
   },
