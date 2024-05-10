@@ -20,7 +20,7 @@ export class HomeComponent {
   @HostListener('window:scroll', [])
   onWindowScroll() {
     // Detect if the user has scrolled down past a certain threshold (e.g., 50px)
-    this.isScrolled = window.scrollY > 2;
+    this.isScrolled = window.scrollY > 5;
   }
 }
 
