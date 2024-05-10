@@ -104,7 +104,7 @@
                   aria-haspopup="true"
                 > 
                   <div class="flex items-center">
-                    <img [src]="'http://127.0.0.1:8000' + users.avatar" class="w-[30px] h-[30px] rounded-full mr-2">
+                    <img *ngIf="users?.avatar; else defaultAvatar" [src]="getAvatarUrl(users?.avatar)" class="w-[30px] h-[30px] rounded-full mr-2">
                     <p class="text-sm font-medium text-erp-gray-500">{{ selectedAssignee }}</p>
                   </div>
                     <input type="text" [value]="selectedAssignee" class="hidden">
@@ -117,12 +117,13 @@
                   aria-labelledby="menu-button"
                 >
                   <div class="w-full flex flex-col" role="none">
-                    <!-- <ng-container *ngFor="let user of users">   -->
-                      <div class="flex items-center hover:bg-erp-gray-200">
-                        <img [src]="'http://127.0.0.1:8000' + users.avatar" class="w-[30px] h-[30px] rounded-full ml-2">
-                        <a (click)="selectAssignee(users.name)" class="py-[10px] px-[14px] text-sm font-medium text-erp-gray-700 hover:cursor-pointer">{{ users.name }}</a>
+                      <div class="flex items-center hover:bg-erp-gray-200 py-[10px] px-[14px]">
+                        <img *ngIf="users?.avatar; else defaultAvatar" [src]="getAvatarUrl(users?.avatar)" class="w-[30px] h-[30px] rounded-full mr-2">
+                        <ng-template #defaultAvatar>
+                          <img src="assets/images/avatar-sample.svg" class="w-[30px] h-[30px] rounded-full mr-2">
+                        </ng-template>
+                        <a (click)="selectAssignee(users?.name)" class=" text-sm font-medium text-erp-gray-700 hover:cursor-pointer">{{ users?.name }}</a>
                       </div>
-                    <!-- </ng-container> -->
                   </div>
                 </div>
             </div>
@@ -190,9 +191,30 @@
                 aria-expanded="true"
                 aria-haspopup="true"
               >
-                <p class="text-sm font-medium text-erp-gray-500">
+                <div class="flex items-center">
+                  <ng-container *ngIf="selectedPriority === 'Low'">
+                    <i class="ph-bold ph-caret-down text-xs text-[#4c59a3]"></i>
+                  </ng-container>
+                  <ng-container *ngIf="selectedPriority === 'Medium'">
+                    <i class="ph-fill ph-dot-outline text-xs text-[#2e90fa]"></i>
+                  </ng-container>
+                  <ng-container *ngIf="selectedPriority === 'High'">
+                    <i class="ph-bold ph-caret-up text-xs text-[#f79009]"></i>
+                  </ng-container>
+                  <ng-container *ngIf="selectedPriority === 'Urgent'">
+                    <i class="ph-bold ph-caret-double-up text-xs text-[#f04438]"></i>
+                  </ng-container>
+                  <p class="ml-2"
+                  [ngClass]="{
+                    'text-sm font-medium text-erp-gray-blue-700': selectedPriority === 'Low',
+                    'text-sm font-medium text-erp-blue-700': selectedPriority === 'Medium',
+                    'text-sm font-medium text-erp-warning-700': selectedPriority === 'High',
+                    'text-sm font-medium text-erp-error-700': selectedPriority === 'Urgent'
+                  }">
                   {{ selectedPriority }}
-                </p>
+                  </p>
+                </div>
+               
                 <input type="text" [value]="selectedPriority" class="hidden">
               </button>
               
@@ -203,14 +225,27 @@
                 aria-orientation="vertical"
                 aria-labelledby="menu-button"
               >
-                <div class="py-1 w-full flex flex-col top-10" role="none">
-                  <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
-                  <a (click)="selectPriority('Low')" class="py-[10px] px-[14px] text-sm font-medium text-erp-gray-700 hover:cursor-pointer">
-                    <!-- <i class="ph-bold ph-caret-down text-[12px] font-black text-[#363f72]"></i> -->
-                    Low</a>
-                  <a (click)="selectPriority('Medium')" class="py-[10px] px-[14px] text-sm font-medium text-erp-gray-700 hover:cursor-pointer">Medium</a>           
-                  <a (click)="selectPriority('High')" class="py-[10px] px-[14px] text-sm font-medium text-erp-gray-700 hover:cursor-pointer">High</a>           
-                  <a (click)="selectPriority('Urgent')" class="py-[10px] px-[14px] text-sm font-medium text-erp-gray-700 hover:cursor-pointer">Urgent</a>           
+                <div class="w-full flex flex-col top-10" role="none">
+                  <div class="w-full py-1 bg-[#f2f4f8] rounded-full ml-2 mt-1">
+                    <a (click)="selectPriority('Low')" class="py-2.5 px-3.5 text-sm font-medium text-[#353e70] hover:cursor-pointer">
+                      <i class="ph-bold ph-caret-down text-xs text-[#4c59a3]"></i>
+                      Low</a>
+                  </div>
+                  <div class="w-fit py-1 bg-[#eff8ff] rounded-full ml-2 mt-1">
+                    <a (click)="selectPriority('Medium')" class="py-2.5 px-3.5 text-sm font-medium text-[#175cd3] hover:cursor-pointer">
+                      <i class="ph-fill ph-dot-outline text-xs text-[#2e90fa]"></i>
+                      Medium</a>  
+                  </div>
+                  <div class="w-fit py-1 bg-[#fffaeb] rounded-full ml-2 mt-1">
+                    <a (click)="selectPriority('High')" class="py-2.5 px-3.5 text-sm font-medium text-[#b54708] hover:cursor-pointer">
+                      <i class="ph-bold ph-caret-up text-xs text-[#f79009]"></i>
+                      High</a>    
+                  </div>
+                  <div class="w-fit py-1 bg-[#fef3f2] rounded-full ml-2 mt-1 mb-2">
+                    <a (click)="selectPriority('Urgent')" class="py-2.5 px-3.5 text-sm font-medium text-[#b54708] hover:cursor-pointer">
+                      <i class="ph-bold ph-caret-double-up text-xs text-[#f04438]"></i>
+                      Urgent</a>    
+                  </div> 
                 </div>
               </div>
               </div>
