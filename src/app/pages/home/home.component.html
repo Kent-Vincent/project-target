@@ -1,244 +1,338 @@
-<div id="navbar" class="fixed top-0 z-50 w-full bg-transparent h-[71px] flex flex-row justify-between items-center px-[90px] max-md:px-[16px] max-sm:px-[16px]" [ngClass]="{ 'bg-white shadow-md': isScrolled }">
-  <button 
-    class="group relative w-6 h-6 lg:hidden" 
-    (click)="toggleNavMenu()"
-  >
-    <div 
+<div
+  id="navbar"
+  class="fixed top-0 z-50 w-full bg-transparent h-[71px] flex flex-row justify-between items-center px-[90px] max-md:px-[16px] max-sm:px-[16px]"
+  [ngClass]="{ 'bg-white shadow-md': isScrolled }"
+>
+  <button class="group relative w-6 h-6 lg:hidden" (click)="toggleNavMenu()">
+    <div
       class="absolute top-1/4 w-full h-[2px] bg-erp-gray-500 group-hover:bg-erp-gray-900 transition-all"
-      [ngClass]="{ 'rotate-45 top-1/2': isNavMenuOpen, 'rotate-0 top-1/4': !isNavMenuOpen }"
+      [ngClass]="{
+        'rotate-45 top-1/2': isNavMenuOpen,
+        'rotate-0 top-1/4': !isNavMenuOpen
+      }"
     ></div>
-    <div 
+    <div
       class="absolute top-1/2 w-full h-[2px] bg-erp-gray-500 group-hover:bg-erp-gray-900 transition-all"
       [ngClass]="{ 'opacity-0': isNavMenuOpen, 'opacity-100': !isNavMenuOpen }"
     ></div>
-    <div 
+    <div
       class="absolute top-3/4 w-full h-[2px] bg-erp-gray-500 group-hover:bg-erp-gray-900 transition-all"
-      [ngClass]="{ '-rotate-45 top-1/2': isNavMenuOpen, 'rotate-0 top-3/4': !isNavMenuOpen }"
+      [ngClass]="{
+        '-rotate-45 top-1/2': isNavMenuOpen,
+        'rotate-0 top-3/4': !isNavMenuOpen
+      }"
     ></div>
   </button>
 
   <div class="flex flex-row justify-start items-center gap-12">
     <a routerLink="/">
-      <img *ngIf="!isScrolled" src="assets/images/logo-white.svg" alt="logo" class="h-full" />
-      <img *ngIf="isScrolled" src="assets/images/target-logo.svg" alt="logo" class="h-full" />
+      <img
+        *ngIf="!isScrolled"
+        src="assets/images/logo-white.svg"
+        alt="logo"
+        class="h-full"
+      />
+      <img
+        *ngIf="isScrolled"
+        src="assets/images/target-logo.svg"
+        alt="logo"
+        class="h-full"
+      />
     </a>
 
-    <div class="hidden lg:flex flex-row justify-start items-center gap-8 font-medium text-erp-gray-700">
-      
-    </div>
+    <div
+      class="hidden lg:flex flex-row justify-start items-center gap-8 font-medium text-erp-gray-700"
+    ></div>
   </div>
 
   <div class="hidden lg:flex flex-row justify-start items-center gap-2">
     <div class="button flex items-center gap-[20px]">
       <button
-      routerLink="/signup"
-       [ngClass]="{ 'text-white bg-[#4a2b87]': isScrolled }"
-      class=" text-erp-primary-900 text-sm font-medium shadow-shadow-1 w-[115px] h-[40px] rounded-lg bg-white hover:ease-in duration-150"
-    >
-      Sign up
-    </button>
-      <button 
+        routerLink="/signup"
+        [ngClass]="{
+          'text-erp-primary-900 bg-white  border-white ': !isScrolled,
+          ' border-erp-primary-900 bg-erp-primary-900 text-white': isScrolled
+        }"
+        class="text-sm font-medium w-[115px] h-[40px] shadow-shadow-1 rounded-lg hover:ease-in duration-150"
+      >
+        Sign up
+      </button>
+      <button
         routerLink="/login"
-        [ngClass]="{ 'text-[#4a2b87] border-[#4a2b87] bg-transparent hover:bg-[#4a2b87] hover:text-white': isScrolled }"
-        class=" text-white text-sm font-medium w-[115px] h-[40px] shadow-shadow-1 rounded-lg border-[1.5px] border-white hover:ease-in duration-150 hover:bg-white hover:text-erp-primary-900"
+        [ngClass]="{
+          'text-white border-white hover:bg-white hover:text-erp-primary-900':
+            !isScrolled,
+          'text-erp-primary-900 border-erp-primary-900 hover:bg-erp-primary-900 hover:text-white':
+            isScrolled
+        }"
+        class="text-sm font-medium w-[115px] h-[40px] shadow-shadow-1 rounded-lg border-[1.5px] border-white hover:ease-in duration-150"
       >
         Log in
       </button>
-    </div>   
+    </div>
   </div>
 
   <div class="lg:hidden"></div>
 </div>
 
-<div 
+<div
   class="absolute top-[72px] z-50 w-full px-8 bg-white flex flex-col justify-between items-stretch transition-all overflow-hidden"
-  [ngClass]="{ 
-    'h-[calc(100dvh_-_72px)] py-8': isNavMenuOpen, 
-    'h-0 py-0': !isNavMenuOpen 
+  [ngClass]="{
+    'h-[calc(100dvh_-_72px)] py-8': isNavMenuOpen,
+    'h-0 py-0': !isNavMenuOpen
   }"
 >
   <div class="flex flex-col justify-start items-stretch gap-8">
     <div class="button flex flex-col items-center gap-[20px]">
       <button
         routerLink="/login"
-        class=" text-erp-gray-900 text-[14px] font-medium w-[115px] h-[40px] rounded-lg hover:bg-[#3e1182] hover:text-white"
+        class="text-erp-gray-900 text-[14px] font-medium w-[115px] h-[40px] rounded-lg hover:bg-[#3e1182] hover:text-white"
       >
         Log in
       </button>
       <button
         routerLink="/signup"
-        class=" text-white text-[14px] font-medium w-[115px] h-[40px] rounded-lg bg-[#3e1182] hover:bg-white hover:border-2 border-[#3e1182] hover:text-erp-gray-900"
+        class="text-white text-[14px] font-medium w-[115px] h-[40px] rounded-lg bg-[#3e1182] hover:bg-white hover:border-2 border-[#3e1182] hover:text-erp-gray-900"
       >
         Sign up
       </button>
     </div>
-
   </div>
 
   <button class="self-start">Logout</button>
 </div>
 <div class="flex flex-col">
-  
   <section
-    class="main-container h-[50rem] z-10 px-[90px] bg-erp-primary-900 bg-cover bg-center bg-no-repeat flex items-center w-full max-md:h-full max-md:gap-[40px] max-md:flex max-md:flex-col max-md:w-full max-md:pb-[60px]"
+    class="main-container h-[50rem] z-10 px-[90px] bg-erp-primary-900 bg-cover bg-center bg-no-repeat flex items-center max-md:h-full max-md:gap-[40px] max-md:flex max-md:flex-col max-md:pb-[40px] max-md:px-4"
   >
     <div
       class="hero-content flex flex-col gap-[60px] w-[50%] max-md:w-full max-md:pt-28"
     >
-    <div class="flex flex-col gap-[25px]">
-    <div class="flex flex-col gap-[10px]">
-      <h2 class="font-semibold max-sm:text-[22px] text-erp-gray-200 max-sm:text-center max-md:text-center">
-        TRY IT FOR FREE
-      </h2>
-      <h1
-        class="text-[64px] font-semibold text-white leading-[110%] max-sm:text-[64px] max-sm:text-center max-md:text-center"
-      >
-      The best way to organize seamlessly
-      </h1>
-    </div>
-      <div class="button flex pt-[18px] gap-[25px] max-sm:justify-center max-md:justify-center">
-        <button class="bg-white text-erp-primary-900 font-semibold py-4 px-8 rounded-lg hover:ease-in duration-150">
-          Get started
-        </button>
-        <button
-          class="border-[1.5px] border-white text-[15px] font-semibold text-white py-4 px-8 rounded-lg hover:ease-in duration-150 hover:bg-white hover:text-erp-primary-900 "
+      <div class="flex flex-col gap-[25px]">
+        <div class="flex flex-col gap-[10px]">
+          <h2
+            class="font-semibold max-sm:text-[22px] text-erp-gray-200 max-sm:text-center max-md:text-center"
+          >
+            TRY IT FOR FREE
+          </h2>
+          <h1
+            class="text-[64px] font-semibold text-white leading-[110%] max-sm:text-center max-md:text-center max-md:text-4xl max-md:font-semibold"
+          >
+            The best way to organize seamlessly
+          </h1>
+        </div>
+        <div
+          class="button flex pt-[18px] gap-[25px] max-sm:justify-center max-md:justify-center"
         >
-          Learn more
-        </button>
+          <button
+            class="bg-white shadow-btn-shadow-2 text-erp-primary-900 font-semibold py-4 px-8 rounded-lg max-md:text-xs max-md:py-3 max-md:px-6 hover:ease-in duration-150"
+          >
+            Get started
+          </button>
+          <button
+            class="border-[1.5px] shadow-btn-shadow-2 border-white text-[15px] font-semibold text-white py-4 px-8 rounded-lg max-md:text-xs max-md:py-3 max-md:px-6 hover:ease-in duration-150 hover:bg-white hover:text-erp-primary-900"
+          >
+            Learn more
+          </button>
+        </div>
       </div>
-    </div>
-    
+
       <div class="flex gap-[25px] max-md:justify-center">
         <div class="w-[154px]">
-          <h1 class="text-2xl font-semibold text-white">18k</h1>
-          <p class="text-sm font-medium text-erp-gray-200">Project done per day using our tools</p>
+          <h1 class="text-2xl font-semibold text-white max-md:text-base">
+            18k
+          </h1>
+          <p class="text-sm font-medium text-erp-gray-200 max-md:text-xs">
+            Project done per day using our tools
+          </p>
         </div>
         <div class="w-[154px]">
-          <h1 class="text-2xl font-semibold text-white">50+</h1>
-          <p class="text-sm font-medium text-erp-gray-200">More than 50 users per workspace</p>
+          <h1 class="text-2xl font-semibold text-white max-md:text-base">
+            50+
+          </h1>
+          <p class="text-sm font-medium text-erp-gray-200 max-md:text-xs">
+            More than 50 users per workspace
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      class="bg-hero-ticket w-[50%] h-[571px] bg-no-repeat bg-contain bg-right flex justify-end max-md:h-[371px] max-md:w-full max-md:bg-top"
+    ></div>
+  </section>
+
+  <section
+    class="px-[90px] py-[90px] flex flex-col gap-[60px] bg-erp-gray-100 max-md:px-[16px]"
+  >
+    <div class="flex flex-col gap-[10px]">
+      <h2
+        class="text-erp-gray-300 text-[22px] font-semibold max-md:text-[17px] max-md:font-semibold"
+      >
+        TARGET 101
+      </h2>
+      <h1
+        class="text-[48px] font-semibold text-erp-gray-900 leading-[130%] max-md:text-[32px]"
+      >
+        Why use work management tool
+      </h1>
+      <p class="text-erp-gray-700 max-w-[577px] max-md:text-sm">
+        Simple, flexible, and powerful. All it takes are boards, lists, and
+        cards to get a clear view of who’s doing what and what needs to get
+        done.
+      </p>
+    </div>
+
+    <div
+      class="content-container flex justify-between h-fit gap-8 max-md:flex-col max-md:gap-[30px] max-md:h-[65rem] max-sm:h-[55rem]"
+    >
+      <div
+        class="card-container flex flex-col gap-[20px] max-w-[367px] max-md:max-w-full max-md:w-full h-fit"
+      >
+        <div
+          class="flex flex-col gap-2 py-[20px] pl-[40px] pr-[30px] shadow-shadow-1 bg-white rounded-xl border-l-[10px] border-[#3395FF]"
+        >
+          <h3 class="text-erp-gray-900 text-[21px] font-medium">Effeciency</h3>
+          <p class="text-erp-gray-500 text-sm">
+            Work management tools streamline tasks, saving time and effort.
+          </p>
+        </div>
+        <div
+          class="flex flex-col gap-2 py-[20px] pl-[40px] pr-[30px] shadow-shadow-1 bg-white rounded-xl border-l-[10px] border-[#52C88A]"
+        >
+          <h3 class="text-erp-gray-900 text-[21px] font-medium">
+            Collaboration
+          </h3>
+          <p class="text-erp-gray-500 text-sm">
+            Facilitates seamless teamwork, even remotely.
+          </p>
+        </div>
+        <div
+          class="flex flex-col gap-2 py-[20px] pl-[40px] pr-[30px] shadow-shadow-1 bg-white rounded-xl border-l-[10px] border-[#FF954E]"
+        >
+          <h3 class="text-erp-gray-900 text-[21px] font-medium">
+            Organization
+          </h3>
+          <p class="text-erp-gray-500 text-sm">
+            Keeps all tasks and projects neatly organized and accessible.
+          </p>
+        </div>
+        <div
+          class="flex flex-col gap-2 py-[20px] pl-[40px] pr-[30px] shadow-shadow-1 bg-white rounded-xl border-l-[10px] border-[#FF7452]"
+        >
+          <h3 class="text-erp-gray-900 text-[21px] font-medium">
+            Prioritization
+          </h3>
+          <p class="text-erp-gray-500 text-sm">
+            Helps prioritize tasks, ensuring focus on what matters most.
+          </p>
         </div>
       </div>
 
-    </div>
-    <div class="bg-hero-ticket w-[50%] h-[571px] bg-no-repeat bg-contain bg-right flex justify-end max-md:w-full max-md:bg-center"></div>
-    <!-- <div
-      class="bg-hero-ticket w-full rounded-lg h-[510px] bg-contain bg-no-repeat max-sm:bg-contain max-sm:w-[315px] max-sm:w-[303px]"
-    ></div> -->
-  </section>
-
-
-  <!-- <section class="main-container flex flex-col gap-[60px] max-sm:gap-[20px] bg-[#F2EBF8] mt-[-120px] py-[4rem] max-sm:pt-[12rem]">
-    <div class="section-header px-[90px] w-2/4 max-sm:w-full max-sm:px-[16px]">
-      <h2 class="text-2xl font-medium text-erp-gray-900 max-sm:text-[16px]">TARGET 101</h2>
-      <h1 class="text-[32px] font-medium text-erp-gray-900 max-sm:text-[20px]">
-        A productive powerhouse
-      </h1>
-      <p class="text-gray-700 max-sm:text-[16px]">
-        Simple, flexible, and powerful. All it takes are boards, lists, and
-        cards to get a clear view of who's doing what and what needs to get
-        done. Learn more in our guide for getting started.
-      </p>
-    </div>
-    <div class="content flex gap-[60px] pl-[90px] max-sm:flex-col-reverse max-sm:px-[16px] max-sm:gap-[20px]">
-      <div class="cards flex flex-col h-[220px] w-full gap-[30px] justify-around max-sm:flex-nowrap max-sm:flex-row max-sm:justify-start max-sm:overflow-x-auto">
-        <button
-          class="boards  flex-shrink-0 max-sm:w-[100%] max-sm:h-[183px] text-left rounded-xl p-[20px] focus:bg-[#ffff] focus:shadow-lg focus:border-[7px] focus:border-l-erp-primary-700 focus:border-r-0 focus:border-t-0 focus:border-b-0 flex flex-col gap-[15px]"
-        >
-          <h1 class="text-xl font-medium text-erp-gray-900 max-sm:text-[16px]">Boards</h1>
-          <p class="text-erp-gray-700 max-sm:text-[14px]">
-            Target boards keep tasks organized and work moving forward. In a
-            glance, see everything from "things to do" to "aww yeah, we did it!"
-          </p>
-        </button>
-        <button
-          class="Lists flex-shrink-0 max-sm:w-[100%] max-sm:h-[183px] text-left rounded-xl p-[20px] flex flex-col gap-[15px] focus:bg-[#ffff] focus:shadow-lg focus:border-[7px] focus:border-l-erp-primary-700 focus:border-r-0 focus:border-t-0 focus:border-b-0"
-        >
-          <h1 class="text-xl font-medium text-erp-gray-900 max-sm:text-[16px]">Lists</h1>
-          <p class="text-erp-gray-700 max-sm:text-[14px]">
-            The different stages of a task. Start as simple as To Do, Doing or
-            Done-or build a workflow custom fit to your team's needs. There's no
-            wrong way to Target."
-          </p>
-        </button>
-        <button
-          class="Cards flex-shrink-0 max-sm:w-[100%] max-sm:h-[183px] first-line: text-left rounded-xl p-[20px] flex flex-col focus:bg-[#ffff] gap-[15px] focus:shadow-lg focus:border-[7px] focus:border-l-erp-primary-700 focus:border-r-0 focus:border-t-0 focus:border-b-0"
-        >
-          <h1 class="text-xl font-medium text-erp-gray-900 max-sm:text-[16px]">Cards</h1>
-          <p class="text-erp-gray-700 max-sm:text-[14px]">
-            Cards represent tasks and ideas and hold all the information to get
-            the job done. As you make progress, move cards across lists to show
-            their status.
-          </p>
-        </button>
-      </div>
       <div
-        class="image-content bg-kanban bg-cover rounded-l-lg bg-no-repeat h-[40rem] w-[200%] max-sm:w-full max-sm:h-[175px]"
+        class="bg-kanban bg-contain bg-right-top bg-no-repeat max-h-full w-full rounded-xl max-md:h-full max-md:w-full max-md:bg-inherit"
       ></div>
     </div>
-  </section> -->
-  <section class="main-container flex flex-col gap-[60px] max-sm:gap-[20px] py-[60px]">
-    <div class="section-header px-[90px] w-full max-sm:px-[16px]">
-      <h2 class="text-2xl font-medium text-erp-gray-900 max-sm:text-[16px]">TARGET IN ACTION</h2>
-      <h1 class="text-[32px] font-medium text-erp-gray-900 max-sm:text-[20px]">
-        Workflows for any project, big or small
+  </section>
+
+  <section class="px-[90px] py-[90px] flex flex-col gap-[30px] max-md:px-4">
+    <div class="flex flex-col gap-[10px]">
+      <h2
+        class="text-erp-gray-300 text-[22px] font-semibold max-md:text-[17px] max-md:font-semibold"
+      >
+        TARGET IN ACTION
+      </h2>
+      <h1
+        class="text-[48px] font-semibold text-erp-gray-900 leading-[130%] max-md:text-[32px]"
+      >
+        Workflows for any project
       </h1>
     </div>
-    <div class="cards flex flex-row flex-nowrap align gap-[30px] px-[90px] pb-[60px] overflow-x-auto max-sm:px-[16px]">
-      <div
-        class="Cards flex-shrink-0  w-[20rem] h-[17rem] relative text-left rounded-xl p-[20px] flex flex-col my-auto gap-[15px] shadow-lg border-[60px] border-t-[#FF7452] border-r-0 border-l-0 border-b-0"
-      >
-        <!-- <i class="ph-duotone ph-folder-simple absolute top-[-22px] text-[40px] bg-white text-[#FFB9A8]"></i> -->
-        <div class="bg-icon1 h-[60px] w-[60px] absolute top-[-30px]"></div>
-        <h1 class="text-xl font-medium text-erp-gray-900 pt-4">
+
+    <div class="card-container w-full flex gap-5 max-md:flex-col">
+      <div class="shadow-shadow-1 p-5 flex flex-col gap-[10px] rounded-xl">
+        <div class="bg-projectm-icon h-8 w-8"></div>
+        <h3 class="text-erp-gray-900 text-[21px] font-medium">
           Project Management
-        </h1>
-        <p class="text-erp-gray-700">
+        </h3>
+        <p class="text-erp-gray-700 text-sm">
           Keep tasks in order, deadlines on track, and team members aligned with
           Trello.
         </p>
       </div>
-      <div
-        class="Meetings flex-shrink-0 w-[20rem] h-[17rem] relative text-left rounded-xl p-[20px] flex flex-col my-auto gap-[15px] shadow-lg border-[60px] border-t-[#2684FF] border-r-0 border-l-0 border-b-0"
-      >
-        <!-- <i class="ph-duotone ph-folder-simple absolute top-[-22px] text-[40px] bg-white text-[#FFB9A8]"></i> -->
-        <div class="bg-icon2 h-[60px] w-[60px] absolute top-[-30px]"></div>
-        <h1 class="text-xl font-medium text-erp-gray-900 pt-4">
-          Meetings
-        </h1>
-        <p class="text-erp-gray-700">
-          Empower your team meetings to be more productive, empowering, and dare we say-fun
+      <div class="shadow-shadow-1 p-5 flex flex-col gap-[10px] rounded-xl">
+        <div class="bg-meeting-icon h-8 w-8"></div>
+        <h3 class="text-erp-gray-900 text-[21px] font-medium">Meetings</h3>
+        <p class="text-erp-gray-700 text-sm">
+          Empower your team meetings to be more productive, empowering, and dare
+          we say-fun.
         </p>
       </div>
-      <div
-        class="Onboarding flex-shrink-0 w-[20rem] h-[17rem] relative text-left rounded-xl p-[20px] flex flex-col my-auto gap-[15px] shadow-lg border-[60px] border-t-[#57D9A3] border-r-0 border-l-0 border-b-0"
-      >
-        <!-- <i class="ph-duotone ph-folder-simple absolute top-[-22px] text-[40px] bg-white text-[#FFB9A8]"></i> -->
-        <div class="bg-icon3 h-[60px] w-[60px] absolute top-[-30px]"></div>
-        <h1 class="text-xl font-medium text-erp-gray-900 pt-4">
-          Onboarding
-        </h1>
-        <p class="text-erp-gray-700">
-          Onboarding to a new company or project is a snap with Trello’s visual layout of to-do’s, resources, and progress tracking.
+      <div class="shadow-shadow-1 p-5 flex flex-col gap-[10px] rounded-xl">
+        <div class="bg-onboarding-icon h-8 w-8"></div>
+        <h3 class="text-erp-gray-900 text-[21px] font-medium">Onboarding</h3>
+        <p class="text-erp-gray-700 text-sm">
+          Seamless onboarding with Target’s visual layout of to-do’s, resources,
+          and progress tracking.
         </p>
       </div>
-      <div
-        class="Task flex-shrink-0 w-[20rem] h-[17rem] relative text-left rounded-xl p-[20px] flex flex-col my-auto gap-[15px] shadow-lg border-[60px] border-t-[#FFC400] border-r-0 border-l-0 border-b-0"
-      >
-        <!-- <i class="ph-duotone ph-folder-simple absolute top-[-22px] text-[40px] bg-white text-[#FFB9A8]"></i> -->
-        <div class="bg-icon4 h-[60px] w-[60px] absolute top-[-30px]"></div>
-        <h1 class="text-xl font-medium text-erp-gray-900 pt-4">
+      <div class="shadow-shadow-1 p-5 flex flex-col gap-[10px] rounded-xl">
+        <div class="bg-tm-icon h-8 w-8"></div>
+        <h3 class="text-erp-gray-900 text-[21px] font-medium">
           Task management
-        </h1>
-        <p class="text-erp-gray-700">
-          Use Trello to track, manage, complete, and bring tasks together like the pieces of a puzzle, and make your team’s projects cohesive success every time.
+        </h3>
+        <p class="text-erp-gray-700 text-sm">
+          Track, manage, and bring tasks together and making your projects,
+          cohesive success every time.
         </p>
       </div>
     </div>
   </section>
-  <footer class="bg-[#3e1182] flex justify-between items-center h-[70px] text-[14px] text-white px-[90px] max-sm:px[16px] max-sm:h-[90px] max-sm:items-center max-sm:flex-col max-sm:text-center max-sm:py-5">
-    <p>Copyright © 2018 Target</p>
 
-    <div class="icons flex gap-[32px] text-[18px]">
+  <section class="px-[90px] pb-[90px] max-md:px-0">
+    <div
+      class="cta-main-container gap-8 flex justify-between items-center bg-erp-primary-900 px-[60px] py-[60px] rounded-xl max-md:rounded-none 
+      max-md:flex-col max-md:justify-center max-sm:px-4 max-sm:justify-start max-sm:gap-[40px]"
+    >
+      <div class="flex flex-col gap-3 w-[37rem] max-md:w-full">
+        <h1 class="text-4xl text-white font-semibold max-md:text-center max-sm:text-left max-sm:text-[32px]">
+          Sign up for our newsletter
+        </h1>
+        <p class="text-erp-gray-200 font-light max-md:text-center max-sm:text-left max-sm:text-sm">
+          Don't miss out on exclusive offers and the latest updates! Stay
+          informed by signing up for our newsletter today.
+        </p>
+      </div>
+
+      <div class="flex flex-col gap-3 max-sm:w-full ">
+        <div class="flex gap-4 max-sm:flex-col">
+          <input
+            type="text"
+            name="email"
+            id="email"
+            class="rounded-lg h-[53px] placeholder:text-erp-gray-500"
+            placeholder="Enter email address"
+          />
+          <button
+            class="border-[1.5px] shadow-btn-shadow-2 border-white text-sm font-medium w-[145px] text-white h-[53px] px-8 rounded-lg hover:ease-in duration-150 hover:bg-white hover:text-erp-primary-900
+            max-sm:w-full"
+          >
+            Notify me
+          </button>
+        </div>
+        <p class="text-erp-gray-200 font-light text-xs">
+          We care about the protection of your data. read our
+          <a href="#" target="_blank" class="text-[#FF4BF8]">Privacy policy</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <footer
+    class="bg-erp-primary-900 flex justify-between items-center px-[90px] py-[28px]  max-sm:px-[16px] max-sm:h-[120px] max-sm:items-center max-sm:flex-col max-sm:gap-[10px] max-sm:text-center"
+  >
+    <p class="text-sm font-normal text-white max-sm:w-full">Copyright © 2018 Target</p>
+
+    <div class="icons flex gap-[32px] text-[20px] text-white">
       <i class="ph-fill ph-facebook-logo"></i>
       <i class="ph-fill ph-twitter-logo"></i>
       <i class="ph-fill ph-instagram-logo"></i>
