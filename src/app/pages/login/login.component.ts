@@ -35,7 +35,7 @@ export class LoginComponent {
       .subscribe(response => {
         console.log(response);
         this.authTokenService.setAuthToken(response.token);
-        this.router.navigate(['/workspace']);
+        this.router.navigate(['/boards']);
       });
   }
 

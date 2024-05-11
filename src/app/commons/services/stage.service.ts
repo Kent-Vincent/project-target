@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AuthTokenService } from './auth-token.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { API_STAGE_ID } from '../constants/api.constant';
+import { API_STAGE_SPECIFIC_ID } from '../constants/api.constant';
 
 
 @Injectable({
@@ -13,10 +13,10 @@ export class StageService {
 
   authToken = this.authTokenService.getAuthToken();
 
-  getStages(): Observable<any> {
+  getStagesByWorkspace(workspaceID: number): Observable<any[]> {
     const headers = new HttpHeaders({
       'Authorization': `Token ${this.authToken}`
     });
-    return this.http.get<any>(API_STAGE_ID, { headers: headers});
+    return this.http.get<any[]>(`${API_STAGE_SPECIFIC_ID}${workspaceID}`, { headers: headers });
   }
 }

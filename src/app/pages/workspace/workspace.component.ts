@@ -15,6 +15,7 @@ export class WorkspaceComponent implements OnInit {
   workspaceID: number = 0;
   workspaceDetails: any;
   stageName: string[] = [];
+  firstStageId: number = 0;
  
 
   constructor(private dialog: MatDialog, private workspaceService: WorkspaceService,
@@ -25,6 +26,7 @@ export class WorkspaceComponent implements OnInit {
     this.activatedRoute.queryParams.subscribe(params => {
       this.workspaceID = params['id'];
       this.fetchWorkspaceDetails();
+      this.fetchStages();
     });
   }
 
@@ -40,11 +42,24 @@ export class WorkspaceComponent implements OnInit {
     );
   }
 
+  fetchStages(): void {
+    this.stageService.getStagesByWorkspace(this.workspaceID).subscribe(
+      (data: any[]) => {
+        this.stageName = data.map(item => item.stage_name);
+        if (data.length > 0) {
+          this.firstStageId = data[0].stages_ID;
+        }
+      },
+      (error) => {
+        console.error('Error fetching stage details:', error);
+      }
+    );
+  }
+
   openDialog() {
     this.dialog.open(CreateTicketModalComponent,{
-      
+      data: { firstStageId: this.firstStageId }
     });
   }
 
-  
 }

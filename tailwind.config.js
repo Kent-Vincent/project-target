@@ -31,6 +31,11 @@ module.exports = {
         'erp-error-50': '#FEF3F2',
         'erp-error-100': '#FEE4E2',
         'erp-error-600': '#D92D20',
+        'erp-error-700': '#b54708',
+
+        'erp-gray-blue-700': '#353e70',
+        'erp-blue-700': '#175cd3',
+        
       },
       backgroundImage: {
         'hero-section': "url('assets/images/bg.svg')",
