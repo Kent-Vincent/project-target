@@ -1,3 +1,4 @@
+<form [formGroup]="Form.form" (ngSubmit)="submit(Form.form)">
 <div
   [ngClass]="{ matDialogContent: !isMobile }"
   class="p-[1rem] rounded-lg max-md:h-[30rem]"
@@ -37,10 +38,10 @@
                 Title
               </p>
               <input
-                [(ngModel)]="title"
                 type="text"
                 placeholder="Add Title"
                 class="w-full text-sm p-4 mb-5 rounded-xl border-erp-gray-200 border border-solid"
+                formControlName="ticket_title"
               />
             </div>
             <div class="border-b border-solid border-erp-gray-200 pb-5 text-lg">
@@ -52,6 +53,7 @@
                 type="text"
                 placeholder="Add more detailed description"
                 class="w-full text-sm p-4 rounded-xl border-erp-gray-200 border border-solid"
+                formControlName="description"
               />
             </div>
             <div class="pt-5">
@@ -82,6 +84,7 @@
                   SVG, PNG, JPG or GIF (max. 800x400px)
                 </p>
               </div>
+              <!-- change this into file ex. png -->
               <input [(ngModel)]="attachments" type="file" id="file" />
             </label>
           </div>
@@ -107,7 +110,7 @@
                     <img *ngIf="users?.avatar; else defaultAvatar" [src]="getAvatarUrl(users?.avatar)" class="w-[30px] h-[30px] rounded-full mr-2">
                     <p class="text-sm font-medium text-erp-gray-500">{{ selectedAssignee }}</p>
                   </div>
-                    <input type="text" [value]="selectedAssignee" class="hidden">
+                    <input type="text" [value]="selectedAssignee" class="hidden" formControlName="assignee">
                 </button>
                 <div
                   class="absolute hidden bg-white z-50 mt-2 w-[300px] origin-top-right rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
@@ -173,7 +176,7 @@
                   </svg>
                 </div>
               </div>
-                <input matInput [matDatepicker]="dp" [formControl]="date" class="bg-transparent text-erp-gray-500 font-medium text-sm pointer-events-none">
+                <input matInput [matDatepicker]="dp" [formControl]="date" formControlName="due_date" class="bg-transparent text-erp-gray-500 font-medium text-sm pointer-events-none">
                 <mat-datepicker #dp></mat-datepicker>
             </div>
           </div>
@@ -215,7 +218,7 @@
                   </p>
                 </div>
                
-                <input type="text" [value]="selectedPriority" class="hidden">
+                <input type="text" [value]="selectedPriority" formControlName="priority" class="hidden">
               </button>
               
               <div
@@ -291,3 +294,4 @@
     </div>
   </div>
 </div>
+</form>

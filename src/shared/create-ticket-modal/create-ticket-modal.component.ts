@@ -12,6 +12,8 @@ import { TicketForm } from 'src/app/commons/forms/public.form';
 import { AuthService } from 'src/app/commons/services/auth.service';
 import { CurrentUserService } from 'src/app/commons/services/current-user.service';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { catchError } from 'rxjs';
+import { TicketService } from 'src/app/commons/services/ticket.service';
 
 const moment = _rollupMoment || _moment;
 
@@ -68,38 +70,16 @@ export class CreateTicketModalComponent {
   filed_by: string = '';
   cover_photo: string = '';
 
+  Form = new TicketForm();
+
   constructor(public dialog: MatDialog, private breakpointObserver: BreakpointObserver, 
-    private workspaceService: WorkspaceService, private authService: AuthService,
+    private ticketService: TicketService, private authService: AuthService,
     private userID: CurrentUserService, @Inject(MAT_DIALOG_DATA) public data: any) {}
 
   currentDate = new Date();
 
-  submit(form: TicketForm['form']): void {
-    
-  }
-
-  // login(form: LoginForm['form']): void {
-  //   this.authService.login(form.value)
-  //   .pipe(
-  //     catchError(error => {
-  //       console.log('Error occurred:', error);
-  //       throw error;
-  //     })
-  //   )
-  //   .subscribe(response => {
-  //     console.log(response);
-  //     this.authTokenService.setAuthToken(response.token);
-  //     this.router.navigate(['/boards']);
-  //   });
-  // }
-
-  updateSelectedPriority(option:string) {
-    this.priority = option;
-  }
-
   ngOnInit() {
     this.stageID = this.firstStageId = this.data.firstStageId;
-    console.log(this.stageID);
     this.breakpointObserver.observe([Breakpoints.Handset])
       .subscribe(result => {
         this.isMobile = result.matches;
@@ -120,6 +100,26 @@ export class CreateTicketModalComponent {
 
   getAvatarUrl(avatarPath: string): string {
     return 'http://127.0.0.1:8000' + avatarPath;
+  }
+
+  submit(form: TicketForm['form']): void {
+    console.log(this.stageID);
+    const completedForm = { ...form.value, stageID: this.stageID }
+
+    this.ticketService.createTicket(completedForm)
+    .pipe(
+      catchError(error => {
+        console.log('Error occurred:', error);
+        throw error;
+      })
+    )
+    .subscribe(response => {
+      console.log(response);
+    });
+  }
+
+  updateSelectedPriority(option:string) {
+    this.priority = option;
   }
 
   // change this to submit ticket!
