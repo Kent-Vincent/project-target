@@ -33,7 +33,7 @@ export class CreateWorkspaceModalComponent {
     )
     .subscribe(response => {
       console.log(response);
-      this.router.navigate(['/workspace']);
+      this.router.navigate(['/boards']);
     });
 }
 }
