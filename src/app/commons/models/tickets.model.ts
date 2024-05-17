@@ -1,16 +1,12 @@
-import { CurrentUserLoggedAvatar, CurrentUserLoggedName } from "./users.model";
-
 export interface Tickets{
     ticket_title: string,
-    ticket_name: string,
     description: string,
-    attachments: string,
-    time_elapsed: string,
-    avatar_icon: string,
+    attachments: string | null,
+    avatar_icon: string | null,
     assignee: string,
     due_date: string,
     priority: string,
-    filed_by_avatar_icon: CurrentUserLoggedAvatar[],
-    filed_by: CurrentUserLoggedName[],
-    cover_photo: string,
+    filed_by_avatar_icon: string,
+    filed_by: string,
+    cover_photo: string | null,
 }

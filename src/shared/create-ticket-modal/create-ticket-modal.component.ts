@@ -58,17 +58,8 @@ export class CreateTicketModalComponent {
   //assignee
   selectedValue: string = '';
   //tickets
-  title: string = '';
-  description: string = '';
-  attachments: string = '';
-  time_elapsed: string = '';
-  avatar_icon: string = '';
-  assignee: string = '';
-  due_date: string = '';
-  priority: string = '';
-  filed_by_avatar_icon: string = '';
-  filed_by: string = '';
-  cover_photo: string = '';
+  priority_dropdown: string = '';
+
 
   Form = new TicketForm();
 
@@ -90,7 +81,7 @@ export class CreateTicketModalComponent {
           const ID = user.users_ID
           this.userID.setCurrentUserID(ID);
           this.users = user;
-          this.selectedAssignee = this.users.name
+          this.selectedAssignee = this.users.name;
         },
         (error) => {
           console.error('Error fetching current user:', error);
@@ -103,9 +94,22 @@ export class CreateTicketModalComponent {
   }
 
   submit(form: TicketForm['form']): void {
-    console.log(this.stageID);
-    const completedForm = { ...form.value, stageID: this.stageID }
+    const dueDateStr = this.date.value?.format('MMM D, yyyy');
 
+    form.get('due_date')?.setValue(dueDateStr);
+    // Change this into proper assignee and filed by
+    const completedForm = { 
+    ...form.value,
+    stage: this.stageID,
+    assignee: this.users.name,
+    priority: this.selectedPriority,
+    avatar_icon: this.users.avatar,
+    filed_by: this.users.name,
+    filed_by_avatar_icon: this.users.avatar,
+    due_date: dueDateStr,
+    time_elapsed: 0
+    }
+    console.log('DUE DATE:',dueDateStr);
     this.ticketService.createTicket(completedForm)
     .pipe(
       catchError(error => {
@@ -119,7 +123,7 @@ export class CreateTicketModalComponent {
   }
 
   updateSelectedPriority(option:string) {
-    this.priority = option;
+    this.priority_dropdown = option;
   }
 
   // change this to submit ticket!

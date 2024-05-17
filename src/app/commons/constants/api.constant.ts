@@ -3,7 +3,7 @@ import { API_URL } from "./config.constant";
 
 export const API_USER = urlEncode([API_URL, 'users']);
 export const API_WORKSPACE = urlEncode([API_URL, 'workspace', 'current']);
-export const API_TICKET = urlEncode([API_URL, 'tickets', 'current']);
+export const API_TICKET = urlEncode([API_URL, 'tickets']);
 
 
 export const API_CREATE_WORKSPACE = urlEncode([API_URL, 'workspace', 'create']);
@@ -24,6 +24,8 @@ export const API_WORKSPACE_SPECIFIC_ID = urlEncode([API_URL, 'workspace']);
 export const API_STAGE_SPECIFIC_ID = urlEncode([API_WORKSPACE_SPECIFIC_ID, 'stages']);
 export const API_CREATE_STAGE = urlEncode([API_WORKSPACE_SPECIFIC_ID, 'create', 'stage'])
 
+// Creating ticket
+export const API_CREATE_TICKET = urlEncode([API_TICKET, 'create']);
 
 // Fetching current user logged in
 export const API_USER_LOGGED = urlEncode([API_USER, 'currentUser']);
