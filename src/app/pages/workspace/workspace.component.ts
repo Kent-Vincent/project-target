@@ -4,6 +4,8 @@ import { CreateTicketModalComponent } from '../../../shared/create-ticket-modal/
 import { WorkspaceService } from 'src/app/commons/services/workspace.service';
 import { StageService } from 'src/app/commons/services/stage.service';
 import { ActivatedRoute } from '@angular/router';
+import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
+import { TicketService } from 'src/app/commons/services/ticket.service';
 
 @Component({
   selector: 'app-workspace',
@@ -12,16 +14,15 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class WorkspaceComponent implements OnInit {
   workspaceName: string = '';
+  stages: any[] = [];
   workspaceID: number = 0;
   workspaceDetails: any;
-  stageName: string[] = [];
   firstStageId: number = 0;
- 
 
   constructor(private dialog: MatDialog, private workspaceService: WorkspaceService,
-    private stageService: StageService, private activatedRoute: ActivatedRoute
+    private stageService: StageService, private activatedRoute: ActivatedRoute, private ticketService: TicketService
   ) {}
-  
+
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe(params => {
       this.workspaceID = params['id'];
@@ -45,7 +46,8 @@ export class WorkspaceComponent implements OnInit {
   fetchStages(): void {
     this.stageService.getStagesByWorkspace(this.workspaceID).subscribe(
       (data: any[]) => {
-        this.stageName = data.map(item => item.stage_name);
+        this.stages = data;
+        console.log(this.stages);
         if (data.length > 0) {
           this.firstStageId = data[0].stages_ID;
         }
@@ -57,9 +59,18 @@ export class WorkspaceComponent implements OnInit {
   }
 
   openDialog() {
-    this.dialog.open(CreateTicketModalComponent,{
+    this.dialog.open(CreateTicketModalComponent, {
       data: { firstStageId: this.firstStageId }
     });
   }
 
+  drop(event: CdkDragDrop<any[]>, stage: any): void {
+    if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    } else {
+      const ticket = event.previousContainer.data[event.previousIndex];
+      ticket.stage = stage.stages_ID;
+      transferArrayItem(event.previousContainer.data, event.container.data, event.previousIndex, event.currentIndex);
+    }
+  }
 }

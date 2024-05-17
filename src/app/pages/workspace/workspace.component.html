@@ -1,52 +1,48 @@
 <top-nav></top-nav>
 
 <div class="flex flex-col justify-start items-start lg:flex-row lg:justify-between lg:items-center gap-1 px-6 py-4">
-  <span [ngClass]="{ 'hidden': workspaceName }">
+  <span *ngIf="workspaceName === ''">
     <h2 class="text-2xl font-semibold">Untitled</h2>
   </span>
-  <span [ngClass]="{ 'hidden': !workspaceName }">
+  <span *ngIf="workspaceName !== ''">
     <h2 class="text-2xl font-semibold">{{ workspaceName }}</h2>
   </span>
   <button class="bg-gray-900 text-white px-4 py-2 flex flex-row justify-start items-center gap-2 rounded-lg"
-  (click)="openDialog()"
-  >
-    <svg 
-      width="20" 
-      height="20" 
-      viewBox="0 0 20 20"
-      xmlns="http://www.w3.org/2000/svg"
-      class="text-current w-5 h-5 transition-all"
-    >
-      <path d="M9.99984 4.16675V15.8334M4.1665 10.0001H15.8332" 
-        class="stroke-current"
-        stroke-width="1.67" 
-        stroke-linecap="round" 
-        stroke-linejoin="round"
-      />
+          (click)="openDialog()">
+    <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"
+         class="text-current w-5 h-5 transition-all">
+      <path d="M9.99984 4.16675V15.8334M4.1665 10.0001H15.8332"
+            class="stroke-current" stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
-    <button class="font-medium text-sm">
-      Create ticket
-    </button>
-  
+    <button class="font-medium text-sm">Create ticket</button>
   </button>
-</div> 
+</div>
 
-<!-- this is for stage -->
-<div *ngIf="stageName.length === 0">
+<!-- Display stages and their tickets -->
+<div *ngIf="stages.length === 0">
   <div class="flex items-center justify-center pt-56">
     <img src="assets/images/empty.svg" class="h-40">
     <div>
       <p>Hmm, nothing here!</p>
-      <p>Sadly, you should atleast create a your first stages</p>
+      <p>Sadly, you should at least create your first stage.</p>
     </div>
   </div>
 </div>
 
 <div class="px-6 py-4 flex gap-3">
-  <div *ngFor="let stage of stageName" class="">
-    <p class="text-xs uppercase w-[400px]">{{ stage }}</p>
+  <div *ngFor="let stage of stages" class="">
+    <p class="text-xs uppercase w-[400px] mb-2">{{ stage.stage_name }}</p>
+    <div cdkDropList [cdkDropListData]="stage.tickets" [id]="stage.stages_ID" class="bg-erp-gray-50 p-1" (cdkDropListDropped)="drop($event, stage)">
+      <ng-container *ngFor="let ticket of stage.tickets">
+        <div class="shadow-lg p-4 bg-white mb-2 rounded-xl" cdkDrag>
+          <h4>{{ ticket.title }}</h4>
+          <p>{{ ticket.description }}</p>
+          <p>Assignee: {{ ticket.assignee }}</p>
+          <p>Due Date: {{ ticket.due_date }}</p>
+          <p>Priority: {{ ticket.priority }}</p>
+        </div>
+      </ng-container>
+    </div>
   </div>
 </div>
-
-
 
