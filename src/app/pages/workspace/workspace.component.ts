@@ -31,6 +31,9 @@ export class WorkspaceComponent implements OnInit {
     });
   }
 
+
+
+
   fetchWorkspaceDetails(): void {
     this.workspaceService.getWorkspaceByID(this.workspaceID).subscribe(
       (data) => {

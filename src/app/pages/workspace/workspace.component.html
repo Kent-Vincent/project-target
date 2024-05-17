@@ -35,11 +35,24 @@
     <div cdkDropList [cdkDropListData]="stage.tickets" [id]="stage.stages_ID" class="bg-erp-gray-50 p-1" (cdkDropListDropped)="drop($event, stage)">
       <ng-container *ngFor="let ticket of stage.tickets">
         <div class="shadow-lg p-4 bg-white mb-2 rounded-xl" cdkDrag>
-          <h4>{{ ticket.title }}</h4>
-          <p>{{ ticket.description }}</p>
-          <p>Assignee: {{ ticket.assignee }}</p>
-          <p>Due Date: {{ ticket.due_date }}</p>
-          <p>Priority: {{ ticket.priority }}</p>
+
+          <div class="flex flex-col gap-2">
+            <h4 class="text-sm font-medium text-gray-900">{{ ticket.title }}</h4>
+              <div class="flex">
+
+                <div class="pl-[10px] pr-2 flex gap-1 items-center bg-erp-gray-50 rounded-xl">
+                  <i class="ph-bold ph-calendar-blank text-erp-gray-500"></i>
+                    <p class="text-xs text-erp-gray-700">{{ ticket.due_date }}</p>
+                </div>
+
+                <div class="pl-[10px] pr-2 flex gap-1 items-center">
+                    <p class="text-xs">{{ ticket.priority }}</p>
+                </div>
+              </div>
+          </div>
+
+          <p hidden>{{ ticket.description }}</p>
+          <p hidden>Assignee: {{ ticket.assignee }}</p>
         </div>
       </ng-container>
     </div>
