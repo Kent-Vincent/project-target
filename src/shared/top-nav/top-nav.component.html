@@ -23,7 +23,7 @@
       </button>
   
       <div class="relative lg:flex flex-row justify-start items-center gap-1 font-medium text-erp-gray-700">
-        <button (click)="workspacesDropdown()"  class="flex gap-2 justify-start items-center cursor-default">
+        <button (click)="workspacesDropdown()" class="flex gap-2 justify-start items-center cursor-default max-lg:hidden">
           <p class="py-[8px] px-[12px] text-gray-700 flex items-center gap-1 rounded-md hover:bg-erp-gray-50 hover:cursor-pointer">
             Workspaces
           <i *ngIf="!isWorkspacesDropdownOpen" class="ph-bold ph-caret-down text-gray-400"></i>
