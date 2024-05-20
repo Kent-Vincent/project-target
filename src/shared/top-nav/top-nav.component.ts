@@ -46,6 +46,7 @@ export class TopNavComponent {
     this.router.navigate(['/view-profile']);
   }
 
+
   logout(): void {
     this.authService.logout();
     this.userID.clearCurrentUserID();

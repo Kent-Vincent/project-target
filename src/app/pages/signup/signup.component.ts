@@ -13,6 +13,10 @@ import { RegisterService } from 'src/app/commons/services/register.service';
 export class SignupComponent {
   Form = new SignupForm();
 
+  login(){
+    this.router.navigate(['/login']);
+  }
+
   constructor(private registerService: RegisterService, public router: Router,
     private authTokenService: AuthTokenService,
   ) {} 
