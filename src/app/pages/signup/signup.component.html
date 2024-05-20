@@ -1,41 +1,49 @@
-<div class="flex items-center justify-center fixed top-0 right-0 bottom-0 left-0">
-    <div>
-        <div class="flex justify-center mb-8">  
-            <img src="assets/images/target-logo.svg">
+<div class="flex items-center justify-center w-full overflow-auto py-[60px]">
+    <div class="flex flex-col gap-[50px]">
+        <div class="flex justify-center">  
+            <img src="assets/images/target-logo.svg" height="42">
         </div>
-        <div class="rounded-xl overflow-hidden shadow-none py-5 px-5 lg:shadow-2xl">
-            <form [formGroup]="Form.form" (ngSubmit)="register(Form.form)">
-                <div class="flex items-center justify-center mb-10 mt-10">
-                    <div>
+        <div class="rounded-xl overflow-hidden shadow-none py-8 px-8 lg:shadow-2xl">
+            <form [formGroup]="Form.form" (ngSubmit)="register(Form.form)" class="flex flex-col gap-8">
+                <div class="flex flex-col items-center justify-center gap-3">                  
                         <div class="text-center">
                             <p class="text-4xl font-semibold text-erp-gray-900">Sign up</p>
                         </div>
                         <div class="text-center">
-                            <p class="text-erp-gray-500 mt-4">Create your Account! Please enter your details.</p>
-                        </div>
-                    </div>
+                            <p class="text-erp-gray-500 text-center">Create your Account! Please enter your details.</p>
+                        </div>                
                 </div>
-                <div class="input-text">
+
+                <div class="flex flex-col gap-6">
+                <div class="container flex flex-col gap-[20px]">
+                <div class="input-text flex flex-col gap-[6px]">
                     <p class="text-sm text-erp-gray-700">Name</p>
-                    <input formControlName="name" name="username" type="text" placeholder="Juan Dela Cruz" class="placeholder:text-erp-gray-500 w-full py-1 pl-2 ml-1 mt-2.5 border border-solid rounded-lg border-erp-gray-300">
+                    <input formControlName="name" name="username" type="text" placeholder="Juan Dela Cruz" class="placeholder:text-erp-gray-500 w-full py-1 border border-solid rounded-lg border-erp-gray-300">
                 </div>
-                <div class="input-text mt-2.5">
+                <div class="input-text flex flex-col gap-[6px]">
                     <p class="text-sm text-erp-gray-700">Email</p>
-                    <input formControlName="email" name="email" type="text" placeholder="Enter your email" class="placeholder:text-erp-gray-500 w-full py-1 pl-2 ml-1 mt-2.5 border border-solid rounded-lg border-erp-gray-300">
+                    <input formControlName="email" name="email" type="text" placeholder="Enter your email" class="placeholder:text-erp-gray-500 w-full py-1 border border-solid rounded-lg border-erp-gray-300">
                 </div>
-                <div class="input-text mt-2.5">
+                <div class="input-text flex flex-col gap-[6px]">
                     <p class="text-sm text-erp-gray-700">Password</p>
-                    <input formControlName="password" name="password" type="password" placeholder="******" class="placeholder:text-erp-gray-500 w-full py-1 pl-2 ml-1 mt-2.5 border border-solid rounded-lg border-erp-gray-300">
+                    <input formControlName="password" name="password" type="password" placeholder="******" class="placeholder:text-erp-gray-500 w-full py-1 border border-solid rounded-lg border-erp-gray-300">
                 </div>
-                <div class="input-text mt-2.5">
+                <div class="input-text flex flex-col gap-[6px]">
                     <p class="text-sm text-erp-gray-700">Confirm Password</p>
-                    <input formControlName="re_password" name="re_password" type="password" placeholder="******" class="placeholder:text-erp-gray-500 w-full py-1 pl-2 ml-1 mt-2.5 border border-solid rounded-lg border-erp-gray-300">
+                    <input formControlName="re_password" name="re_password" type="password" placeholder="******" class="placeholder:text-erp-gray-500 w-full py-1 border border-solid rounded-lg border-erp-gray-300">
                 </div>
-                <div class="mt-4 ml-1">
-                    <button type="submit" class="w-full bg-erp-primary-900 border-none rounded-lg py-2">
+                </div>
+
+                <div class="flex gap-[5px]">
+                    <p class="text-sm font-medium text-erp-gray-700">Already have an account?</p>
+                    <a (click)="login()" class="text-sm font-medium text-erp-primary-700 hover:text-erp-primary-600 cursor-pointer">Login</a>
+                </div>
+                
+                <button type="submit" class="w-full bg-erp-primary-900 border-none rounded-lg py-2">
                         <span class="text-white">Sign up</span>
-                    </button>
-                </div>
+                </button>
+            </div>
+                
             </form>
         </div>
     </div>

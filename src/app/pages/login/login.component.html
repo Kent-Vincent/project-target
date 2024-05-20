@@ -3,7 +3,7 @@
     <div class="flex justify-center mb-8">
       <img src="assets/images/target-logo.svg">
     </div>
-    <div class="rounded-xl overflow-hidden shadow-none py-5 px-5 lg:shadow-2xl">
+    <div class="rounded-xl overflow-hidden shadow-none py-8 px-8 lg:shadow-2xl">
       <form [formGroup]="Form.form" (ngSubmit)="login(Form.form)" class="flex flex-col gap-8">
         <div class="flex items-center justify-center">
           <div class="flex flex-col gap-3">
@@ -30,10 +30,10 @@
 
         <div class="flex items-center justify-between mt-6">
           <div>
-            <a (click)="signUp()" class="text-erp-gray-700 hover:text-erp-primary-900 text-nowrap text-xs font-medium cursor-pointer lg:text-sm">Create an account</a>
+            <a (click)="signUp()" class="text-erp-gray-700 hover:text-erp-primary-900 text-nowrap font-medium cursor-pointer lg:text-sm">Create an account</a>
           </div>
           <div>
-            <a href="" class="text-erp-gray-700 hover:text-erp-primary-900 text-nowrap text-xs font-medium cursor-pointer lg:text-sm">Forgot Password</a>
+            <a href="" class="text-erp-gray-700 hover:text-erp-primary-900 text-nowrap font-medium cursor-pointer lg:text-sm">Forgot Password</a>
           </div>
         </div>
 
