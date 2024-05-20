@@ -13,7 +13,7 @@ export class TopNavComponent {
   currentUser: any;
   isNavMenuOpen = false;
 
-  constructor(private authService: AuthService, private router: Router, public dialog: MatDialog,
+  constructor(private authService: AuthService, private router: Router,
     private userID: CurrentUserService,
   ) {} 
 
@@ -32,10 +32,6 @@ export class TopNavComponent {
 
   toBoards(){
     this.router.navigate(['/boards'])
-  }
-
-  openDialog() {
-    this.dialog.open(CreateWorkspaceModalComponent,{});
   }
   
   getAvatarUrl(avatarPath: string): string {

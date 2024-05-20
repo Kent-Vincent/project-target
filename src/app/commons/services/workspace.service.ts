@@ -23,10 +23,6 @@ export class WorkspaceService {
         name: workspace.workspace_name,
         ID: workspace.workspace_ID
       }))),
-      catchError(error => {
-        console.error('Error fetching workspaces:', error);
-        throw error;
-      })
     );
   }
 
