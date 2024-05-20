@@ -1,9 +1,15 @@
 <top-nav></top-nav>
 
-<div class="py-4 px-6 mb-4">
-  <p class="text-2xl font-medium">Your Workspace</p>
+<div class="flex items-center justify-between py-4 px-6 mb-4">
+  <div>
+    <p class="text-2xl font-medium">Your Workspace</p>
+  </div>
+  <div class="flex items-center bg-black text-white rounded-lg py-2 px-1" (click)="openDialog()">
+    <i class="ph ph-plus mr-2"></i>
+    <button>Add Workspace</button>
+  </div>
 </div>
-
+<!-- Change this into workspace created by yourself. -->
 <div class="p-4 flex  max-md:h-[33rem]">
   <div class="px-2 lg:flex gap-2 overflow-y-auto">
     <ng-container *ngFor="let workspace of workspaces; let i = index">
@@ -11,11 +17,6 @@
         <p class="text-white font-semibold text-sm">{{ workspace.name }}</p>
       </div>
     </ng-container>
-    <div class="p-4 w-[300px] h-[150px] shadow-lg rounded-[10px] flex items-center justify-center">
-      <div class="flex items-center justify-center">
-        <p>Create workspace</p>
-      </div>
-    </div>
   </div>
 </div>
 
@@ -23,16 +24,14 @@
   <p class="text-2xl font-medium">Target Workspace</p>
 </div>
 
+<!-- Change this into workspace invited. -->
 <div class="p-4 flex">
   <div class="p-2 lg:flex gap-2">
-    <div class="bg-erp-primary-900 p-4 w-[300px] h-[150px] shadow-lg rounded-[10px] mb-4">
-      <p class="text-white font-semibold text-sm">Johnny</p>
-    </div>
-    <div class="p-4 w-[300px] h-[150px] shadow-lg rounded-[10px] flex items-center justify-center">
-      <div class="flex items-center justify-center">
-        <p>Create workspace</p>
+    <ng-container *ngFor="let workspace of workspaces; let i = index">
+      <div class="relative bg-erp-primary-900 p-4 w-[300px] h-[150px] shadow-lg rounded-[10px] mb-4 cursor-pointer" (click)="workspaceID(i)">
+        <p class="text-white font-semibold text-sm">{{ workspace.name }}</p>
       </div>
-    </div>
+    </ng-container>
   </div>
 </div>
 
