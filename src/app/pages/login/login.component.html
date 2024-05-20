@@ -4,9 +4,9 @@
       <img src="assets/images/target-logo.svg">
     </div>
     <div class="rounded-xl overflow-hidden shadow-none py-5 px-5 lg:shadow-2xl">
-      <form [formGroup]="Form.form" (ngSubmit)="login(Form.form)">
-        <div class="flex items-center justify-center mb-10 mt-10">
-          <div>
+      <form [formGroup]="Form.form" (ngSubmit)="login(Form.form)" class="flex flex-col gap-8">
+        <div class="flex items-center justify-center">
+          <div class="flex flex-col gap-3">
             <div class="text-center">
               <p class="text-4xl font-semibold text-erp-gray-900">Log in</p>
             </div>
@@ -15,27 +15,34 @@
             </div>
           </div>
         </div>
-        <div class="input-text">
+
+        <div>
+        <div class="flex flex-col gap-[20px]">
+        <div class="input-text flex flex-col gap-[6px]">
           <p class="text-sm text-erp-gray-700">Email</p>
-          <input formControlName="email" type="text" name="email" placeholder="Enter your email" class="placeholder:text-erp-gray-500 w-full py-1 pl-2 ml-1 mt-2.5 border border-solid rounded-lg border-erp-gray-300">
+          <input formControlName="email" type="text" name="email" placeholder="Enter your email" class="placeholder:text-erp-gray-500 w-full py-1 border border-solid rounded-lg border-erp-gray-300">
         </div>
-        <div class="input-text mt-2.5">
+        <div class="input-text flex flex-col gap-[6px]">
           <p class="text-sm text-erp-gray-700">Password</p>
-          <input formControlName="password" type="password" name="password" placeholder="******" class="placeholder:text-erp-gray-500 w-full py-1 pl-2 ml-1 mt-2.5 border border-solid rounded-lg border-erp-gray-300">
+          <input formControlName="password" type="password" name="password" placeholder="******" class="placeholder:text-erp-gray-500 w-full py-1 border border-solid rounded-lg border-erp-gray-300">
         </div>
+      </div>
+
         <div class="flex items-center justify-between mt-6">
           <div>
-            <a href="" class="text-erp-primary-900 text-nowrap text-xs lg:text-sm">Create an account</a>
+            <a (click)="signUp()" class="text-erp-gray-700 hover:text-erp-primary-900 text-nowrap text-xs font-medium cursor-pointer lg:text-sm">Create an account</a>
           </div>
           <div>
-            <a href="" class="text-erp-primary-900 text-nowrap text-xs lg:text-sm">Forgot Password</a>
+            <a href="" class="text-erp-gray-700 hover:text-erp-primary-900 text-nowrap text-xs font-medium cursor-pointer lg:text-sm">Forgot Password</a>
           </div>
         </div>
+
         <div class="mt-6">
           <button type="submit" class="w-full bg-erp-primary-900 border-none rounded-lg py-2">
             <span class="text-white">Sign in</span>
           </button>
         </div>
+      </div>
       </form>
     </div>
   </div>
