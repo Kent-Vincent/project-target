@@ -81,7 +81,7 @@ export class CreateTicketModalComponent {
           const ID = user.users_ID
           this.userID.setCurrentUserID(ID);
           this.users = user;
-          this.selectedAssignee = this.users.name;
+          this.selectedAssignee = this.users.name || this.users.email;
         },
         (error) => {
           console.error('Error fetching current user:', error);

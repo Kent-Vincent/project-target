@@ -109,7 +109,7 @@
                   aria-expanded="true"
                   aria-haspopup="true"
                 >
-                  <div class="flex items-center">
+                  <div class="flex items-center"> 
                     <img
                       *ngIf="users?.avatar; else defaultAvatar"
                       [src]="getAvatarUrl(users?.avatar)"
@@ -151,7 +151,7 @@
                       <a
                         (click)="selectAssignee(users?.name)"
                         class="text-sm font-medium text-erp-gray-700 hover:cursor-pointer"
-                        >{{ users?.name }}</a
+                        >{{ users?.name || users?.email }}</a
                       >
                     </div>
                   </div>
