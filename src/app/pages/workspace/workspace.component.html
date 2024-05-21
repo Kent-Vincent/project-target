@@ -1,22 +1,28 @@
 <top-nav></top-nav>
-
 <div class="flex flex-col justify-start items-start lg:flex-row lg:justify-between lg:items-center gap-1 px-6 py-4">
-  <span *ngIf="workspaceName === ''">
-    <h2 class="text-2xl font-semibold">Untitled</h2>
-  </span>
-  <span *ngIf="workspaceName !== ''">
-    <h2 class="text-2xl font-semibold">{{ workspaceName }}</h2>
-  </span>
-  <button class="bg-gray-900 text-white px-4 py-2 flex flex-row justify-start items-center gap-2 rounded-lg"
-          (click)="openDialog()">
-    <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"
-         class="text-current w-5 h-5 transition-all">
-      <path d="M9.99984 4.16675V15.8334M4.1665 10.0001H15.8332"
-            class="stroke-current" stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-    <button class="font-medium text-sm">Create ticket</button>
-  </button>
+  <div>
+    <span *ngIf="workspaceName === ''">
+      <h2 class="text-2xl font-semibold">Untitled</h2>
+    </span>
+    <span *ngIf="workspaceName !== ''">
+      <h2 class="text-2xl font-semibold">{{ workspaceName }}</h2>
+    </span>
+  </div>
+  <div class="flex gap-2">
+    <button class="flex items-center bg-gray-900 text-white rounded-lg py-2 px-4">
+      <i class="ph ph-plus mr-2"></i>
+      <button class="font-medium text-sm">Add Workspace</button>
+    </button>
+    <button class="bg-gray-900 text-white px-4 py-2 flex flex-row justify-start items-center gap-2 rounded-lg"
+      (click)="openDialog()">
+      <i class="ph ph-plus"></i>
+      <button class="font-medium text-sm">Create ticket</button>
+    </button>
+  </div>
 </div>
+
+
+
 
 <!-- Display stages and their tickets -->
 <div *ngIf="stages.length === 0">
