@@ -81,7 +81,7 @@ export class CreateTicketModalComponent {
           const ID = user.users_ID
           this.userID.setCurrentUserID(ID);
           this.users = user;
-          this.selectedAssignee = this.users.name || this.users.email;
+          this.selectedAssignee = this.users.name || this.users.email || '';
         },
         (error) => {
           console.error('Error fetching current user:', error);
@@ -101,10 +101,10 @@ export class CreateTicketModalComponent {
     const completedForm = { 
     ...form.value,
     stage: this.stageID,
-    assignee: this.users.name,
+    assignee: this.users.name || this.users.email,
     priority: this.selectedPriority,
     avatar_icon: this.users.avatar,
-    filed_by: this.users.name,
+    filed_by: this.users.name || this.users.email,
     filed_by_avatar_icon: this.users.avatar,
     due_date: dueDateStr,
     time_elapsed: 0

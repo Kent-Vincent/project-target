@@ -149,7 +149,7 @@
                         />
                       </ng-template>
                       <a
-                        (click)="selectAssignee(users?.name)"
+                        (click)="selectAssignee(users?.name || users?.email)"
                         class="text-sm font-medium text-erp-gray-700 hover:cursor-pointer"
                         >{{ users?.name || users?.email }}</a
                       >
