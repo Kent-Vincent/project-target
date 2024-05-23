@@ -5,7 +5,6 @@ import { WorkspaceService } from 'src/app/commons/services/workspace.service';
 import { StageService } from 'src/app/commons/services/stage.service';
 import { ActivatedRoute } from '@angular/router';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
-import { TicketService } from 'src/app/commons/services/ticket.service';
 
 @Component({
   selector: 'app-workspace',
@@ -18,10 +17,14 @@ export class WorkspaceComponent implements OnInit {
   workspaceID: number = 0;
   workspaceDetails: any;
   firstStageId: number = 0;
+  connectedDropLists: string[] = [];
 
-  constructor(private dialog: MatDialog, private workspaceService: WorkspaceService,
-    private stageService: StageService, private activatedRoute: ActivatedRoute, private ticketService: TicketService
-  ) {}
+  constructor(
+    private dialog: MatDialog,
+    private workspaceService: WorkspaceService,
+    private stageService: StageService,
+    private activatedRoute: ActivatedRoute
+    ) {}
 
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe(params => {
@@ -47,7 +50,7 @@ export class WorkspaceComponent implements OnInit {
     this.stageService.getStagesByWorkspace(this.workspaceID).subscribe(
       (data: any[]) => {
         this.stages = data;
-        console.log(this.stages);
+        this.connectedDropLists = data.map(stage => stage.stages_ID.toString());
         if (data.length > 0) {
           this.firstStageId = data[0].stages_ID;
         }
@@ -71,6 +74,7 @@ export class WorkspaceComponent implements OnInit {
       const ticket = event.previousContainer.data[event.previousIndex];
       ticket.stage = stage.stages_ID;
       transferArrayItem(event.previousContainer.data, event.container.data, event.previousIndex, event.currentIndex);
+      console.log('Ticket moved:', ticket);
     }
   }
 }
