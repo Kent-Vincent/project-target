@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { SharedModule } from '../shared/shared.module';
 import { provideMomentDateAdapter } from '@angular/material-moment-adapter';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SharedModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [provideMomentDateAdapter(undefined, {useUtc: true})],
   bootstrap: [AppComponent]
