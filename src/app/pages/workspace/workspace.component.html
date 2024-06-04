@@ -37,7 +37,7 @@
 
 <div class="px-6 py-4 flex gap-3">
   <div *ngFor="let stage of stages" class="">
-    <p class="text-xs uppercase w-[400px] mb-2">{{ stage.stage_name }}</p>
+    <p class="text-xs uppercase w-[250px] mb-2">{{ stage.stage_name }}</p>
     <div cdkDropList
          [cdkDropListData]="stage.tickets"
          [id]="stage.stages_ID.toString()"
@@ -46,11 +46,84 @@
          (cdkDropListDropped)="drop($event, stage)">
       <ng-container *ngFor="let ticket of stage.tickets">
         <div class="shadow-lg p-4 bg-white mb-2 rounded-xl" cdkDrag>
-          <h4>{{ ticket.title }}</h4>
-          <p>{{ ticket.description }}</p>
-          <p>Assignee: {{ ticket.assignee }}</p>
-          <p>Due Date: {{ ticket.due_date }}</p>
-          <p>Priority: {{ ticket.priority }}</p>
+          <div class="mb-2">
+            <h4>{{ ticket.title }}</h4>
+          </div>
+          <div class="flex items-center mb-2">
+            <div class="flex items-center bg-erp-gray-100 border-none rounded-xl mr-2 px-2">
+              <i class="ph-bold ph-calendar-blank text-erp-gray-500"></i>
+              <p class="text-sm text-erp-gray-500">{{ ticket.due_date }}</p>
+            </div>
+            <div>
+              <div class="flex items-center border-none rounded-xl mr-2 px-2"
+              [ngClass]="{
+                'bg-[#f2f4f8]':
+                  ticket.priority === 'Low',
+                'bg-[#eff8ff]':
+                  ticket.priority === 'Medium',
+                'bg-[#fffaeb]':
+                  ticket.priority === 'High',
+                'bg-[#fef3f2]':
+                  ticket.priority === 'Urgent'
+              }"
+              >
+                <ng-container *ngIf="ticket.priority === 'Low'">
+                  <i
+                    class="ph-bold ph-caret-down text-xs text-[#4c59a3]"
+                  ></i>
+                </ng-container>
+                <ng-container *ngIf="ticket.priority === 'Medium'">
+                  <i
+                    class="ph-fill ph-dot-outline text-xs text-[#2e90fa]"
+                  ></i>
+                </ng-container>
+                <ng-container *ngIf="ticket.priority === 'High'">
+                  <i
+                    class="ph-bold ph-caret-up text-xs text-[#f79009]"
+                  ></i>
+                </ng-container>
+                <ng-container *ngIf="ticket.priority === 'Urgent'">
+                  <i
+                    class="ph-bold ph-caret-double-up text-xs text-[#f04438]"
+                  ></i>
+                </ng-container>
+                <p class="ml-0.5"
+                [ngClass]="{
+                  'text-sm font-medium text-erp-gray-blue-700':
+                    ticket.priority === 'Low',
+                  'text-sm font-medium text-erp-blue-700':
+                    ticket.priority === 'Medium',
+                  'text-sm font-medium text-erp-warning-700':
+                    ticket.priority === 'High',
+                  'text-sm font-medium text-erp-error-700':
+                    ticket.priority === 'Urgent'
+                }"
+                >{{ ticket.priority }}</p>                    
+              </div>
+            </div>
+          </div>
+          <div class="flex items-center justify-between">
+            <div class="flex items-center">
+              <img
+                *ngIf="ticket.avatar_icon; else defaultAvatar"
+                [src]="ticket.avatar_icon"
+                class="w-[30px] h-[30px] rounded-full mr-2"
+              />
+              <ng-template #defaultAvatar>
+              <img
+                src="assets/images/avatar-sample.svg"
+                class="w-[30px] h-[30px] rounded-full mr-2"
+              />
+              </ng-template>
+              <p class="mr-2">{{ticket.ticket_ID}}</p>
+              <i class="ph-bold ph-copy"></i>
+            </div>
+            <div>
+              <div class="border rounded-md border-erp-gray-200 px-2 py-1">
+                <p class="text-erp-gray-900">{{ticket.time_elapsed}}</p>
+              </div>  
+            </div>
+          </div>
         </div>
       </ng-container>
     </div>
