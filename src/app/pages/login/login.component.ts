@@ -27,7 +27,7 @@ export class LoginComponent {
 
   ngOnInit(): void {
     if (this.authTokenService.getAuthToken()) {
-      this.router.navigate(['/workspace']);
+      this.router.navigate(['/boards']);
     }
   }
 
